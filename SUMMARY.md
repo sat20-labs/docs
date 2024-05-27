@@ -1,8 +1,4 @@
 # Table of contents
----
-title: sat20-protocol
-path: /sat20-protocol
----
 
 * SAT20 资产发行和流通协议
   * [概述](introduce.md)
