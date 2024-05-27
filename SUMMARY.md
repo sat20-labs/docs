@@ -1,6 +1,6 @@
 # Table of contents
 
-* SAT20 资产发行和流通协议(sat20-protocol)
+* SAT20 资产发行和流通协议
   * [概述](introduce.md)
   * [背景](why.md)
   * 资产发行协议
