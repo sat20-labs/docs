@@ -9,7 +9,7 @@
 链接
 -----
 
-- [GitHub](https://github.com/SAT20_Protocol/)
-- [Twitter](https://x.com/SAT20_Protocol/)
+- [GitHub](https://github.com/sat20-labs/)
+- [Twitter](https://x.com/SAT20Labs/)
 - [官网](https://sat20.org)
 
