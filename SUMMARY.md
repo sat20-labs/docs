@@ -21,7 +21,7 @@
   * 资产流通协议
     * [概述](circulation/readme.md)
     * [聪锁定](circulation/satlock.md)
-    * [聪映射](circulation/satmapping.md)
+    * [聪穿越](circulation/sattranscend.md)
     * [聪交换](circulation/satswap.md)
     * [增强型UTXO](circulation/enUTXO.md)
     * [客户端验证](circulation/CA.md)
