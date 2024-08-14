@@ -2,14 +2,20 @@
 # set -x
 # set -e
 
-mkdocs build -f ./zh/mkdocs.yml
-rm -rf ./site && mv ./zh/site ./
+# Remove all directories except 'src'
+find . -maxdepth 1 -type d ! -name '.' ! -name 'src' ! -name '.*' -exec rm -rf {} +
 
-if [ ! -d "./site/en" ]; then
-    mkdir -p ./site/en
+# Remove all files except 'CNAME', 'README.md', and 'bash.sh'
+find . -maxdepth 1 -type f ! -name 'CNAME' ! -name 'README.md' ! -name 'build.sh' ! -name '.*' -exec rm -f {} +
+
+mkdocs build -f ./src/zh/mkdocs.yml
+mv ./src/zh/site/* ./
+rm -rf ./src/zh/site
+
+if [ ! -d "./en" ]; then
+    mkdir -p ./en
 fi
 
-mkdocs build -f ./en/mkdocs.yml
-mv en/site/* ./site/en
-
-rm -rf en/site
+mkdocs build -f ./src/en/mkdocs.yml
+mv ./src/en/site/* ./en
+rm -rf ./src/en/site

@@ -15,3 +15,9 @@ pip install mkdocs
 ```shell
 ./build.sh
 ```
+
+# test docs site with local http server
+```shell
+./build.sh
+python -m http.server
+```
