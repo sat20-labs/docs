@@ -2,10 +2,14 @@
 # set -x
 # set -e
 
-mkdocs build -f zh/mkdocs.yml
-mv zh/site ./
+mkdocs build -f ./zh/mkdocs.yml
+rm -rf ./site && mv ./zh/site ./
 
-mkdocs build -f en/mkdocs.yml
-mkdir site/en && mv en/site/* ./site/en
+if [ ! -d "./site/en" ]; then
+    mkdir -p ./site/en
+fi
+
+mkdocs build -f ./en/mkdocs.yml
+mv en/site/* ./site/en
 
 rm -rf en/site
