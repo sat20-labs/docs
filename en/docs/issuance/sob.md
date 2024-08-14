@@ -1,0 +1,10 @@
+Satoshi Objects
+====
+
+In traditional software, digital objects are cheap and infinitely replicable. These ordinary and inexpensive digital objects, combined with algorithms, have built the entire software world we have today, including the traditional internet. In the process of evolving from the traditional internet to the next generation internet, a completely different kind of digital object has emerged as the foundation for building the next generation internet. These new digital objects are non-replicable, possess unique value, and have an owner. These are the core attributes of this new type of digital object.
+
+These new digital objects have inherent value and ownership. Counterfeit copies are worthless, and there is no doubt about who the creator is: "first is first." If the use of their content brings benefits, it is clear who will receive those benefits. These digital objects come with their own value, rights, ownership, and inherent programmability. They provide the best underlying foundation for a value network and serve as the optimal medium for unleashing creativity.
+
+The basic unit of BTC, the satoshi, is precisely such a valuable and meaningful digital object. We call it a "satoshi object." It cannot be created out of thin air, and it can never be destroyed. If it belongs to you, it cannot be taken away. It is the first digital object in history to possess such memorable attributes. Its potential is limitless. The admiration we have for it, which words cannot fully express, is owed to Satoshi Nakamoto's ingenious conception.
+
+The unique attributes of "satoshi objects" – value, uniqueness, ownership, and programmability – will spark remarkable innovations on the BTC mainnet and layer-2 networks. We have boundless optimism and active participation in exploring their possibilities.

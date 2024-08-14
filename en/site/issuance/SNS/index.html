@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Name Service (SNS) - Sat20</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Name Service (SNS)";
+        var mkdocs_page_input_path = "issuance/SNS.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Sat20
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">SAT20 asset issuance and circulation protocol</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduce/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../why/">Background</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Asset Issuance Protocol</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../readme/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../instruct/">Instructions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ordinal/">Numbering of SAT: Ordinal</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../inscribe/">Read and Write of SAT: Inscribe</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../model/">Asset Issuance Models</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../sob/">SAT Objects</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Name Service (SNS)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#naming-rules">Naming Rules</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#combination-rules">Combination Rules</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#compatibility">Compatibility</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#monopolistic-resources">Monopolistic Resources</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#royalties">Royalties</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../d-indexer/">D-Indexer</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Scenarios</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/FT/">FT</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/NFT/">NFT</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/SFT/">SFT</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/DID/">DID</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/DeIP/">DeIP</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Asset Circulation Protocol</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/readme/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/satlock/">SAT Locking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/sattranscend/">SAT Transcending</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/satswap/">SAT Swapping</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/enUTXO/">Enhanced UTXO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/CA/">Client Verification</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/SVM/">SVM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Scenarios</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../circulation/cases/sdex/">DEX</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../circulation/cases/MPC/">MPC</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../circulation/cases/DePIN/">DePIN</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../sample/">Samples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../roadmap/">Roadmap</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://apiprd.ordx.space/mainnet/swagger/index.html">API</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../donate/">Donate</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../index.html">中文</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Sat20</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SAT20 asset issuance and circulation protocol</li>
+          <li class="breadcrumb-item">Asset Issuance Protocol</li>
+      <li class="breadcrumb-item active">Name Service (SNS)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sat20-name-service">SAT20 Name Service</h1>
+<p>Satoshis are the foundation of our entire protocol ecosystem, and their ordinal numbers can be considered as indices of satoshis. However, the ordinal numbers are 64-bit integers, which are too long and not easy to remember. In order to quickly index each satoshi, it is necessary to develop a name service based on satoshis, allowing users to remember satoshis that hold significant meaning to them. The relationship between ordinal numbers and names is similar to the relationship between IP addresses and domain names. The SAT20 Name Service is a completely decentralized, BTC-based name service that is available to everyone on a fair basis and is not controlled by any third party.</p>
+<p>The core of the name service is that each name is unique, and there are no sub-namespace. This avoids the possibility of fraud.
+Each name is an NFT (Non-Fungible Token) that is engraved on a satoshi. A Satoshi has only one name, and the name and Satoshi are also in one-to-one correspondence.
+Names are bound to satoshis, so whoever owns the satoshi also owns the name. When a satoshi is transferred, the name is transferred along with it.
+Names are also a type of sat asset.</p>
+<h2 id="naming-rules">Naming Rules</h2>
+<ol>
+<li>The first instance of a name is valid.</li>
+<li>Names use UTF-8 characters.</li>
+<li>Case-insensitive. All names/namespaces will be indexed in lowercase.</li>
+<li>No spaces are allowed in names.</li>
+<li>No punctuation marks are allowed in names. (Names with periods are from other name protocols.)</li>
+<li>Name length starts from 3 bytes, but 4-byte names are temporarily prohibited from registration.</li>
+</ol>
+<p>Note: The 4-byte names are reserved for BRC20 tickers. 1-2 byte names are for internal protocol use only and are prohibited from registration at the protocol level. They will never be opened for registration to prevent unnecessary speculation.</p>
+<h2 id="combination-rules">Combination Rules</h2>
+<p>Names can be combined to form a special meaning. The protocol establishes the following basic rules:
+1. Names are combined using the "@" symbol, such as Alice@sat20.
+2. Both parties need to sign and agree to the combination, meaning that the combination represents a contractual relationship.
+3. The latter name, such as "sat20," belongs to a higher-level organizational form, such as a company or club.</p>
+<h2 id="compatibility">Compatibility</h2>
+<p>The SAT20 Name Service is compatible with the major name services currently on the BTC network. For example, taking .btc as an example, a name like 1.btc will be treated as a whole, rather than splitting it into the name "1" and the namespace ".btc". As our development progresses, we plan to be compatible with these name services (read-only, without support for minting):
+1. .btc
+2. .x
+3. Others</p>
+<p>Note that names with a "." and names without a "." are different names. For example, 123.btc and 123 are two independent names with no relationship to each other.</p>
+<h2 id="monopolistic-resources">Monopolistic Resources</h2>
+<p>Names are core resources and also assets. For example, the name "Pearl" as a ticker name is a name automatically held by the address that deployed the ticker. If a name has already been registered, other people cannot deploy a ticker for that name. By registering a name, one automatically gains all the permissions associated with that name, and the SAT20 protocol maintains these permissions.</p>
+<h2 id="royalties">Royalties</h2>
+<p>The owner of a resource will automatically receive royalties based on a configurable tax rate when the resource is used. The resource owner automatically receives royalty income.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../sob/" class="btn btn-neutral float-left" title="SAT Objects"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../d-indexer/" class="btn btn-neutral float-right" title="D-Indexer">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../sob/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../d-indexer/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

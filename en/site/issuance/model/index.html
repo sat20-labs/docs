@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Asset Issuance Models - Sat20</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Asset Issuance Models";
+        var mkdocs_page_input_path = "issuance/model.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Sat20
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">SAT20 asset issuance and circulation protocol</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduce/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../why/">Background</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Asset Issuance Protocol</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../readme/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../instruct/">Instructions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ordinal/">Numbering of SAT: Ordinal</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../inscribe/">Read and Write of SAT: Inscribe</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Asset Issuance Models</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#project-led-mode">Project-led Mode</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fair-launch">Fair Launch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#unrestricted-mode">Unrestricted Mode</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../sob/">SAT Objects</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../SNS/">Name Service (SNS)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../d-indexer/">D-Indexer</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Scenarios</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/FT/">FT</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/NFT/">NFT</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/SFT/">SFT</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/DID/">DID</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/DeIP/">DeIP</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Asset Circulation Protocol</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/readme/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/satlock/">SAT Locking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/sattranscend/">SAT Transcending</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/satswap/">SAT Swapping</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/enUTXO/">Enhanced UTXO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/CA/">Client Verification</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/SVM/">SVM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Scenarios</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../circulation/cases/sdex/">DEX</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../circulation/cases/MPC/">MPC</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../circulation/cases/DePIN/">DePIN</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../sample/">Samples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../roadmap/">Roadmap</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://apiprd.ordx.space/mainnet/swagger/index.html">API</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../donate/">Donate</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../index.html">中文</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Sat20</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SAT20 asset issuance and circulation protocol</li>
+          <li class="breadcrumb-item">Asset Issuance Protocol</li>
+      <li class="breadcrumb-item active">Asset Issuance Models</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="asset-issuance-modes">Asset Issuance Modes</h1>
+<p>There are three main modes for issuing SAT20 assets, primarily adjusted based on the following three parameters:
+1. selfmint: Proportion of self-minting, must be set along with the max parameter.
+2. max: Total supply of the token.
+3. block: Block height range for minting.</p>
+<h2 id="project-led-mode">Project-led Mode</h2>
+<p>For projects led by the issuer, two modes are available:</p>
+<ol>
+<li>Complete Control
+selfmint: 100%<br />
+max: 64-bit integer, must be set.<br />
+block: Optional parameter, can be set or not.  </li>
+</ol>
+<p>In this mode, only the address holding the deploy NFT can mint tokens, and the assets will be fully controlled by the project. Stablecoins, for example, are typically minted by the project team.</p>
+<ol>
+<li>Partial Control
+selfmint: A value less than 100%, such as 10%.<br />
+max: 64-bit integer, must be set.<br />
+block: Must be set, and the starting block should be at least 1,000 blocks after the deployment confirmation.  </li>
+</ol>
+<p>In this mode, the address holding the deploy NFT can mint tokens, but not exceeding the set proportion. Any excess minting is considered invalid. Other addresses can participate in minting following the rules of a fair launch.  </p>
+<h2 id="fair-launch">Fair Launch</h2>
+<p>selfmint: Not set.<br />
+max: 64-bit integer, optional.<br />
+block: Must be set, and the starting block should be at least 1,000 blocks after the deployment confirmation.  </p>
+<p>This mode is primarily community-led, focusing on fair minting by community members, controlled by the block parameter. The deployment confirmation block must be at least 1,000 blocks before the starting block; otherwise, the ticker is considered invalid. If a max limit is set and the total supply reaches that limit before the end block is reached, further minting is considered invalid. Once the end block is reached, minting is no longer possible, even if the max limit has not been reached.  </p>
+<h2 id="unrestricted-mode">Unrestricted Mode</h2>
+<p>selfmint: Not set.<br />
+max: Optional.<br />
+block: Not set.  </p>
+<p>In this mode, minting is not restricted by the parameters mentioned above, but rather by other factors specified by the project team. For example, it may require minting to continue on a specific rare satoshi or ticker.  </p>
+<p>Through these mode settings, we aim to provide projects with complete flexibility and allow participants to clearly understand the type of project they are engaging with.  </p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../inscribe/" class="btn btn-neutral float-left" title="Read and Write of SAT: Inscribe"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../sob/" class="btn btn-neutral float-right" title="SAT Objects">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../inscribe/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../sob/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

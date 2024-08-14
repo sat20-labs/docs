@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Overview - Sat20</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Overview";
+        var mkdocs_page_input_path = "issuance/readme.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Sat20
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">SAT20 asset issuance and circulation protocol</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduce/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../why/">Background</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Asset Issuance Protocol</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Overview</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#basic-properties-of-sat20-assets">Basic Properties of SAT20 Assets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-capabilities-of-sat20-assets">Basic Capabilities of SAT20 Assets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-principles-of-sat20-assets">Core Principles of SAT20 Assets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other-related-services">Other Related Services</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../instruct/">Instructions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ordinal/">Numbering of SAT: Ordinal</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../inscribe/">Read and Write of SAT: Inscribe</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../model/">Asset Issuance Models</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../sob/">SAT Objects</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../SNS/">Name Service (SNS)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../d-indexer/">D-Indexer</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Scenarios</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/FT/">FT</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/NFT/">NFT</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/SFT/">SFT</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/DID/">DID</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../cases/DeIP/">DeIP</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Asset Circulation Protocol</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/readme/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/satlock/">SAT Locking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/sattranscend/">SAT Transcending</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/satswap/">SAT Swapping</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/enUTXO/">Enhanced UTXO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/CA/">Client Verification</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../circulation/SVM/">SVM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Scenarios</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../circulation/cases/sdex/">DEX</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../circulation/cases/MPC/">MPC</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../circulation/cases/DePIN/">DePIN</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../sample/">Samples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../roadmap/">Roadmap</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://apiprd.ordx.space/mainnet/swagger/index.html">API</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../donate/">Donate</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../index.html">中文</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Sat20</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SAT20 asset issuance and circulation protocol</li>
+          <li class="breadcrumb-item">Asset Issuance Protocol</li>
+      <li class="breadcrumb-item active">Overview</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sat20-asset-issuance-protocol">SAT20 Asset Issuance Protocol</h1>
+<p>The SAT20 Asset Issuance Protocol is a protocol for issuing various types of digital assets on the BTC mainnet. Its core is the <strong>binding of satoshis</strong>, hence the name "Sat Asset" (SAT20 ASSETS). Sat Assets have distinctive characteristics and are the world's first "<strong>satoshi standard</strong>" native BTC asset issuance protocol, where assets possess the properties of satoshis.</p>
+<h2 id="basic-properties-of-sat20-assets">Basic Properties of SAT20 Assets</h2>
+<ol>
+<li>Satoshis are not destructible, so the assets are also non-destructible.</li>
+<li>The data bound to satoshis is immutable, so once the assets are issued, they cannot be modified.</li>
+<li>Wherever the satoshis are, the assets are also present, allowing assets to freely move across different networks alongside satoshis.</li>
+<li>Assets belong to the owner of the satoshis, so when satoshis are transferred, the assets are transferred as well.</li>
+<li>The non-fungible nature of satoshis determines the non-fungibility of assets, making them inherently SFT (Semi-Fungible Token) assets.</li>
+<li>Satoshis can be bound to any data, including smart contracts, enabling assets to have a certain level of intelligence.</li>
+</ol>
+<h2 id="basic-capabilities-of-sat20-assets">Basic Capabilities of SAT20 Assets</h2>
+<p>The issuance of SAT20 assets relies on two basic capabilities:
+1. The ability to identify satoshis and track them.
+2. The ability to read and write data on satoshis.</p>
+<h2 id="core-principles-of-sat20-assets">Core Principles of SAT20 Assets</h2>
+<p>SAT20 assets are built upon the two fundamental properties of satoshis, which are also the core principles of SAT20 assets:
+1. The non-fungible nature of satoshis. The order of creation of satoshis determines their uniqueness and identifiability. Each satoshi can be encoded using a certain encoding scheme, serving as its identification that remains unchanged.
+2. The non-destructible nature of satoshis. BTC operates on a ledger model that requires ledger balance. Satoshis, being inputs and outputs of the ledger, cannot be destroyed, as it would result in an imbalanced ledger.</p>
+<h2 id="other-related-services">Other Related Services</h2>
+<p>In addition, for convenient indexing and data manipulation of satoshis, some core services based on satoshis must be established:
+1. Naming service. Based on satoshis, it facilitates memorability and propagation, serving as the foundation of IP (Intellectual Property) development and an essential core service for protocol evolution.
+2. Data service. It enables the reading and writing of data bound to satoshis, where only the owner can write while anyone can read. In the future, income-generating services will require payment for accessing data.
+3. Payment service. SAT20 supports running software compiled into the WASM (WebAssembly) format on a virtual machine (VM). When income-generating services run other software packages on the VM, fees are charged, which are shared between node providers and software developers. The fees are low but not zero, denominated in satoshis.</p>
+<p>The protocol's verification version was officially activated at height 827,307, and the official version is planned to be activated at height 845,000.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../why/" class="btn btn-neutral float-left" title="Background"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../instruct/" class="btn btn-neutral float-right" title="Instructions">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../why/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../instruct/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

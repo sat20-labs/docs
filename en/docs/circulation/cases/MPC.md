@@ -1,0 +1,6 @@
+Micro Payment Contracts
+====
+
+In the software field, for a long time, the low cost of copying and replicating has resulted in virtually no cost for software plagiarism. On the other hand, the high cost of payments, such as the difficulty of accepting a payment of one cent that requires a $10 cost, has made cost-effective payment for open-source software a challenge. Now, with the help of SAT20's micro payment contracts, it is almost costless to make a payment of one cent (calculated based on $100,000 per BTC, where 10 satoshis equal 1 cent). Additionally, SVM (Satoshi Virtual Machine) creates an environment for software that allows for lower-cost paid usage compared to copying and replicating (even though copying source code is easy, integrating and debugging, and eventually forming a WASM software package on the blockchain, incurs high costs). The combination of these two factors has the potential to promote a trend of paid software usage. With creators receiving economic incentives, it will greatly enhance the motivation for innovation.
+
+Software is just one type of digital asset, and micro payment contracts are equally suitable for the use of all other digital assets. An era of tremendous prosperity for digital assets is on the horizon.

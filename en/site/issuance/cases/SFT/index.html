@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>SFT - Sat20</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "SFT";
+        var mkdocs_page_input_path = "issuance/cases/SFT.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Sat20
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">SAT20 asset issuance and circulation protocol</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../../introduce/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../why/">Background</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Asset Issuance Protocol</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../readme/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../instruct/">Instructions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ordinal/">Numbering of SAT: Ordinal</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../inscribe/">Read and Write of SAT: Inscribe</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../model/">Asset Issuance Models</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../sob/">SAT Objects</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../SNS/">Name Service (SNS)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../d-indexer/">D-Indexer</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >Scenarios</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../FT/">FT</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../NFT/">NFT</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">SFT</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#pizza">Pizza</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#stablecoins">Stablecoins</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#rwa-real-world-assets">RWA (Real-World Assets)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#game-equipment">Game Equipment</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary">Summary</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../DID/">DID</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../DeIP/">DeIP</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Asset Circulation Protocol</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../circulation/readme/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../circulation/satlock/">SAT Locking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../circulation/sattranscend/">SAT Transcending</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../circulation/satswap/">SAT Swapping</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../circulation/enUTXO/">Enhanced UTXO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../circulation/CA/">Client Verification</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../circulation/SVM/">SVM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Scenarios</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../circulation/cases/sdex/">DEX</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../circulation/cases/MPC/">MPC</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../circulation/cases/DePIN/">DePIN</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../sample/">Samples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../roadmap/">Roadmap</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://apiprd.ordx.space/mainnet/swagger/index.html">API</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../donate/">Donate</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../about/">About</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.html">中文</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Sat20</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SAT20 asset issuance and circulation protocol</li>
+          <li class="breadcrumb-item">Asset Issuance Protocol</li>
+          <li class="breadcrumb-item">Scenarios</li>
+      <li class="breadcrumb-item active">SFT</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sft-satoshis-fungible-tokens">SFT (Satoshis Fungible Tokens)</h1>
+<p>The essence of SAT20 lies in SFT, where FT or NFT is just one of its manifestations. The nature of SAT20's SFT stems from two aspects:</p>
+<ol>
+<li>The base asset, satoshis, is inherently non-fungible, which can be reflected through the numbering of satoshis.</li>
+<li>Satoshis can also be bound to different data, which brings unlimited possibilities for the use of SFT.</li>
+</ol>
+<p>We illustrate the attributes of SAT20's SFT through the following examples:</p>
+<h2 id="pizza">Pizza</h2>
+<p>SFT minted based on rare satoshis that showcases the characteristics of graphic representation.
+The quantity and attributes of satoshis determine the visual style of the pizza, such as a pile of pizzas, a single pizza, or a fraction of a pizza. The toppings can also change based on different satoshi attributes.</p>
+<h2 id="stablecoins">Stablecoins</h2>
+<p>Issuing multiple sets of stablecoins with different denominations, such as $1, $10, $100, $1000, etc.
+Each set can mint multiple NFTs as needed, with each satoshi representing a coin.
+Minting stablecoins on satoshis and allowing satoshis to flow to Layer 2 networks serve as transaction media, reducing the demand for a large amount of BTC on Layer 2 networks.</p>
+<h2 id="rwa-real-world-assets">RWA (Real-World Assets)</h2>
+<p>Taking real estate as an example, a Ticker can be issued for a building, and each room can be represented as an NFT. This NFT can be further divided into multiple fractions, facilitating trading and circulation.</p>
+<h2 id="game-equipment">Game Equipment</h2>
+<p>Game equipment can be continuously adjusted by the attributes of the satoshis that constitute the NFT, effectively activating trading.</p>
+<h2 id="summary">Summary</h2>
+<p>SFT possesses infinite potential, and Ethereum's ERC3525 is a good example of this. It demonstrates the various possibilities and applications of SFT in the blockchain ecosystem.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../NFT/" class="btn btn-neutral float-left" title="NFT"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../DID/" class="btn btn-neutral float-right" title="DID">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../NFT/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../DID/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
