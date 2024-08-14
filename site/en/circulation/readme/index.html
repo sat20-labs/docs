@@ -22,7 +22,18 @@
       <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+      <script>hljs.highlightAll();</script>
+ 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('a[href="https://apiprd.ordx.space/mainnet/swagger/index.html"]');
+        links.forEach(link => {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
+    });
+</script>
+
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -40,7 +51,7 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">SAT20 asset issuance and circulation protocol</span></p>
+              <p class="caption"><span class="caption-text">SAT20 protocol</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../../introduce/">Overview</a>
                   </li>
@@ -132,7 +143,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="" href="https://docs.sat20.org/">中文</a>
+                <li class="toctree-l1"><a class="" href="/index.html">中文</a>
                 </li>
               </ul>
       </div>
@@ -149,7 +160,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">SAT20 asset issuance and circulation protocol</li>
+          <li class="breadcrumb-item">SAT20 protocol</li>
           <li class="breadcrumb-item">Asset Circulation Protocol</li>
       <li class="breadcrumb-item active">Overview</li>
     <li class="wy-breadcrumbs-aside">

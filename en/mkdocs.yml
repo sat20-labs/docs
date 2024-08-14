@@ -12,9 +12,10 @@ theme:
   #   - navigation.sections
   # palette:
   #   scheme: default
+  custom_dir: overrides
 
 nav:
-  - SAT20 asset issuance and circulation protocol:
+  - SAT20 protocol:
       - "Overview": "introduce.md"
       - "Background": "why.md"
       - "Asset Issuance Protocol":
@@ -49,7 +50,7 @@ nav:
   - API: https://apiprd.ordx.space/mainnet/swagger/index.html
   - Donate: donate.md
   - About: about.md
-  - 中文: https://docs.ordx.space/index.html
+  - 中文: /index.html
 
 plugins:
   - search

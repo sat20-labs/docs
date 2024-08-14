@@ -22,7 +22,18 @@
       <script src="js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+      <script>hljs.highlightAll();</script>
+ 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('a[href="https://apiprd.ordx.space/mainnet/swagger/index.html"]');
+        links.forEach(link => {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
+    });
+</script>
+
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -40,7 +51,7 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">SAT20 asset issuance and circulation protocol</span></p>
+              <p class="caption"><span class="caption-text">SAT20 protocol</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="introduce/">Overview</a>
                   </li>
@@ -130,7 +141,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="" href="https://docs.sat20.org/">中文</a>
+                <li class="toctree-l1"><a class="" href="/index.html">中文</a>
                 </li>
               </ul>
       </div>
@@ -158,19 +169,19 @@
               
                 <h1 id="table-of-contents">Table of contents</h1>
 <ul>
-<li>SAT20 资产发行和流通协议</li>
+<li>SAT20 asset issuance and circulation protocol</li>
 <li><a href="introduce/">Overview</a></li>
-<li><a href="why/">背景</a></li>
-<li>资产发行协议<ul>
-<li><a href="issuance/readme/">介绍</a></li>
-<li><a href="issuance/instruct/">指令</a></li>
-<li><a href="issuance/ordinal/">聪的编码：序号</a></li>
-<li><a href="issuance/inscribe/">聪的读写：铭刻</a></li>
-<li><a href="issuance/model/">资产发行模式</a></li>
-<li><a href="issuance/sob/">聪对象</a></li>
-<li><a href="issuance/SNS/">名字服务</a></li>
+<li><a href="why/">Background</a></li>
+<li>Asset Issuance Protocol<ul>
+<li><a href="issuance/readme/">Overview</a></li>
+<li><a href="issuance/instruct/">Instructions</a></li>
+<li><a href="issuance/ordinal/">Numbering of SAT: Ordinal</a></li>
+<li><a href="issuance/inscribe/">Read and Write of SAT: Inscribe</a></li>
+<li><a href="issuance/model/">Asset Issuance Models</a></li>
+<li><a href="issuance/sob/">SAT Objects</a></li>
+<li><a href="issuance/SNS/">Name Service (SNS)</a></li>
 <li><a href="issuance/d-indexer/">D-Indexer</a></li>
-<li>[场景]</li>
+<li>[Scenarios]</li>
 <li><a href="issuance/cases/FT/">FT</a></li>
 <li><a href="issuance/cases/NFT/">NFT</a></li>
 <li><a href="issuance/cases/SFT/">SFT</a></li>
@@ -178,25 +189,25 @@
 <li><a href="issuance/cases/DeIP/">DeIP</a></li>
 </ul>
 </li>
-<li>资产流通协议<ul>
-<li><a href="circulation/readme/">概述</a></li>
-<li><a href="circulation/satlock/">聪锁定</a></li>
-<li><a href="circulation/sattranscend/">聪穿越</a></li>
-<li><a href="circulation/satswap/">聪交换</a></li>
-<li><a href="circulation/enUTXO/">增强型UTXO</a></li>
-<li><a href="circulation/CA/">客户端验证</a></li>
+<li>Asset Circulation Protocol<ul>
+<li><a href="circulation/readme/">Overview</a></li>
+<li><a href="circulation/satlock/">SAT Locking</a></li>
+<li><a href="circulation/sattranscend/">SAT Transcending</a></li>
+<li><a href="circulation/satswap/">SAT Swapping</a></li>
+<li><a href="circulation/enUTXO/">Enhanced UTXO</a></li>
+<li><a href="circulation/CA/">Client Verification</a></li>
 <li><a href="circulation/SVM/">SVM</a></li>
-<li>[场景]</li>
+<li>[Scenarios]</li>
 <li><a href="circulation/cases/sdex/">DEX</a></li>
 <li><a href="circulation/cases/MPC/">MPC</a></li>
 <li><a href="circulation/cases/DePIN/">DePIN</a></li>
 </ul>
 </li>
-<li><a href="sample/">样本</a></li>
-<li><a href="roadmap/">路线</a></li>
+<li><a href="sample/">Samples</a></li>
+<li><a href="roadmap/">Roadmap</a></li>
 <li><a href="https://apiprd.ordx.space/mainnet/swagger/index.html">API</a></li>
-<li><a href="donate/">捐赠</a></li>
-<li><a href="about/">关于</a></li>
+<li><a href="donate/">Donate</a></li>
+<li><a href="about/">About</a></li>
 </ul>
               
             </div>
@@ -241,5 +252,5 @@
 
 <!--
 MkDocs version : 1.6.0
-Build Date UTC : 2024-08-14 01:04:09.919418+00:00
+Build Date UTC : 2024-08-14 01:45:29.773552+00:00
 -->

@@ -7,3 +7,5 @@ mv zh/site ./
 
 mkdocs build -f en/mkdocs.yml
 mkdir site/en && mv en/site/* ./site/en
+
+rm -rf en/site

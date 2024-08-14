@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+{{ super() }}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('a[href="https://apiprd.ordx.space/mainnet/swagger/index.html"]');
+        links.forEach(link => {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
+    });
+</script>
+{% endblock %}

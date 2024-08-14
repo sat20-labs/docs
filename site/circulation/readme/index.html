@@ -22,7 +22,18 @@
       <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+      <script>hljs.highlightAll();</script>
+ 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('a[href="https://apiprd.ordx.space/mainnet/swagger/index.html"]');
+        links.forEach(link => {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
+    });
+</script>
+
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -132,7 +143,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="" href="https://docs.sat20.org/en">English</a>
+                <li class="toctree-l1"><a class="" href="../../en/index.html">English</a>
                 </li>
               </ul>
       </div>
