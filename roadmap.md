@@ -16,7 +16,7 @@ SAT20资产发行协议（ORDX Protocol）
 SAT20资产流通协议（Transcend Protocol）
 ----
 一个让BTC（聪）自由流通的协议。
-我们希望在Q3完成穿越协议的原型开发，并且运行在SatoshiNet上。
+我们希望在Q4中完成穿越协议的原型开发，并且运行在SatoshiNet上。
 
 
 样本网络的开发：SatoshiNet
