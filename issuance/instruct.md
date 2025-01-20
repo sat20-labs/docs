@@ -90,24 +90,19 @@ mint
 
 
 
-ordx (2.0)
+ordx v2.0
 ----
-ordx 2.0 将对资产的操作，从最初的铭文方式，升级为OP_RETURN操作码方式，用于支持新的指令。主要支持
-ordx 2.0版本支持ordinals nft的销毁和交换指令，并且将指令写入OP_RETUR中。
+ordx v2.0 将对资产的操作，从最初的铭文方式，升级为OP_RETURN操作码方式，用于支持新的指令。
+v2.0版本主要支持ordinals nft的销毁和交换指令。
 这两个指令的效果是永久的，由owner发起执行，将对应的ordinals nft永久销毁，或者转移到另外一个聪上。
 
 数据格式：
 OP_RETURN ｜ MAGIC_NUMBER ｜ CT_TYPE ｜ CONTENT
 MAGIC_NUMBER = OP_16
-CT_STAKE = OP_4
-CT_UNSTAKE = OP_5
-CT_DESTROY = OP_6
-CT_SWAP = OP_7
-
-stake/unstake跟deploy有类似的地方，但其资产发行方式需要通过质押指定的资产才能发行对应的新资产。这可以简化质押资产的管理方式。
-该操作指令必须配合聪网的通道才能生效。质押发行的资产不绑定聪。
-assetName ｜ amt
-
+CT_DESTROY = OP_4
+CT_SWAP = OP_5
+CT_STAKE = OP_6
+CT_UNSTAKE = OP_7
 
 
 销毁的content：
@@ -119,4 +114,7 @@ assetName |（start, end）｜ (start, end)
 如果该utxo中该资产有多个range，每个range都需要有一个op_return来执行。
 assetName的格式：协议：类型：tickername（如果是nft，填inscription_number）
 
-
+探索新功能：  
+stake/unstake跟deploy有类似的地方，但其资产发行方式需要通过质押指定的资产才能发行对应的新资产。这可以简化质押资产的管理方式。
+该操作指令必须配合聪网的通道才能生效。质押发行的资产不绑定聪。
+assetName ｜ amt

@@ -27,10 +27,10 @@
     * [动态通道](circulation/dynamicChannel.md)
     * [全资产支持](circulation/fullassets.md)
   * 聪网
-    * [介绍](sample.md)
+    * [介绍](satoshinet/readme.md)
     * [POS](satoshinet/pos.md)
     * [增强型UTXO](satoshinet/enUTXO.md)
-    * [智能合约](satoshinet/SVM.md)
+    * [智能合约](satoshinet/CA.md)
     * [场景]
       * [SATSWAP](satoshinet/cases/sdex.md)
       * [稳定币](satoshinet/cases/stablecoin.md)
