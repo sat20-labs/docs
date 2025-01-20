@@ -1,4 +1,4 @@
-聪穿越（Satoshi Transcend）
+聪穿越（Satoshi Transcending）
 ====
 
 锁定在闪电通道中的聪，在SAT20协议的支持下，会自动穿越（Ascend）到二层网络，并锁定在通道地址中。
