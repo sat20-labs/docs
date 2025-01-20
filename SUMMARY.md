@@ -1,41 +1,43 @@
 # Table of contents
 
-* SAT20 资产发行和流通协议
+* SAT20协议
   * [概述](introduce.md)
   * [背景](why.md)
-  * 资产发行协议
-    * [介绍](issuance/readme.md)
-    * [指令](issuance/instruct.md)
-    * [聪的编码：序号](issuance/ordinal.md)
-    * [聪的读写：铭刻](issuance/inscribe.md)
-    * [资产发行模式](issuance/model.md)
-    * [聪对象](issuance/sob.md)
-    * [名字服务](issuance/SNS.md)
-    * [D-Indexer](issuance/d-indexer.md)
-    * [场景]
-      * [FT](issuance/cases/FT.md)
-      * [NFT](issuance/cases/NFT.md)
-      * [SFT](issuance/cases/SFT.md)
-      * [DID](issuance/cases/DID.md)
-      * [DeIP](issuance/cases/DeIP.md)
-  * 资产流通协议
-    * [概述](circulation/readme.md)
-    * [聪锁定](circulation/satlock.md)
-    * [聪穿越](circulation/sattranscend.md)
-    * [聪交换](circulation/satswap.md)
-    * [RSMC](circulation/rsmc.md)
-    * [动态通道](circulation/dynamicChannel.md)
-    * [全资产支持](circulation/fullassets.md)
-  * 聪网
-    * [介绍](satoshinet/readme.md)
-    * [POS](satoshinet/pos.md)
-    * [增强型UTXO](satoshinet/enUTXO.md)
-    * [智能合约](satoshinet/CA.md)
-    * [场景]
-      * [SATSWAP](satoshinet/cases/sdex.md)
-      * [稳定币](satoshinet/cases/stablecoin.md)
-      * [微支付](satoshinet/cases/MP.md)
-      * [DePIN](satoshinet/cases/DePIN.md)
+* 资产发行协议 ORDX
+  * [介绍](issuance/readme.md)
+  * [指令](issuance/instruct.md)
+  * [聪的编码：序号](issuance/ordinal.md)
+  * [聪的读写：铭刻](issuance/inscribe.md)
+  * [资产发行模式](issuance/model.md)
+  * [聪对象](issuance/sob.md)
+  * [名字服务](issuance/SNS.md)
+  * [D-Indexer](issuance/d-indexer.md)
+  * [场景]
+    * [FT](issuance/cases/FT.md)
+    * [NFT](issuance/cases/NFT.md)
+    * [SFT](issuance/cases/SFT.md)
+    * [DID](issuance/cases/DID.md)
+    * [DeIP](issuance/cases/DeIP.md)
+* 资产流通协议 Transcending
+  * [概述](circulation/readme.md)
+  * [聪锁定](circulation/satlock.md)
+  * [聪穿越](circulation/sattranscend.md)
+  * [聪交换](circulation/satswap.md)
+  * [RSMC](circulation/rsmc.md)
+  * [动态通道](circulation/dynamicChannel.md)
+  * [全资产支持](circulation/fullassets.md)
+* 聪网 SatoshiNet
+  * [介绍](satoshinet/readme.md)
+  * [原生性](satoshinet/native.md)
+  * [安全性](satoshinet/safety.md)
+  * [POS](satoshinet/pos.md)
+  * [增强型UTXO](satoshinet/enUTXO.md)
+  * [智能合约](satoshinet/CA.md)
+  * [场景]
+    * [SATSWAP](satoshinet/cases/sdex.md)
+    * [稳定币](satoshinet/cases/stablecoin.md)
+    * [微支付](satoshinet/cases/MP.md)
+    * [DePIN](satoshinet/cases/DePIN.md)
 * [路线](roadmap.md)
 * [API](https://apiprd.ordx.space/mainnet/swagger/index.html)
 * [捐赠](donate.md)
