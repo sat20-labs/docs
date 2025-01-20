@@ -27,7 +27,7 @@
     * [动态通道](circulation/dynamicChannel.md)
     * [全资产支持](circulation/fullassets.md)
   * 聪网
-    *[介绍] (sample.md)
+    * [介绍](sample.md)
     * [POS](satoshinet/pos.md)
     * [增强型UTXO](satoshinet/enUTXO.md)
     * [智能合约](satoshinet/SVM.md)
