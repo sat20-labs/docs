@@ -1,8 +1,30 @@
 # Table of contents
 
 * SAT20协议
-  * [概述](introduce.md)
+  * [概述](readme.md)
   * [背景](why.md)
+* 聪网 SatoshiNet
+  * [介绍](satoshinet/readme.md)
+  * [原生性](satoshinet/native.md)
+  * [安全性](satoshinet/safety.md)
+  * [POS](satoshinet/pos.md)
+  * [增强型UTXO](satoshinet/enUTXO.md)
+  * [智能合约](satoshinet/CA.md)
+  * [流动池](satoshinet/liquid.md)
+  * [基金会](satoshinet/fundation.md)
+  * [场景]
+    * [SATSWAP](satoshinet/cases/sdex.md)
+    * [稳定币](satoshinet/cases/stablecoin.md)
+    * [微支付](satoshinet/cases/MP.md)
+    * [DePIN](satoshinet/cases/DePIN.md)
+* 资产流通协议 STP
+  * [概述](circulation/readme.md)
+  * [协议](circulation/protocol.md)
+  * [聪交换](circulation/satswap.md)
+  * [RSMC](circulation/rsmc.md)
+  * [动态通道](circulation/dynamicChannel.md)
+  * [全资产支持](circulation/fullassets.md)
+  * [兼容性](circulation/compatible.md)
 * 资产发行协议 ORDX
   * [介绍](issuance/readme.md)
   * [协议](issuance/protocol.md)
@@ -19,27 +41,6 @@
     * [SFT](issuance/cases/SFT.md)
     * [DID](issuance/cases/DID.md)
     * [DeIP](issuance/cases/DeIP.md)
-* 资产流通协议 Transcending
-  * [概述](circulation/readme.md)
-  * [协议](circulation/protocol.md)
-  * [聪交换](circulation/satswap.md)
-  * [RSMC](circulation/rsmc.md)
-  * [动态通道](circulation/dynamicChannel.md)
-  * [全资产支持](circulation/fullassets.md)
-* 聪网 SatoshiNet
-  * [介绍](satoshinet/readme.md)
-  * [原生性](satoshinet/native.md)
-  * [安全性](satoshinet/safety.md)
-  * [POS](satoshinet/pos.md)
-  * [增强型UTXO](satoshinet/enUTXO.md)
-  * [智能合约](satoshinet/CA.md)
-  * [流动池](satoshinet/liquid.md)
-  * [基金会](satoshinet/fundation.md)
-  * [场景]
-    * [SATSWAP](satoshinet/cases/sdex.md)
-    * [稳定币](satoshinet/cases/stablecoin.md)
-    * [微支付](satoshinet/cases/MP.md)
-    * [DePIN](satoshinet/cases/DePIN.md)
 * [路线](roadmap.md)
 * [API](https://apiprd.ordx.space/mainnet/swagger/index.html)
 * [捐赠](donate.md)
