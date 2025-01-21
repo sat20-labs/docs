@@ -41,7 +41,7 @@ deploy
 }  
 
 部署ticker的规则：
-1. ticker的名字必须没有被用过，或者部署着拥有该名字（DID）
+1. ticker的名字必须没有被用过
 2. 如果有block参数，要求该deploy被确认的高度，必须比start高度大1000以上
 违背规则的ticker无效。
 
