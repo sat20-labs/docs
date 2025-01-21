@@ -12,6 +12,7 @@
   * [智能合约](satoshinet/CA.md)
   * [流动池](satoshinet/liquid.md)
   * [基金会](satoshinet/fundation.md)
+  * [经济模型](satoshinet/ecoModel.md)
   * [场景]
     * [SATSWAP](satoshinet/cases/satswap.md)
     * [稳定币](satoshinet/cases/stablecoin.md)
@@ -23,7 +24,7 @@
   * [聪交换](circulation/satswap.md)
   * [RSMC](circulation/rsmc.md)
   * [动态通道](circulation/dynamicChannel.md)
-  * [全资产支持](circulation/fullassets.md)
+  * [全资产支持](circulation/fullAssets.md)
   * [兼容性](circulation/compatible.md)
 * 资产发行协议 ORDX
   * [介绍](issuance/readme.md)
