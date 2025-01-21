@@ -13,7 +13,7 @@
   * [流动池](satoshinet/liquid.md)
   * [基金会](satoshinet/fundation.md)
   * [场景]
-    * [SATSWAP](satoshinet/cases/sdex.md)
+    * [SATSWAP](satoshinet/cases/satswap.md)
     * [稳定币](satoshinet/cases/stablecoin.md)
     * [微支付](satoshinet/cases/MP.md)
     * [DePIN](satoshinet/cases/DePIN.md)
