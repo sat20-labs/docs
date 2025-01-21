@@ -5,7 +5,8 @@
   * [背景](why.md)
 * 资产发行协议 ORDX
   * [介绍](issuance/readme.md)
-  * [指令](issuance/instruct.md)
+  * [协议](issuance/protocol.md)
+  * [协议v2.0](issuance/protocolv2.md)
   * [聪的编码：序号](issuance/ordinal.md)
   * [聪的读写：铭刻](issuance/inscribe.md)
   * [资产发行模式](issuance/model.md)
@@ -20,8 +21,7 @@
     * [DeIP](issuance/cases/DeIP.md)
 * 资产流通协议 Transcending
   * [概述](circulation/readme.md)
-  * [聪锁定](circulation/satlock.md)
-  * [聪穿越](circulation/sattranscend.md)
+  * [协议](circulation/protocol.md)
   * [聪交换](circulation/satswap.md)
   * [RSMC](circulation/rsmc.md)
   * [动态通道](circulation/dynamicChannel.md)
@@ -33,6 +33,8 @@
   * [POS](satoshinet/pos.md)
   * [增强型UTXO](satoshinet/enUTXO.md)
   * [智能合约](satoshinet/CA.md)
+  * [流动池](satoshinet/liquid.md)
+  * [基金会](satoshinet/fundation.md)
   * [场景]
     * [SATSWAP](satoshinet/cases/sdex.md)
     * [稳定币](satoshinet/cases/stablecoin.md)
