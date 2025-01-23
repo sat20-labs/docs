@@ -13,6 +13,7 @@
   * [流动池](satoshinet/liquid.md)
   * [基金会](satoshinet/fundation.md)
   * [经济模型](satoshinet/ecoModel.md)
+  * [不断进化](satoshinet/evolution.md)
   * [场景]
     * [SATSWAP](satoshinet/cases/satswap.md)
     * [稳定币](satoshinet/cases/stablecoin.md)
