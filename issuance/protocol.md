@@ -14,7 +14,7 @@ deploy
 | op | Yes | 指令: deploy |
 | tick | Yes | 名称: 只允许3或5-16个字符，（为brc-20保留4个字符） |
 | lim | No | 每次mint的token的限额，默认是10000。如果deploy特殊sat上的token，默认是1。 |
-| n | No | 每聪绑定的token数量，默认是1，最大是1亿。（v2） |
+| n | No | 每聪绑定的token数量，默认是1，最大是65535。（v2） |
 | selfmint | No | 自己铸造的比例（两位小数），只有持有该ticker的地址才能铸造（父子铭文）。 |
 | max | No | mint的总量，64位整数。 |
 | block | No | mint的开始高度和结束高度（开始-结束）。|
