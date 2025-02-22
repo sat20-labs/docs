@@ -44,6 +44,6 @@
     * [DID](issuance/cases/DID.md)
     * [DeIP](issuance/cases/DeIP.md)
 * [路线](roadmap.md)
-* [API](https://apiprd.ordx.space/mainnet/swagger/index.html)
+* [API](https://apiprd.sat20.org/mainnet/swagger/index.html)
 * [捐赠](donate.md)
 * [关于](about.md)
