@@ -1,6 +1,6 @@
 # Table of contents
 
-* SAT20协议
+* 聪网，比特币原生子网
   * [概述](readme.md)
   * [背景](why.md)
 * 聪网 SatoshiNet
@@ -22,11 +22,9 @@
 * 资产流通协议 STP
   * [概述](circulation/readme.md)
   * [协议](circulation/protocol.md)
-  * [聪交换](circulation/satswap.md)
   * [RSMC](circulation/rsmc.md)
   * [动态通道](circulation/dynamicChannel.md)
   * [全资产支持](circulation/fullAssets.md)
-  * [兼容性](circulation/compatible.md)
 * 资产发行协议 ORDX
   * [介绍](issuance/readme.md)
   * [协议](issuance/protocol.md)
