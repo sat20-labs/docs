@@ -42,7 +42,7 @@ func GenMultiSigScript(aPub, bPub []byte) ([]byte, error) {
 
 从上面的代码中可以看到，任何通道的操作，都是必须双方共同签名，才能解锁通道中的UTXO。
 
-用户需要先切换SAT20钱包为高级模式，然后才能打开自己的通道。打开通道，会构造类似这样的一个交易：
+用户需要先切换SAT20钱包为高级模式，然后才能打开自己的通道。打开通道，会构造类似这样的一个交易：  
 ![openchannel](../assets/circulation-protocol-1-open.png)
 https://mempool.space/testnet4/tx/d681334a5e2dcb66f4f0ac4334b706ff7999dd6254b23710d8c6729649458354
 
@@ -52,7 +52,7 @@ https://mempool.space/testnet4/tx/d681334a5e2dcb66f4f0ac4334b706ff7999dd6254b237
 2. 第二个输出的打开通道的服务费，输出地址是核心节点和引导节点的通道地址，这是一个公共通道（tb1qw86hsm7etf4jcqqg556x94s6ska9z0239ahl0tslsuvr5t5kd0nq7vh40m）
 3. 第三个输出是找零
 
-该交易在主网确认后，聪网会生成一个对应的Ascending TX：
+该交易在主网确认后，聪网会生成一个对应的Ascending TX：  
 ![ascending](../assets/circulation-protocol-2-open.png)
 https://mempool.sat20.org/testnet/tx/b2440213185763316a1ac4c36589053286f1903ba764256e8b4f1f8a6326fe84
 
@@ -61,17 +61,17 @@ https://mempool.sat20.org/testnet/tx/b2440213185763316a1ac4c36589053286f1903ba76
 解锁资产
 ----
 资产在通道中时，虽然其安全级别最高，由BTC主网提供安全保障，但因为每次操作都需要服务节点的配合，涉及多签操作和闪电通道账本的更新等等问题，特别是在涉及多方操作之后，其复杂度会上升到一个无法处理的高度。为了简化操作，用户需要将资产从通道地址解锁到个人的钱包地址上。
-解锁操作是一个聪网上的交易，将一部分资产从通道地址转移到个人地址上，同时更新承诺交易。
+解锁操作是一个聪网上的交易，将一部分资产从通道地址转移到个人地址上，同时更新承诺交易。  
 ![unlock-1](../assets/circulation-protocol-3-unlock.png)
 https://mempool.sat20.org/testnet/tx/e4183b216442e8009f4393c85e7e8f96f18874d25f668daca499a1501d4cfcd6
 
 上面所展示的交易中，通道地址中的1000聪，解锁到个人的地址上。
 
-这样，个人就可以在聪网上自主签名控制这些资产了。比如
+这样，个人就可以在聪网上自主签名控制这些资产了。比如  
 ![unlock-2](../assets/circulation-protocol-4-unlock.png)
 https://mempool.sat20.org/testnet/tx/c1368ef641d428b9366ff448ce326e289ca4e6b3c7280f74e653247aa535c235
 
-解锁其他资产也类似，比如下面这个交易，将通道中的100个dogcoin解锁到个人地址上。
+解锁其他资产也类似，比如下面这个交易，将通道中的100个dogcoin解锁到个人地址上。  
 ![unlock-3](../assets/circulation-protocol-5-unlock.png)
 https://mempool.sat20.org/testnet/tx/98e23b9d90c1f7a7074f9967e77b41fdddbbeb4299d5d700a777e8a28dc29069
 
@@ -80,7 +80,7 @@ https://mempool.sat20.org/testnet/tx/98e23b9d90c1f7a7074f9967e77b41fdddbbeb4299d
 ---
 在聪网上个人地址上的资产，虽然受到整个聪网的保护，但对于追求极致的安全的用户来说，聪网的安全性毕竟无法跟BTC主网完全一样，这个时候，用户可以通过将资产锁定回闪电通道，从而获得BTC主网的保护。
 
-如果通道有足够的容量，锁定操作就仅仅是聪网上的一个交易，成本低，速度快，但是效果是惊人的，因为这么一个简单的操作，就让用户在聪网上的资产，受到了主网的保护。这种锁定操作，是上面解锁操作的逆过程：
+如果通道有足够的容量，锁定操作就仅仅是聪网上的一个交易，成本低，速度快，但是效果是惊人的，因为这么一个简单的操作，就让用户在聪网上的资产，受到了主网的保护。这种锁定操作，是上面解锁操作的逆过程：  
 ![lock](../assets/circulation-protocol-6-lock.png)
 https://mempool.sat20.org/testnet/tx/b3d11311ff5c30c668802da14bf3ee626c39c6113d4a75f3a60e4414687fff18
 上面的交易，50个rarepizza被用户从个人地址tb1pydmhr3ud7e28g6lq7xgmfrz2e3uzxvw0zatv0d8auhwnatzrqawshjhh34重新锁定到通道地址tb1qsp335pjzpzmddh6txa30t8gjlv8kurephdtnwz42f7yxd7afrrfs3gs0x7
@@ -96,12 +96,12 @@ Splicing-In
 用户随时可以通过Splicing-In操作将更多的资产提升到聪网。这也是将自己的通道扩容的成本最小的方案。
 
 Splicing-In操作需要两个交易：
-1. Splicing-In TX:主网上，用户将资产转入通道地址
+1. Splicing-In TX:主网上，用户将资产转入通道地址  
 ![splicing-in](../assets/circulation-protocol-7-splicingin.png)
 https://mempool.space/testnet4/tx/dd7d8492e793a12ebf606d89f44d9dc24a56901844c8e920767accc385ac4093
 在这个交易中，用户在第一个输入中提供某种资产（需要主网的索引器才能知道该输入中包含什么样的资产），然后输出到通道地址中。
 
-2. Ascending TX: 该交易确认后，聪网会生成一个对应的Ascending TX
+2. Ascending TX: 该交易确认后，聪网会生成一个对应的Ascending TX  
 ![splicing-in-2](../assets/circulation-protocol-8-splicingin.png)
 https://mempool.sat20.org/testnet/tx/b3ba6aae707b5f3c58b34a8b7555c7886a704d55d9447ebd385cbdca0442d62d
 从该交易的输入可以很清楚的看到，该输入包含的资产类型和数量。该交易确认后，通道的容量增加了，并且增加的资产都属于用户，用户可以通过Unlock操作，将资产解锁到个人钱包地址。
@@ -111,11 +111,11 @@ Splicing-Out
 用户也随时可以通过Splicing-Out操作，将通道中的资产提取到主网的个人地址上，这相当于减少了通道的容量。
 
 Splicing-Out是Splicing-In的逆操作，也需要两步完成：
-1. Descending Tx: 在聪网上将通道中要做Splicing-Out的资产，转入OP_RETURN，转入OP_RETURN的资产，相当于在聪网上销毁。
+1. Descending Tx: 在聪网上将通道中要做Splicing-Out的资产，转入OP_RETURN，转入OP_RETURN的资产，相当于在聪网上销毁。  
 ![splicing-out](../assets/circulation-protocol-9-splicingout.png)
 https://mempool.sat20.org/testnet/tx/97859eb815367b97f1c9feb1bafdf962483ed9e70397cd07f447fb09dec45e1b
 例子中的tb1q0hz89vycmp7xly62gelqyv0lprhlhw4jllzntptmk7qxftxkpwgsxmy3hs是另外一个通道地址，该地址要将1000个dogcoin从通道中提取到主网上的个人地址上
-2. Splicing-Out TX: 交易确认后，协议在主网上广播一个交易，将通道中已经在聪网上销毁的资产转入个人地址，同时支付了2000聪的服务费用给服务节点
+2. Splicing-Out TX: 交易确认后，协议在主网上广播一个交易，将通道中已经在聪网上销毁的资产转入个人地址，同时支付了2000聪的服务费用给服务节点  
 ![splicing-out-2](../assets/circulation-protocol-10-splicingout.png)
 https://mempool.space/testnet4/tx/8b4b3e38ebe8fe6a156b0ff1db5fac0daf0506f0fb1ead6edb999d81caa22741
 
