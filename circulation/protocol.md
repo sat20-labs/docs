@@ -14,31 +14,31 @@ STP协议提供以下六个原子操作。
 
 打开通道
 ----
-以SAT20钱包为例，SAT20钱包的接入节点和公钥是：
-主网：022ab2945f61304f117f55d469c341d606ceb729de436c80c0e6ad7819cdd53ce7
-测试网：0367f26af23dc40fdad06752c38264fe621b7bbafb1d41ab436b87ded192f1336e
+以SAT20钱包为例，SAT20钱包的接入节点和公钥是：  
+主网：022ab2945f61304f117f55d469c341d606ceb729de436c80c0e6ad7819cdd53ce7  
+测试网：0367f26af23dc40fdad06752c38264fe621b7bbafb1d41ab436b87ded192f1336e  
 
 
 每一个钱包地址都会对应一个公钥，该公钥和核心节点先生成一个多签脚本，然后根据该多签脚本生成闪电通道地址，多签脚本如下：
-func GenMultiSigScript(aPub, bPub []byte) ([]byte, error) {
-    if bytes.Compare(aPub, bPub) == 1 {
-        aPub, bPub = bPub, aPub
-    }
-    bldr := txscript.NewScriptBuilder(txscript.WithScriptAllocSize(
-        MultiSigSize,
-    ))
-    bldr.AddOp(txscript.OP_2)
-    bldr.AddData(aPub) // Add both pubkeys (sorted).
-    bldr.AddData(bPub)
-    bldr.AddOp(txscript.OP_2)
-    bldr.AddOp(txscript.OP_CHECKMULTISIG)
-    return bldr.Script()
-}
+func GenMultiSigScript(aPub, bPub []byte) ([]byte, error) {  
+    if bytes.Compare(aPub, bPub) == 1 {  
+        aPub, bPub = bPub, aPub  
+    }  
+    bldr := txscript.NewScriptBuilder(txscript.WithScriptAllocSize(  
+        MultiSigSize,  
+    ))  
+    bldr.AddOp(txscript.OP_2)  
+    bldr.AddData(aPub) // Add both pubkeys (sorted)  
+    bldr.AddData(bPub)  
+    bldr.AddOp(txscript.OP_2)  
+    bldr.AddOp(txscript.OP_CHECKMULTISIG)  
+    return bldr.Script()  
+}  
 
 比如
-测试网上的一个钱包公钥：02148cbe135aea8ee9b72f18ca6ddf0efc052e54b6d723cc473a0cc6011766d776
-其地址是：tb1p339xkycqwld32maj9eu5vugnwlqxxfef3dx8umse5m42szx3n6aq6qv65g
-其通道地址是：tb1q6l2zctpxqvwvkf73fnxqewezk3txflzw3se9h82ux9arksekcrss5cpzj2
+测试网上的一个钱包公钥：02148cbe135aea8ee9b72f18ca6ddf0efc052e54b6d723cc473a0cc6011766d776  
+其地址是：tb1p339xkycqwld32maj9eu5vugnwlqxxfef3dx8umse5m42szx3n6aq6qv65g  
+其通道地址是：tb1q6l2zctpxqvwvkf73fnxqewezk3txflzw3se9h82ux9arksekcrss5cpzj2  
 
 从上面的代码中可以看到，任何通道的操作，都是必须双方共同签名，才能解锁通道中的UTXO。
 

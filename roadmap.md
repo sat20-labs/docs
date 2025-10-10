@@ -50,6 +50,6 @@
 * 主网资产索引器 -- https://github.com/sat20-labs/indexer
 * SAT20钱包 -- https://github.com/sat20-labs/sat20wallet
 * SatoshiNet -- https://github.com/sat20-labs/satoshinet
-* 流通协议 -- https://github.com/sat20-labs/transcend 暂时未开源，足够声望可申请代码权限，目前已经为 @casey 开通权限。
+* 流通协议 -- https://github.com/sat20-labs/transcend 暂时未开源，足够声望可申请代码权限。
 
 

@@ -1,6 +1,6 @@
 # Table of contents
 
-* 聪网，比特币原生子网
+* SAT20，BTC生态流动性基础技术
   * [概述](readme.md)
   * [背景](why.md)
 * 聪网 SatoshiNet
@@ -40,7 +40,6 @@
     * [NFT](issuance/cases/NFT.md)
     * [SFT](issuance/cases/SFT.md)
     * [DID](issuance/cases/DID.md)
-    * [DeIP](issuance/cases/DeIP.md)
 * [路线](roadmap.md)
 * [API](https://apiprd.sat20.org/mainnet/swagger/index.html)
 * [捐赠](donate.md)

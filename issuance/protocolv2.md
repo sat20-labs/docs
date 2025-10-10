@@ -1,11 +1,9 @@
-ORDX 协议 v2.0
+ORDX 协议 v2.0 （未实施）
 ====
 
 SAT20 资产发行协议ORDX会在兼容老版本的基础上，根据BTC生态建设的需要，不断对协议进行升级。
 
 本次升级主要是为了支持聪资产更好的在二层网络流通，同时让协议更简洁，更好用。
-
-计划升级内容：（未实施）
 
 数据写入方式
 ---
@@ -21,7 +19,7 @@ v2.0版本主要支持ordinals nft的销毁和交换指令。
 OP_RETURN ｜ MAGIC_NUMBER ｜ CT_TYPE ｜ CONTENT  
 MAGIC_NUMBER = OP_16  
 CT_DESTROY   = OP_DATA_40  
-CT_SWAP      = OP_DATA_40  
+CT_SWAP      = OP_DATA_41  
 
 
 销毁的content： 

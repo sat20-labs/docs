@@ -142,18 +142,18 @@ Bob 节点监控链上交易，发现有人广播了这笔过期状态的承诺�
 
 RSMC脚本一般结构如下（简化版）：
 
-```
-OP_IF
-    # 如果对方提供revocation secret，可立即花费
-    <revocation_pubkey>
-OP_ELSE
-    # 否则，等待时间锁后自己花费
-    <delay> OP_CSV OP_DROP <local_delayed_pubkey>
-OP_ENDIF
-OP_CHECKSIG
-```
+```  
+OP_IF  
+    # 如果对方提供revocation secret，可立即花费  
+    <revocation_pubkey>  
+OP_ELSE  
+    # 否则，等待时间锁后自己花费  
+    <delay> OP_CSV OP_DROP <local_delayed_pubkey>  
+OP_ENDIF  
+OP_CHECKSIG  
+```  
 
-### 2️⃣ 惩罚交易（Justice Transaction）
+### 2️⃣ 惩罚交易（Penalty Transaction）
 
 Bob构造一笔“惩罚交易”：
 
