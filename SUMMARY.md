@@ -25,7 +25,10 @@
   * [RSMC](circulation/rsmc.md)
   * [动态通道](circulation/dynamicChannel.md)
   * [全资产支持](circulation/fullAssets.md)
-  * [EVM智能合约](circulation/evm.md)
+  * [智能合约](circulation/contract/readme.md)
+    * [模版合约](circulation/contract/template.md)
+    * [EVM合约](circulation/contract/evm.md)
+    * [自然语言合约](circulation/contract/agent.md)
 * 资产发行协议 ORDX
   * [介绍](issuance/readme.md)
   * [协议](issuance/protocol.md)
