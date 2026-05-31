@@ -88,6 +88,8 @@ CONTENT_TYPE_CONTRACT_RESULT     = OP_DATA_33
 CONTENT_TYPE_CONTRACT_STATE_ROOT = OP_DATA_34
 ```
 
+如果一笔交易没有合约OP_RETURN，但包含输出到有效合约地址的输出，该输出可以被合约解释为默认调用。默认调用不携带显式action和参数，其业务语义由对应合约类型和合约实例定义。
+
 
 CONTRACT_DEPLOY
 ----
@@ -113,7 +115,7 @@ CONTRACT_INVOKE
 
 被调用合约地址不写入OP_RETURN。节点必须通过Call TX中输出到合约地址的输出确定被调用合约。
 
-每个`CONTRACT_INVOKE`只能调用一个合约。如果交易中存在多个输出到合约地址的输出，这些输出必须属于同一个合约地址。
+显式`CONTRACT_INVOKE`只能调用一个合约。如果交易中存在多个输出到合约地址的输出，这些输出必须属于同一个合约地址。默认调用没有显式payload，可以按每个合约输出分别触发对应合约的默认行为。
 
 调用发起者身份由调用交易最后一个输入对应的前序输出地址解析得到。共识路径不使用witness中的公钥、签名公钥或其他可替换字段作为caller/invoker身份来源；如果最后一个输入的前序输出不可获得或无法解析地址，调用无效。
 
@@ -279,9 +281,9 @@ Mempool规则
 mempool必须拒绝以下交易：
 
 1. payload格式非法的`CONTRACT_DEPLOY`或`CONTRACT_INVOKE`。
-2. 没有输出到合约地址的`CONTRACT_INVOKE`。
-3. 输出到不存在合约地址的`CONTRACT_INVOKE`。
-4. 同一个`CONTRACT_INVOKE`输出到多个不同合约地址。
+2. 没有输出到合约地址的显式`CONTRACT_INVOKE`。
+3. 输出到不存在合约地址的合约调用。
+4. 同一个显式`CONTRACT_INVOKE`输出到多个不同合约地址。
 5. gas limit缺失或超过协议上限。
 6. gas/funding不足。
 7. gas资产类型不符合协议规定。

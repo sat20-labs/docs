@@ -81,6 +81,8 @@ EVM调用payload包含：
 
 EVM `msg.sender`由调用交易最后一个输入的前序输出地址确定，再映射为20字节EVM地址。节点不得从witness公钥推导`msg.sender`。
 
+EVM合约的默认调用表示向合约地址发起一次空calldata调用。输出中的satoshi作为`msg.value`，其他资产仍由聪网资产层和预编译资产接口表达。
+
 
 StateDB和执行器
 ----
