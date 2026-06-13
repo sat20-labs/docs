@@ -12,8 +12,18 @@ SAT20资产流通协议的核心概念有以下几个：
 2. 锁定和穿越：通过闪电通道技术，将聪锁定在闪电通道中，然后其所有权，也就是映射资产穿越到二层网络流通。
 3. 动态通道容量调整技术：通过Splicing技术对闪电通道的容量进行调整，随时可以增加和减少通道中的资产。
 4. 支持主网上的主流资产发行协议：Ordinals, ORDX, Runes, BRC20等。
- 
-  
 
+## STP 技术白皮书专栏
 
+当前目录下原有文档形成较早，更多是概念介绍。新的 STP 专栏会从协议本身出发，系统整理通道生命周期、资产穿越状态机、第三方客户端接入和 Agent 互操作规范：
 
+- [STP 技术白皮书：比特币资产进入聪网的通道协议](stp/readme.md)
+- [第三方 STP 客户端接入指南](stp/client-integration.md)
+- [STP 第三方客户端实现验收清单](stp/implementation-checklist.md)
+- [STP Agent 资产安全控制指南](stp/asset-safety.md)
+- [STP Agent 互操作技能规范](stp/agent-skills.md)
+- [Agent 可控钱包与 STP Skills 规划](stp/agent-wallet-roadmap.md)
+- [Agent Skill 安装与使用](stp/skill.md)
+- [STP Skill 测试网验证记录](stp/testnet-skill-validation.md)
+- [STP 测试网 1 分钟演示脚本](stp/testnet-demo-storyboard.md)
+- [STP 测试网惩罚演练短视频制作规范](stp/testnet-punish-drill-video.md)

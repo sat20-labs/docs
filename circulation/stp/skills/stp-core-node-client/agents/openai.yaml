@@ -1,0 +1,7 @@
+interface:
+  display_name: "STP Core Node Client"
+  short_description: "Control BTC and SatoshiNet assets through STP"
+  default_prompt: "Use $stp-core-node-client to check my STP wallet and move assets through a core node safely."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,39 @@
+{
+  "title": "STP testnet revoked server commitment punish evidence",
+  "date": "2026-06-12",
+  "chain": {
+    "l1": "btc-testnet4",
+    "l2": "satoshinet-testnet"
+  },
+  "channel": {
+    "channel_id": "tb1q9kf9jpmh92e8gxp4sk3mrmax28726qurl04j6x70457vzu46fzdqhe9hzu",
+    "channel_point": "ad57779e1897e9985fb6f3f029cc5bfb835d4c77ef19b1e28c420c219b5d277b:0",
+    "retained_commit_height": 2,
+    "current_commit_height_after_advance": 3
+  },
+  "old_commitment": {
+    "commit_txid": "0be2eba6510ecf1ae721170194868d41c87aab781ecd0a3a30fbd5b8f80a47d8",
+    "l1_block_height": 139183,
+    "status": "confirmed"
+  },
+  "l2_channel_event": {
+    "event_type": "revoked_commitment_broadcasted",
+    "observed_l1_txid": "0be2eba6510ecf1ae721170194868d41c87aab781ecd0a3a30fbd5b8f80a47d8",
+    "observed_commit_height": 2,
+    "current_commit_height": 3,
+    "l2_height": 3448
+  },
+  "punish": {
+    "txids": [
+      "31227fecef97a04173c9aaad438d5f95d7c1b9a449a485aa8dde0c3b62a849d5",
+      "3f88d210acb82dfde1e7eb2b63a1ca7884a31776622d0a125ce1eb8841b0c422"
+    ],
+    "status": "confirmed",
+    "l1_block_height": 139184
+  },
+  "agent_rules_verified": [
+    "Do not treat old commitment broadcast as ordinary close.",
+    "Build and broadcast punish transactions from verified coverage.",
+    "Verify every punish txid on L1 before reporting the drill as complete."
+  ]
+}

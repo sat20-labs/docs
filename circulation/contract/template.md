@@ -198,7 +198,7 @@ AMM swap规则：
 2. AMM买入时，用户输入聪，输出资产。
 3. AMM卖出时，用户输入资产，输出聪。
 4. AMM卖出参数中的`Amt`表示最小可接受输出聪数量，输入资产数量以Call TX funding output为准。
-5. AMM买入参数中的`Amt`表示最小可接受输出资产数量，输入聪数量由`UnitPrice`和funding output确定。
+5. AMM买入参数中的`Amt`表示最小可接受输出资产数量，输入聪数量以Call TX funding output为准；`UnitPrice`只能作为报价或滑点约束，不能作为输入金额的第二来源。
 6. 滑点保护失败时，本区块直接生成refund result。
 7. 同一区块内AMM先处理swap，再处理add/remove liquidity，以对齐原通道合约。
 8. 因addliq达到ready的区块不会同时撮合之前等待中的swap，等待中的swap会在后续区块结算。
@@ -211,8 +211,8 @@ AMM默认调用规则：
 
 流动性规则：
 
-1. `addliq`参数包含资产数量和入池聪数量。
-2. 入池聪数量使用`addliq`参数中的`Value`，不是Call TX funding output中的全部sats。
+1. `addliq`调用的入池资产数量和入池聪数量以Call TX funding output为准。
+2. `addliq`参数只应表达最小可接受LPT、比例约束、deadline等不能由funding output推导的约束，不应重复表达入池资产数量或入池聪数量。
 3. 多余资产或多余聪按池子比例计算后通过Result TX退回。
 4. `removeliq`参数包含要移除的LPT数量。
 5. 如果请求移除的LPT超过调用者余额，按调用者实际LPT余额处理。
@@ -252,7 +252,7 @@ AMM默认调用规则：
 
 1. 成交价由部署时的价格模式和当前区块状态确定。
 2. 合约最多输出当前可用库存资产A。
-3. 当库存资产A不足以满足输入资产B时，按当前价格部分成交，未使用的资产B退回invoker。
+3. 输入资产B数量以Call TX funding output为准；当库存资产A不足以满足输入资产B时，按当前价格部分成交，未使用的资产B退回invoker。
 4. 当`exchange`参数中的最小输出资产A不满足时，净输入资产B退回invoker。
 5. 合约关闭后不再接受新的兑换，后续兑换输入按失败处理。
 

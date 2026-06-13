@@ -73,7 +73,7 @@ tc + version + type + hash
 3. `CONTRACT_RESULT`
 4. `COINBASE_CONTRACT_STATE_ROOT`
 
-合约调用数据通过OP_RETURN携带：
+合约交易通过OP_RETURN携带部署、调用、结果和state root的协议envelope：
 
 ```text
 OP_RETURN | SAT20_MAGIC_NUMBER | CONTENT_TYPE | CONTENT
@@ -87,6 +87,8 @@ CONTENT_TYPE_CONTRACT_INVOKE     = OP_DATA_32
 CONTENT_TYPE_CONTRACT_RESULT     = OP_DATA_33
 CONTENT_TYPE_CONTRACT_STATE_ROOT = OP_DATA_34
 ```
+
+`CONTRACT_INVOKE`的OP_RETURN只应携带action、nonce、gas limit，以及无法从交易输出推导的非经济参数。资产名称、资产数量、satoshi数量、gas/funding输出等经济参数以Call TX中转入合约地址的输出为准，不应在OP_RETURN中重复表达。若某类调用需要滑点、最小可接受输出、deadline、证明hash或calldata等非经济参数，可以放入invoke payload。
 
 如果一笔交易没有合约OP_RETURN，但包含输出到有效合约地址的输出，该输出可以被合约解释为默认调用。默认调用不携带显式action和参数，其业务语义由对应合约类型和合约实例定义。
 
@@ -261,12 +263,14 @@ Canonical Result TX
 索引器落库和查询要求
 ----
 
-索引器必须为合约功能建立可查询的链上视图，至少包括：
+索引器必须为合约功能建立可查询的链上视图。索引器只消费已确认区块、canonical Result TX、已提交的contract index event和已提交的contract post-state projection；索引器不得执行template、EVM或Agent runtime，也不得自行生成合约历史。
+
+索引器至少应建立以下统一视图：
 
 1. 合约部署表：contract address、contract type、deploy txid、deployer、payload、payload hash、创建高度、创建时间和初始Result状态。
 2. 合约调用表：invoke txid、contract address、caller/invoker地址、action、payload、gas/funding输出、确认高度和执行状态。
 3. 合约Result表：result txid、contract address、result type、call id、trigger id、输入UTXO、输出资产转移、gas费用、执行状态、错误信息、高度和时间。
-4. 合约状态表：contract address、contract type、state root、当前状态、类型特有状态、更新时间和最后Result txid。
+4. 合约状态表：contract address、contract type、state root、当前状态、类型特有状态、更新时间和最后Result txid；状态来源必须是已提交post-state projection。
 5. EVM扩展表：EVM地址映射、code hash、storage root、logs/events、registered triggers和trigger执行历史。
 6. Agent扩展表：Agent合约内容hash、ready结果、bet记录、outcome聚合、confirm记录、CoreNode公钥、CoreNode签名、result hash和结算/退款明细。
 7. 资产视图：合约地址UTXO资产余额、已锁定资金池、Result转出、找零和费用归集。

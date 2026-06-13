@@ -1,0 +1,103 @@
+{
+  "title": "STP multi-asset old commitment punish evidence",
+  "date": "2026-06-13",
+  "chain": {
+    "l1": "btc-testnet4",
+    "l2": "satoshinet-testnet"
+  },
+  "channel": {
+    "channel_id": "tb1q9kf9jpmh92e8gxp4sk3mrmax28726qurl04j6x70457vzu46fzdqhe9hzu",
+    "client_satsnet_address": "tb1pxvm0c5gt6jcjg9el8fnnjuxwsn3yme9e0zkjnp0g4658suvkw0cq4mprqc"
+  },
+  "assets_brought_under_channel_control": [
+    {
+      "operation": "stp.expand",
+      "asset": "brc20:f:sgas",
+      "amount": "100",
+      "anchor_txid": "14c707412407c63dbb12e26b174494f2e061c706884ae0e1d6e067c34e2d26dc",
+      "result_commit_height": 1
+    },
+    {
+      "operation": "stp.expand",
+      "asset": "sats",
+      "amount": "24377",
+      "anchor_txid": "f869badc78b2c75a5368259a8644f49eb67449e8a00af1b86d36ac88913b29fd",
+      "result_commit_height": 2
+    },
+    {
+      "operation": "stp.expand",
+      "asset": "ordx:f:dogcoin",
+      "amount": "100",
+      "anchor_txid": "c908624076d08ef5da215d9e7ac33d6d3236a7ea6eb54065a666e9fc2ef57c7f",
+      "result_commit_height": 3
+    },
+    {
+      "operation": "stp.expand",
+      "asset": "runes:f:BITCOIN\u2022TESTNET",
+      "amount": "88",
+      "anchor_txid": "5b78b6382b8a8f84f4a59e7353294f76a74d2250a17d387d755d00ac8e4ccb2f",
+      "result_commit_height": 4
+    }
+  ],
+  "l2_round_trips": [
+    {
+      "operation": "stp.unlock",
+      "asset": "sats",
+      "amount": "1000",
+      "txid": "1f1023962f5f82d6a7f3fe7811d9858294d533730dd9b944d188c1aed6e4dae0",
+      "result_commit_height": 5
+    },
+    {
+      "operation": "stp.lock",
+      "asset": "sats",
+      "amount": "500",
+      "txid": "ab8830a55d02fe576baf28aa8e8801d492eea14908ce1f85457c520c4ab0e435",
+      "result_commit_height": 6
+    },
+    {
+      "operation": "stp.unlock",
+      "asset": "brc20:f:sgas",
+      "amount": "10",
+      "txid": "245fe5a2a8ee09c895e9c83ce37c9efaa8866ecf569ec307514376150b6211ca",
+      "result_commit_height": 7
+    },
+    {
+      "operation": "stp.lock",
+      "asset": "brc20:f:sgas",
+      "amount": "10",
+      "txid": "c00b0e01b3b1d7f9d436569988b29ac0fd62243123cdd120ab028a9b87f2634e",
+      "result_commit_height": 8
+    }
+  ],
+  "old_commitment_drill": {
+    "retained_commit_height": 8,
+    "current_commit_height_after_advance": 9,
+    "old_server_commitment_txid": "3cc0479d77d1f9b9523bdd5f515821bd539df0c54fc39c11ae8f5db3b5791b0f",
+    "state_advance_txid": "b822218ad2e8524392b3fa29549b133eea95c186f1cb7695f6fe6622c241d215",
+    "l1_block_height": 139325,
+    "old_commitment_status": "confirmed"
+  },
+  "punish_package": {
+    "txids": [
+      "1abfb62dda8dc11816fd2483c079f8e58fd12bd7a47a78005a01667baef90f40",
+      "b32445e3423db7b550e7b6d949c41a8f5b81d5e09a8549cb7eae08a140e4c60f",
+      "25d895df2ccccdbee48dba65876f8a46981aaa62815d7d1555313150235ced6d",
+      "363d2c9482bdfd76861add15d9c520b0f5e8bc42318e1e598ad6a1b1d450f73e"
+    ],
+    "status": "confirmed",
+    "l1_block_height": 139325
+  },
+  "fresh_channel_after_punish": {
+    "funding_txid": "e9c283cc9979bafa4f32f872dc2d0c910b89d810ef6801a1ad55bbeb5e585782",
+    "funding_status": "confirmed",
+    "safety_status": "READY_SAFE",
+    "first_unlock_txid": "b88653f646e192765acaecbf338138c057c4ae420cbfddf7476f3cf5ea7994a8",
+    "result_commit_height": 1
+  },
+  "agent_rules_verified": [
+    "Multi-asset expand can bring BRC20, Runes, ORDX, and sats under channel control when public evidence supports it.",
+    "BRC20 unlock/lock must wait until the L2 anchor is spendable.",
+    "A revoked server commitment can be punished with a multi-transaction package.",
+    "After a punished channel is closed, Agent can re-establish a fresh channel and continue only after READY_SAFE."
+  ]
+}
