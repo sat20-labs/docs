@@ -1,0 +1,59 @@
+# 开发者快速开始
+
+本文给出开发者进入 SAT20 / 聪网生态的最短路径。
+
+## 选择你要构建什么
+
+| 你要构建 | 起点 |
+| --- | --- |
+| STP 钱包或客户端 | `sat20-agent-wallet` skill 与 adapter contract |
+| Indexer / 数据服务 | L1/L2 indexer、资产事实层和多协议资产状态 |
+| 聪网应用 | 智能合约文档与测试网 |
+| 交易平台接入 | Indexer、STP 状态和充值提现流程 |
+| AI Agent | SAT20 Agent Wallet skill、PWA adapter、安全验证矩阵 |
+| 区块浏览器或数据服务 | L1/L2 indexer 和交易状态模型 |
+
+## 安装 SAT20 Agent Wallet
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/sat20-labs/docs/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/scripts/install.sh | bash
+```
+
+安装后，Agent 应通过 `SAT20_ADAPTER_URL` 或 `SAT20_CLIENT_CMD` 调用钱包 adapter。
+
+## 实现一个 Adapter
+
+最小 adapter 应支持：
+
+1. `wallet.status`
+2. `stp.status`
+3. `stp.safety_snapshot`
+4. `stp.open`
+5. `stp.splicing_in`
+6. `stp.unlock`
+7. `stp.lock`
+8. `stp.splicing_out`
+9. `stp.transaction`
+
+完整契约见 [adapter contract](../ai/sat20-agent-wallet/skills/sat20-agent-wallet/references/adapter-contract.md)。
+
+## 接入 Indexer
+
+如果你构建钱包、交易平台、浏览器或 Agent，先阅读 [Indexer 接入与资产事实层](indexer.md)。最小实现应能查询 L1 UTXO 资产、交易确认、花费状态、L2 UTXO、ascend / descend 事件和通道相关状态。
+
+当前接口仍在快速迭代，先使用 [API 源码地图](api-source-map.md) 定位权威源码入口。旧 Swagger 只覆盖早期 ORDX indexer 的一部分接口，不作为当前 SAT20 / 聪网完整 API 文档。
+
+## 测试网验收
+
+开发者至少应在测试网上验证：
+
+1. 打开普通 client-core 通道。
+2. splicing-in 一种协议资产。
+3. unlock / lock 往返。
+4. splicing-out 回 BTC L1。
+5. 导出承诺交易。
+6. 验证 punish coverage。
+7. 处理未知网络结果。
+8. 通过 indexer 复核 L1/L2 资产证据链。
+
+验收清单见 [STP 第三方客户端实现验收清单](../protocol/stp/implementation-checklist.md)。

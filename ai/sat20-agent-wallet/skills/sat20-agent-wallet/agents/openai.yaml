@@ -1,0 +1,7 @@
+interface:
+  display_name: "SAT20 Agent Wallet"
+  short_description: "Operate SAT20 Wallet, STP channels, and SatoshiNet assets safely"
+  default_prompt: "Use $sat20-agent-wallet to check my SAT20 wallet, verify asset safety, and move assets between BTC L1 and SatoshiNet."
+
+policy:
+  allow_implicit_invocation: true
