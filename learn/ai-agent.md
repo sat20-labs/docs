@@ -27,7 +27,14 @@ Agent 的边界：
 
 SAT20 提供 SAT20 Agent Wallet skill，让 Agent 能通过统一 JSON adapter 操作钱包和 Core Node。
 
-安装：
+推荐顺序：
+
+1. 用户先安装 [SAT20 PWA Wallet](https://sat20.org/pwa/?install=1)。
+2. 用户在 PWA 内创建或导入钱包，完成备份、解锁和网络选择。
+3. Agent 再安装 SAT20 Agent Wallet skill，并通过 PWA adapter 调用钱包。
+4. Agent 先执行 `wallet.status`、`stp.status` 和 `stp.safety_snapshot`，验证安全状态后再移动资产。
+
+安装 skill：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/sat20-labs/docs/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/scripts/install.sh | bash

@@ -13,7 +13,17 @@
 | AI Agent | SAT20 Agent Wallet skill、PWA adapter、安全验证矩阵 |
 | 区块浏览器或数据服务 | L1/L2 indexer 和交易状态模型 |
 
-## 安装 SAT20 Agent Wallet
+## 安装钱包与 Agent Skill
+
+面向普通用户和主网场景，先安装并初始化 SAT20 PWA Wallet，再安装 SAT20 Agent Wallet skill。PWA 钱包是私钥、助记词、签名、授权弹窗和通道数据库的安全边界；skill 是 Agent 的操作知识和工作流。
+
+安装 SAT20 PWA Wallet：
+
+```text
+https://sat20.org/pwa/?install=1
+```
+
+在 PWA 内创建或导入钱包、完成备份并解锁后，再安装 skill：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/sat20-labs/docs/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/scripts/install.sh | bash
