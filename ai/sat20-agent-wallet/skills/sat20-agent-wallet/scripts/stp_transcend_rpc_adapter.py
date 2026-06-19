@@ -8,6 +8,8 @@ http://127.0.0.1:9061.
 
 import json
 import os
+import pathlib
+import subprocess
 import sys
 import urllib.error
 import urllib.parse
@@ -38,6 +40,61 @@ def _protocol_base_url(req: Optional[dict] = None) -> str:
         if server:
             return str(server).rstrip("/")
     return os.environ.get("STP_TRANSCEND_PROTOCOL_URL", _base_url()).rstrip("/")
+
+
+def _read_runtime_conf_value(key: str) -> str:
+    path = os.environ.get("STP_TRANSCEND_CONF")
+    if not path:
+        return ""
+    try:
+        for line in pathlib.Path(path).read_text(encoding="utf-8").splitlines():
+            stripped = line.strip()
+            if not stripped.startswith(key + ":"):
+                continue
+            value = stripped.split(":", 1)[1].strip()
+            if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
+                value = value[1:-1]
+            return value
+    except OSError:
+        return ""
+    return ""
+
+
+def _message_signer_go_workdir() -> str:
+    configured = os.environ.get("STP_SIGNER_GO_WORKDIR")
+    if configured:
+        return configured
+    default = pathlib.Path("/Users/yingfeng/github/sat20wallet/sdk")
+    if default.exists():
+        return str(default)
+    return os.getcwd()
+
+
+def _sign_fault_body(body: dict) -> dict:
+    mnemonic = os.environ.get("STP_WALLET_MNEMONIC") or _read_runtime_conf_value("mnemonic")
+    seed_password = os.environ.get("STP_WALLET_SEED_PASSWORD", "")
+    if not mnemonic:
+        raise RuntimeError("STP_WALLET_MNEMONIC or STP_TRANSCEND_CONF with wallet.mnemonic is required")
+    message = json.dumps(body, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    helper = pathlib.Path(__file__).with_name("stp_message_signer.go")
+    env = os.environ.copy()
+    env["STP_WALLET_MNEMONIC"] = mnemonic
+    env["STP_WALLET_PASSWORD"] = seed_password
+    env.setdefault("GOCACHE", "/tmp/sat20-go-build")
+    proc = subprocess.run(
+        ["go", "run", str(helper)],
+        input=message,
+        cwd=_message_signer_go_workdir(),
+        env=env,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if proc.returncode != 0:
+        raise RuntimeError(proc.stderr.decode("utf-8", "replace").strip() or "message signer failed")
+    signed = dict(body)
+    signed["msgSig"] = proc.stdout.decode("utf-8").strip()
+    return signed
 
 
 def _request_json(method: str, path: str, body: Optional[dict] = None) -> dict:
@@ -606,20 +663,22 @@ def handle(req: dict) -> dict:
             return _fail(op, "STP_RUNTIME_INTERFACE_REQUIRED", "The transcend runtime must expose the corresponding /safety endpoint before this adapter can execute the operation.", extra)
 
         if op == "stp.test_retain_server_commitment":
-            return _post_protocol(op, req, "/test/fault/retain-server-commitment", {
+            body = {
                 "channel_id": _channel(req),
                 "commit_height": int(req.get("commit_height", 0)),
                 "label": req.get("label", ""),
                 "confirm_unsafe_test_only": bool(req.get("confirm_unsafe_test_only", False)),
-            }, extra)
+            }
+            return _post_protocol(op, req, "/test/fault/retain-server-commitment", _sign_fault_body(body), extra)
 
         if op == "stp.test_broadcast_retained_server_commitment":
-            return _post_protocol(op, req, "/test/fault/broadcast-server-commitment", {
+            body = {
                 "channel_id": _channel(req),
                 "commit_height": int(req.get("commit_height", 0)),
                 "fee_rate": _fee_rate(req),
                 "confirm_unsafe_test_only": bool(req.get("confirm_unsafe_test_only", False)),
-            }, extra)
+            }
+            return _post_protocol(op, req, "/test/fault/broadcast-server-commitment", _sign_fault_body(body), extra)
 
         if op == "stp.transaction":
             return _ok(op, _transaction_status(req), extra)

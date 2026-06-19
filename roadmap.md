@@ -4,6 +4,16 @@ SAT20 / 聪网路线图围绕一个长期目标展开：建设比特币原生扩
 
 路线图不是价格承诺，也不是固定日期表。它记录当前优先级、阶段目标和需要公开验证的里程碑。
 
+## Now / Next / Later
+
+| 阶段 | 当前重点 | 外部建设者可以参与什么 |
+| --- | --- | --- |
+| Now | Community Stack 文档、首批社区 DEX / DAO 试点、EVM Runtime 测试、SAT20 Agent Wallet、Builder Program 开放 | 申请社区试点、部署第一个合约、运行基础设施、提交钱包或 Agent 集成 |
+| Next | Community Builder Agent、钱包通信机制、EVM SDK/RPC 工具链、完整自部署工具包、更多流动性和 Explorer 伙伴 | 贡献部署工具、合约模板、SDK、索引器、Explorer、教程和测试网案例 |
+| Later | 对话式半自动部署、社区运营 Agent、多社区流动性协作、更完整的开发者支持和更高程度基础设施去中心化 | 成为长期生态项目、区域社区、节点网络、审计和治理参与者 |
+
+每个公开里程碑都应尽量给出当前状态、参与方式、验收标准、公开证据和外部可贡献点。
+
 ## 阶段一：STP + Indexer 资产基础
 
 目标：证明资产进入聪网不是托管桥，而是由统一资产索引和用户可验证通道共同支撑的跨层资产系统。Indexer 负责表达 BTC L1 上的资产事实，STP 负责让这些资产进入可退出、可惩罚旧状态的通道安全边界。
@@ -46,7 +56,7 @@ SAT20 / 聪网路线图围绕一个长期目标展开：建设比特币原生扩
 
 - [智能合约与 GAS](learn/smart-contracts-and-gas.md)
 - [智能合约协议](protocol/contracts/readme.md)
-- [GAS 生态机会](ecosystem/gas.md)
+- [网络费用与 GAS](ecosystem/gas.md)
 
 ## 阶段三：开发者和基础设施
 
@@ -69,22 +79,26 @@ SAT20 / 聪网路线图围绕一个长期目标展开：建设比特币原生扩
 
 ## 阶段四：生态增长
 
-目标：吸引资产社区、开发者、交易平台、投资机构和 AI Agent 团队进入聪网生态。
+目标：吸引 BTC 社区、开发者、节点运营者、交易平台、钱包、流动性伙伴和 AI Agent 团队进入聪网生态。
 
 重点：
 
 1. Builder Program。
-2. GAS 生态叙事。
-3. 资产方和铭文社区接入。
-4. 交易平台和做市商合作。
-5. Indexer / Explorer 节点生态。
-6. 官方内容、视频、教程和社区 FAQ。
-7. X 与 Telegram 社区建设。
+2. Community Stack。
+3. 首批社区 DEX / DAO 试点。
+4. 资产社区接入。
+5. 交易平台、钱包和做市商合作。
+6. Indexer / Explorer / Core Node 节点生态。
+7. 官方内容、视频、教程和社区 FAQ。
+8. X 与 Telegram 社区建设。
 
 当前文档：
 
 - [Ecosystem](ecosystem/readme.md)
+- [Community Stack](community-stack/readme.md)
+- [SatoshiNet Today](ecosystem/satoshinet-today.md)
 - [Builder Program](ecosystem/builder-program.md)
+- [当前生态需求](ecosystem/ecosystem-needs.md)
 
 ## 长期方向
 

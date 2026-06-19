@@ -1,0 +1,61 @@
+{
+  "project": "sat20-agent-wallet-one-minute-v1",
+  "title": "SAT20 Agent Wallet / STP 1-Minute Public Video",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "badge": "Bitcoin testnet4 / SatoshiNet testnet",
+  "font_file": "/System/Library/Fonts/PingFang.ttc",
+  "output_file": "sat20-agent-wallet-one-minute.mp4",
+  "segments": [
+    {
+      "id": "pwa-channel",
+      "source": "frames/01-pwa-channel.png",
+      "duration": 6.0,
+      "caption": "SAT20 Wallet 负责助记词、签名授权和资产操作，Agent 通过钱包执行 STP。",
+      "detail": "真实 PWA 钱包页"
+    },
+    {
+      "id": "open-funding",
+      "source": "frames/02-open-funding.png",
+      "duration": 6.0,
+      "caption": "L1 资产进入 2-of-2 通道地址，这是用户控制权的安全边界。",
+      "detail": "funding tx cda894...00f7"
+    },
+    {
+      "id": "retained-old-commitment",
+      "source": "frames/03-retained-old-commitment.png",
+      "duration": 10.0,
+      "caption": "Core Node 侧旧 commitment 被保留，用于测试网安全演练。",
+      "detail": "old commitment 0d033a...8f83"
+    },
+    {
+      "id": "unlock-advance",
+      "source": "frames/04-unlock-advance.png",
+      "duration": 10.0,
+      "caption": "一次 sats unlock 推动 commit height 从 0 到 1，旧 commitment 成为已撤销状态。",
+      "detail": "unlock tx d7a593...3a11"
+    },
+    {
+      "id": "old-commitment-broadcast",
+      "source": "frames/05-old-commitment-broadcast.png",
+      "duration": 13.0,
+      "caption": "测试网 Core Node 故意广播旧状态。",
+      "detail": "broadcast old commitment 0d033a...8f83"
+    },
+    {
+      "id": "punish-broadcast",
+      "source": "frames/06-punish-broadcast.png",
+      "duration": 10.0,
+      "caption": "用户钱包持有惩罚路径，Agent 构造并广播 punish tx。",
+      "detail": "punish tx 6221d7...76e8"
+    },
+    {
+      "id": "safety-conclusion",
+      "source": "frames/07-safety-conclusion.png",
+      "duration": 5.0,
+      "caption": "STP 的安全基础是承诺交易和惩罚旧状态的能力，资产控制权在用户手里。",
+      "detail": "PWA 钱包最终结论"
+    }
+  ]
+}

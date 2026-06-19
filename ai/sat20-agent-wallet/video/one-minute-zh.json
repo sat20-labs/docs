@@ -1,0 +1,54 @@
+{
+  "project": "sat20-agent-wallet-one-minute-zh",
+  "title": "SAT20 Agent Wallet / 穿越协议 1 分钟公开视频中文版",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "badge": "比特币 testnet4 / 聪网测试网",
+  "font_file": "/System/Library/Fonts/PingFang.ttc",
+  "output_file": "sat20-agent-wallet-one-minute-zh-silent.mp4",
+  "segments": [
+    {
+      "id": "wallet-zh",
+      "source": "frames/zh-01-wallet.png",
+      "duration": 8.0,
+      "caption": "SAT20 Wallet 负责助记词、签名授权和资产操作。",
+      "detail": "真实 PWA 钱包页"
+    },
+    {
+      "id": "funding-zh",
+      "source": "frames/zh-02-funding-l1.png",
+      "duration": 9.0,
+      "caption": "真实的比特币一层注资交易。",
+      "detail": "mempool.space/testnet4"
+    },
+    {
+      "id": "unlock-zh",
+      "source": "frames/zh-03-unlock-l2.png",
+      "duration": 11.0,
+      "caption": "真实的聪网解锁交易，推动提交高度前进。",
+      "detail": "mempool.sat20.org/testnet"
+    },
+    {
+      "id": "oldcommit-zh",
+      "source": "frames/zh-04-oldcommit-l1.png",
+      "duration": 12.0,
+      "caption": "旧承诺交易被真实广播到比特币一层网络。",
+      "detail": "revoked state on chain"
+    },
+    {
+      "id": "punish-zh",
+      "source": "frames/zh-05-punish-l1.png",
+      "duration": 10.0,
+      "caption": "用户钱包广播惩罚交易，把资产扫回自己控制。",
+      "detail": "wallet-controlled recovery"
+    },
+    {
+      "id": "conclusion-zh",
+      "source": "frames/zh-06-conclusion.png",
+      "duration": 10.0,
+      "caption": "穿越协议的安全基础，是承诺交易和旧状态惩罚。",
+      "detail": "用户控制安全"
+    }
+  ]
+}

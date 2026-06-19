@@ -1,0 +1,11 @@
+SAT20 Wallet keeps the mnemonic and signing authority. The Agent operates through the wallet and never needs the private key.
+
+This is the real BTC testnet4 funding transaction after open. The asset first moves into a jointly controlled two of two channel address.
+
+This is a real unlock transaction on SatoshiNet testnet. The commit height moves from zero to one, and the previously retained commitment becomes a revoked old state.
+
+This is the revoked commitment later broadcast on BTC L1. It directly spends the original funding outpoint, so any third party can verify that the old state really reached the chain.
+
+The wallet then builds and broadcasts a punish transaction. It spends the old commitment output and sweeps the exposed funds back under the user's control.
+
+STP is verifiable user control: exit path, punish path, and assets stay with the user.

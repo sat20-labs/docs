@@ -100,6 +100,7 @@ PWA 应提供一个 Agent-friendly adapter：
 | 优先级 | 任务 | 验收标准 |
 | --- | --- | --- |
 | P0 | PWA adapter 完整 `wallet.status` | 返回真实钱包地址、网络、解锁状态、L1/L2 资产、UTXO 摘要、WASM 初始化状态 |
+| P0 | PWA adapter 完整 `wallet.send_assets` | Agent 能请求 BTC L1 / SatoshiNet 直接转账；PWA 返回预览、自动选币、估费、风险提示、授权结果和 txid，不把私钥或助记词暴露给 Agent |
 | P0 | PWA adapter 完整 `stp.status` | 返回 Core Node、通道列表、channel status、commit height、pending reservation |
 | P0 | PWA adapter 完整 `wallet.transaction` / `stp.transaction` | Agent 能按 txid / reservation 异步轮询，不需要读取后台日志 |
 | P0 | PWA 授权弹窗标准化 | 每个价值移动操作展示资产、金额、来源、目标、手续费、通道和风险，用户确认后才签名 |
@@ -127,6 +128,7 @@ P0 的目标是让 Agent 不依赖后台日志或人工判断，就能通过 PWA
 | sats unlock / lock | 已完成 |
 | Runes splicing-in/out、unlock/lock | 已完成 |
 | BRC20 splicing-in/out、unlock/lock | 已完成 |
+| `wallet.send_assets` 产品化 | 需要补齐 PWA 授权、预览、自动选币和交易轮询；测试中临时发送工具只作为开发辅助，不应作为正式 Agent 能力 |
 | 结果未知后收敛 | 已完成，已观察到广播后结果未知但 tx 可见并最终收敛 |
 | `stp.safety_snapshot` | 已可返回 `READY_SAFE` |
 | punish coverage | 已可返回 `COVERED` |

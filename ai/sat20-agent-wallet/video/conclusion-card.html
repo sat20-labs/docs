@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAT20 Conclusion Card</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0d0e12;
+      --panel: rgba(16, 18, 28, 0.92);
+      --border: rgba(255,255,255,0.10);
+      --text: #f5f7fb;
+      --muted: #a6adc1;
+      --accent: #d14cff;
+      --good: #34d399;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(204, 68, 255, 0.18), transparent 32%),
+        radial-gradient(circle at top right, rgba(52, 211, 153, 0.12), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .frame { width: 1440px; min-height: 1080px; margin: 0 auto; padding: 56px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .mark {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: linear-gradient(135deg, #9b5cff, #e54cff);
+      box-shadow: 0 0 30px rgba(204, 68, 255, 0.35);
+    }
+    .brand h1 { margin: 0; font-size: 30px; }
+    .brand p { margin: 6px 0 0; font-size: 15px; color: var(--muted); }
+    .badge {
+      padding: 10px 16px; border: 1px solid rgba(204, 68, 255, 0.28);
+      border-radius: 999px; color: #f4d7ff; background: rgba(204, 68, 255, 0.12); font-size: 14px;
+    }
+    .hero {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--panel);
+      box-shadow: 0 24px 56px rgba(0,0,0,0.28);
+      padding: 44px;
+      margin-bottom: 24px;
+    }
+    .eyebrow {
+      display: inline-block; padding: 8px 12px; border-radius: 999px;
+      font-size: 13px; color: var(--muted); background: rgba(255,255,255,0.05);
+      margin-bottom: 16px;
+    }
+    h2 { margin: 0 0 14px; font-size: 46px; line-height: 1.06; }
+    .hero p { margin: 0; font-size: 22px; line-height: 1.58; color: var(--muted); max-width: 1160px; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(17, 20, 30, 0.88);
+      overflow: hidden;
+    }
+    .panel h3 {
+      margin: 0; padding: 16px 18px; font-size: 15px; color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .item {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 14px;
+      padding: 16px 18px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .item:first-of-type { border-top: 0; }
+    .label { color: var(--muted); font-size: 14px; }
+    .value { font-size: 18px; line-height: 1.55; }
+    .good { color: var(--good); }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <section class="topbar">
+      <div class="brand">
+        <div class="mark"></div>
+        <div>
+          <h1>SAT20 Agent Wallet</h1>
+          <p id="brand-sub"></p>
+        </div>
+      </div>
+      <div class="badge">比特币 testnet4 / 聪网测试网</div>
+    </section>
+
+    <section class="hero">
+      <div class="eyebrow" id="eyebrow"></div>
+      <h2 id="title"></h2>
+      <p id="summary"></p>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <h3 id="left-title"></h3>
+        <div id="left-body"></div>
+      </div>
+      <div class="panel">
+        <h3 id="right-title"></h3>
+        <div id="right-body"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const locales = {
+      zh: {
+        brandSub: "用户资产安全的最终结论",
+        eyebrow: "结论 / 用户控制安全",
+        title: "穿越协议不是口头承诺，而是可验证的用户控制权",
+        summary: "钱包负责助记词和签名；穿越协议负责承诺交易和旧状态惩罚；浏览器和索引器负责把每个安全结论变成可公开复核的事实。",
+        leftTitle: "协议层结论",
+        left: [
+          ["退出能力", "用户持有可验证的承诺路径，不依赖核心节点代为退出。"],
+          ["旧状态惩罚", "只要旧状态上链，钱包就能沿惩罚路径把资产扫回。"],
+          ["证据链", "注资交易、解锁交易、旧承诺交易、惩罚交易都有真实 txid。"]
+        ],
+        rightTitle: "AI Agent 应遵守的规则",
+        right: [
+          ["先验安全", "普通价值移动前先检查安全快照和惩罚覆盖状态。"],
+          ["不碰私钥", "AI Agent 通过钱包执行，不绕过助记词和签名控制。"],
+          ["最终目标", "<span class='good'>资产控制权始终在用户自己手里。</span>"]
+        ]
+      },
+      en: {
+        brandSub: "Final takeaway on user asset safety",
+        eyebrow: "Conclusion / user-controlled safety",
+        title: "STP is not a promise. It is verifiable user control.",
+        summary: "The wallet owns mnemonic and signatures. STP owns commitments and punishment of revoked states. Explorers and indexers turn every safety claim into public evidence.",
+        leftTitle: "Protocol conclusions",
+        left: [
+          ["Exit path", "The user holds a verifiable commitment exit path and does not rely on the Core Node to exit."],
+          ["Revoked-state punish", "If an old state reaches the chain, the wallet can sweep the exposed funds back through punish."],
+          ["Evidence chain", "Funding, unlock, old commitment and punish all have real txids."]
+        ],
+        rightTitle: "Rules the Agent should follow",
+        right: [
+          ["Safety first", "Before moving value, inspect the safety snapshot and punish coverage."],
+          ["No private keys", "The Agent acts through the wallet and does not bypass mnemonic or signing control."],
+          ["Final goal", "<span class='good'>Asset control stays with the user.</span>"]
+        ]
+      }
+    };
+
+    function renderList(targetId, rows) {
+      const body = document.getElementById(targetId);
+      body.innerHTML = "";
+      for (const [label, value] of rows) {
+        const item = document.createElement("div");
+        item.className = "item";
+        const left = document.createElement("div");
+        left.className = "label";
+        left.textContent = label;
+        const right = document.createElement("div");
+        right.className = "value";
+        right.innerHTML = value;
+        item.appendChild(left);
+        item.appendChild(right);
+        body.appendChild(item);
+      }
+    }
+
+    function render() {
+      const key = location.hash.replace(/^#/, "") || "zh";
+      const data = locales[key] || locales.zh;
+      document.getElementById("brand-sub").textContent = data.brandSub;
+      document.getElementById("eyebrow").textContent = data.eyebrow;
+      document.getElementById("title").textContent = data.title;
+      document.getElementById("summary").textContent = data.summary;
+      document.getElementById("left-title").textContent = data.leftTitle;
+      document.getElementById("right-title").textContent = data.rightTitle;
+      renderList("left-body", data.left);
+      renderList("right-body", data.right);
+    }
+
+    window.addEventListener("hashchange", render);
+    render();
+  </script>
+</body>
+</html>

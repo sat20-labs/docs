@@ -1,0 +1,75 @@
+{
+  "title": "SAT20 Agent Wallet testnet open and expand drill plan",
+  "date": "2026-06-15",
+  "network": {
+    "l1": "btc-testnet4",
+    "l2": "satoshinet-testnet"
+  },
+  "context": "Current drill starts from ordinary stp.open, expands existing plain-sat UTXOs at the channel address, recreates Runes and BRC20 splicing-in evidence, runs unlock/lock, performs a small splicing-out, and ends after a punish drill.",
+  "channel_address": "tb1q9kf9jpmh92e8gxp4sk3mrmax28726qurl04j6x70457vzu46fzdqhe9hzu",
+  "observed_indexers": {
+    "l1": "https://apiprd.ordx.market/btc/testnet",
+    "l2": "https://apiprd.ordx.market/satsnet/testnet"
+  },
+  "current_l1_summary": [
+    {
+      "asset": "::",
+      "amount": "32000",
+      "binding_sat": 1
+    },
+    {
+      "asset": ":*:",
+      "amount": "32330",
+      "binding_sat": 1
+    }
+  ],
+  "current_l2_summary": [],
+  "expand_l1_utxos": [
+    {
+      "outpoint": "e9c283cc9979bafa4f32f872dc2d0c910b89d810ef6801a1ad55bbeb5e585782:0",
+      "value": 30000,
+      "assets": [],
+      "planned_use": "plain sats expand"
+    },
+    {
+      "outpoint": "d21e85795638591adb0a20674c1436d5315a358387b56c2f16576e0f1f40901b:1",
+      "value": 2000,
+      "assets": [],
+      "planned_use": "small plain sats expand or state-movement evidence"
+    }
+  ],
+  "asset_plan": {
+    "plain_sats": "expand existing channel-address UTXOs",
+    "runes": "create new stp.splicing_in evidence",
+    "brc20": "create new stp.splicing_in evidence; let runtime mint a transfer inscription if no suitable transfer UTXO exists"
+  },
+  "compact_sequence": [
+    "read_only_preflight",
+    "stp.open",
+    "wait_l1_funding_confirmation",
+    "wait_l2_opening_anchor",
+    "stp.safety_snapshot",
+    "stp.expand_plain_sats",
+    "runes_splicing_in",
+    "brc20_splicing_in",
+    "small_unlock_lock",
+    "small_splicing_out",
+    "testnet_retained_old_commitment_and_punish_drill"
+  ],
+  "l1_wait_policy": {
+    "poll_interval_minutes": 10,
+    "source": "l1_indexer",
+    "poll_output": "txid, confirmations, next_check_at",
+    "rule": "Do not retry the same value-moving operation or reuse related UTXOs before the L1 transaction is confirmed or proven absent."
+  },
+  "evidence_to_collect": [
+    "current open funding txid",
+    "current plain sats expand txids",
+    "current SatoshiNet anchor txids",
+    "current safety_snapshot JSON",
+    "current Runes and BRC20 splicing-in evidence",
+    "current unlock and lock txids",
+    "current small splicing-out deAnchor and L1 txids",
+    "current retained old commitment and punish txids"
+  ]
+}

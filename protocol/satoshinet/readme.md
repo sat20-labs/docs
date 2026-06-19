@@ -75,7 +75,7 @@ L2 indexer 集成在聪网节点中，负责解析 SatoshiNet 上的 UTXO、asce
 
 GAS 是聪网合约执行、交易处理和生态激励的经济入口。围绕 GAS 的资产、使用、激励和分配机制，将成为聪网生态吸引开发者、交易平台、投资机构和 BTC 资产社区的重要部分。
 
-通道合约见 [通道合约](../channel-contracts/readme.md)，智能合约细节见 [智能合约协议](../contracts/readme.md)，GAS 生态说明见 [GAS 生态机会](../../ecosystem/gas.md)。
+通道合约见 [通道合约](../channel-contracts/readme.md)，智能合约细节见 [智能合约协议](../contracts/readme.md)，网络费用与 GAS 见 [网络费用与 GAS](../../ecosystem/gas.md)。
 
 ## 安全模型
 

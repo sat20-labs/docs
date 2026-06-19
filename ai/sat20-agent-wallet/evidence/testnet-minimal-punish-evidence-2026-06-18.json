@@ -1,0 +1,85 @@
+{
+  "date": "2026-06-18",
+  "chain": "btc-testnet4-and-satoshinet-testnet",
+  "purpose": "Minimal current-testnet STP punish drill evidence: ordinary open, retained Core Node commitment, state advance, old commitment broadcast, and client punish broadcast.",
+  "notes": [
+    "This evidence focuses on the shortest user-safety loop after a fresh open: the client wallet proves it can punish a revoked Core Node-side commitment.",
+    "The SAT20 PWA Wallet held the mnemonic and produced protocol-message signatures. No mnemonic, private key, or revocation secret was exported to the Agent.",
+    "This run intentionally omits multi-asset splicing. Use the earlier compact and multi-asset evidence packages for Runes and BRC20 circulation examples."
+  ],
+  "actors": {
+    "client_l1_address": "tb1pxvm0c5gt6jcjg9el8fnnjuxwsn3yme9e0zkjnp0g4658suvkw0cq4mprqc",
+    "channel_address": "tb1q9kf9jpmh92e8gxp4sk3mrmax28726qurl04j6x70457vzu46fzdqhe9hzu",
+    "core_node_pubkey": "0367f26af23dc40fdad06752c38264fe621b7bbafb1d41ab436b87ded192f1336e"
+  },
+  "operations": [
+    {
+      "step": "open",
+      "l1_funding_txid": "cda894102cfe72667c54e14b259b95d38037f8cbb6e39d1adeef7f8efb5d00f7",
+      "funding_outpoint": "cda894102cfe72667c54e14b259b95d38037f8cbb6e39d1adeef7f8efb5d00f7:0",
+      "funding_value_sats": 30000,
+      "confirmation_height": 140402,
+      "confirmations_observed": 5,
+      "result": "channel ready at commit height 0"
+    },
+    {
+      "step": "retain_old_core_node_commitment",
+      "retained_commit_height": 0,
+      "retained_commit_txid": "0d033af198e477de429c7ab656afec6e2cac5e672e62692fecf5b2a385c08f83",
+      "retained_deanchor_status": "constructed and locally accepted during retention; no current public txid is listed because the state was later advanced and the old deAnchor is not visible on the current L2 indexer",
+      "l2_acceptance_ok": true,
+      "result": "Core Node retained its height-0 commitment for a testnet-only fault drill"
+    },
+    {
+      "step": "advance_state",
+      "operation": "unlock sats",
+      "amount": "1000",
+      "l2_txid": "d7a593b9301ecf795fc58d9c339b741663723e226cb984fb981a2ceebb953a11",
+      "commit_height_before": 0,
+      "commit_height_after": 1,
+      "result": "height-0 Core Node commitment became a revoked old state"
+    },
+    {
+      "step": "broadcast_old_core_node_commitment",
+      "old_commitment_txid": "0d033af198e477de429c7ab656afec6e2cac5e672e62692fecf5b2a385c08f83",
+      "current_commit_height": 1,
+      "l1_broadcasted": true,
+      "confirmation_height": 140407,
+      "confirmations_observed": 5,
+      "deanchor_result": "old retained deAnchor was rejected after state advance: missing-inputs",
+      "result": "revoked Core Node-side commitment visible and confirmed on BTC testnet4"
+    },
+    {
+      "step": "punish_build_and_broadcast",
+      "old_commitment_txid": "0d033af198e477de429c7ab656afec6e2cac5e672e62692fecf5b2a385c08f83",
+      "verified": true,
+      "broadcastable": true,
+      "punish_txids": [
+        "6221d7793f2bbc2687d959aa2c144e25cc01be2decf9dbf2e4069cd9d21376e8"
+      ],
+      "confirmation_height": 140407,
+      "confirmations_observed": 5,
+      "result": "client wallet punished the revoked commitment and closed the unsafe channel"
+    }
+  ],
+  "post_punish_observation": {
+    "client_local_channel_status": {
+      "status_code": -2,
+      "commit_height": 1,
+      "meaning": "client marked the channel punished and closed"
+    },
+    "core_node_channel_status": {
+      "status_code": -1,
+      "commit_height": 1,
+      "meaning": "Core Node no longer treats the channel as active"
+    }
+  },
+  "agent_rules_validated": [
+    "The PWA wallet should own mnemonic import, message signing, authorization, and private-key storage.",
+    "A testnet old-commitment drill must be signed by the client wallet and must be unavailable on mainnet.",
+    "After the channel advances, a retained older Core Node-side commitment is a revoked state.",
+    "When a revoked commitment appears on BTC L1, punish build and broadcast take priority over ordinary channel operations.",
+    "After punish broadcast returns success, query every punish txid on BTC L1 before reporting completion.",
+    "After punishment, treat the old channel as closed and establish a fresh channel before ordinary value movement."
+  ]
+}

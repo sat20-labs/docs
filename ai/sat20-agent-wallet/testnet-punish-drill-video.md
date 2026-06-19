@@ -29,90 +29,34 @@
 
 ## 当前测试网素材清单
 
-截至 `2026-06-07`，已有以下真实演练素材可用于第一版剪辑和后续惩罚演练前置画面：
+当前视频素材只使用能够通过当前 L1/L2 indexer 复核的 txid。回滚前的旧 L2 txid、旧 L2 UTXO、旧 commit height 和旧 safety snapshot 不再作为画面证据出现。
+
+当前可复核的起点：
+
+| 片段 | 真实证据 | 当前用途 |
+| --- | --- | --- |
+| channel address | `tb1q9kf9jpmh92e8gxp4sk3mrmax28726qurl04j6x70457vzu46fzdqhe9hzu` | 旧通道地址，BTC L1 仍有可查询 UTXO |
+| L1 plain sats UTXO | `e9c283cc9979bafa4f32f872dc2d0c910b89d810ef6801a1ad55bbeb5e585782:0`，`30000` sats | 优先作为 expand 素材 |
+| L1 plain sats UTXO | `d21e85795638591adb0a20674c1436d5315a358387b56c2f16576e0f1f40901b:1`，`2000` sats | 小额 expand 或状态推进素材 |
+| 协议资产 | 当前 L1 地址余额只确认白聪 | Runes / BRC20 需要重新 `splicing_in` |
+| L2 address summary | 当前为空 | 需要重新采集 SatoshiNet 侧证据 |
+
+当前演练优先采用最短路径：`stp.open`，expand 当前通道地址的 plain sats，重新执行 Runes 和 BRC20 的 splicing-in，完成一组 unlock / lock，再对小部分资产执行 splicing-out，最后执行测试网旧 commitment / punish drill。punish 完成后，本轮素材采集即收口。每次 L1 广播后，如果没有并行整理工作，只通过 L1 indexer 每 10 分钟检查一次确认。
+
+`2026-06-18`，当前测试网又完成了一轮更紧凑的安全闭环，可作为最新 punish 证明素材：
 
 | 片段 | 真实证据 | 状态 |
 | --- | --- | --- |
-| 通道 | `tb1q9kf9jpmh92e8gxp4sk3mrmax28726qurl04j6x70457vzu46fzdqhe9hzu` | client/Core Node 均 `READY` |
-| funding | `820cf0b942b301b548fd1fd65c7cd7a8d57ddcbd31d9c1811b9da17fb8c38e58` | 已确认 |
-| plain sats splicing-in | `57bdad236c7e13ad32d7979cf790ef41c974fa107c98549271ff8a6ec2cfa7c6` | 已确认，commit height `6` |
-| sats unlock | `275a4c82424aa93609818f1ece97eb6a3b059ded03c4235a3652b46cb8dbfc43` | 已确认，commit height `7` |
-| sats lock | `5eaa2cbd31f284991bcacd5bdfebe78ae5a522be4ef4195ea6b31ccae7333631` | 已确认，commit height `8` |
-| Runes splicing-out | `e1c677fb5b2a2f1f84a47db948f1bb35f4efa495bc169103e57f9bf3e4f7cd9a` | 已确认，commit height `9` |
-| plain sats splicing-out fee preparation | `ba3539d6c4d5e36529247cad69e453a0df1e346af21a7b46dd3f2d226a1d9107` | 已确认，commit height `10` |
-| BRC20 splicing-out L2 deAnchor | `6b7f3af34a3829860f7dcf4c837318e0de89c0cbb305da0d57da85c1b6439d50` | 聪网已确认 |
-| BRC20 transfer commit | `5fd5a7409f8c54e90b5333e085a48a4daed73e92bc5e58b3905916e950bc93b1` | BRC20 splicing-out 前置交易 |
-| BRC20 transfer reveal | `e1e72d8ba63c8ac9830a2bd263aa341c256253afdde55b324020ed5e394f2763` | BRC20 splicing-out 前置交易 |
-| BRC20 splicing-out L1 | `354819de004c0265f52e5784c98e031a822fd12c30b65ab91c63672d8e79293b` | 已确认并触发后续 channel 清理 |
-| sats unlock after recovery | `c3808db88a6bd9ee2a32d0c97a0f4dad33688ac4499ad164d9313247c23b19a8` | 聪网已确认，commit height `16` |
-| sats lock after recovery | `1e3d013de886560017556f9889d820a7f5d53dac55e8e07298b8353596fffecd` | 聪网已确认，commit height `17` |
-| sats unlock for L2 fee UTXO | `7c74c09f2089609ce4067d2aa761351020ed15bd5262b906302373588dd35c15` | 聪网已确认 |
-| Runes unlock | `85e44685ccdd4576e8c7355398c9e001f16b9e2bc8771f366b0ef6044e643dd3` | 聪网已确认 |
-| Runes lock | `1bf09936ebff4983447c84e816d533480fc6507fc06c69724b4039b133af1737` | 聪网已确认，commit height `20` |
-| BRC20 splicing-in L1 | `2bd1b4fd7dd2be1286fae12e7a7746f1963c029a5425e8fd7ac1cb9c19d09d17` | 已确认，恢复后 commit height `22` |
-| sats lock latest | `9a26d678310bbb09ecff91d4c49196b55c3d60598e401a2dc9afe8014f330a1a` | 聪网已确认，commit height `23` |
-| Runes unlock latest | `21a4c2abdc15fccd7bb4b9655c7ac7cfa17afd6b9e990d74aec17989847f3fef` | 聪网已确认，commit height `24` |
-| Runes lock latest | `1eb447d589c09f7a90ad1ad1a32ac512688739766e4591ee3a15d9105fe0b72d` | 聪网已确认，commit height `25` |
-| BRC20 unlock latest | `4c2a6d370d9b163ded2ee445d1c1a183b3a0c5276610416ac86abc58d9525e29` | 聪网已确认，commit height `26` |
-| BRC20 lock latest | `2f9382c069115cfe72f9e4475843014c6a6ef6a4094a2c9e3a480092e938c033` | 聪网已确认，commit height `27` |
-| ORDX 小额 splicing-in L1 | `7a095955bac2ab3379bed7362b483f0d7bd743a46aa6590b795592c3457bbc5d` | 已推动 commit height `28` |
-| ORDX unlock | `66a999a21b5709ee8cbfb353f2ded0cd925f3134c2ae249d30b42f60896dfe15` | 聪网已确认，commit height `29` |
-| ORDX lock | `9299ab8ba755dcb3e669450664e1475978d7a1abc215ab6470f6705b97fe93b9` | 已完成，commit height `30` |
-| sats unlock latest | `653e7406434a84aefbee408e6874b41b1c162970490b3832d2abed01ede00b0a` | 聪网已确认，commit height `38` |
-| sats lock latest | `e0bfc23e254eb3c6b9633d72f60d8bff1179f91a44c67495d4c742ea0b2d1bd4` | 聪网已确认，commit height `39` |
-| Runes unlock latest | `9fc617970e216adbb0ba147cfc24692778d871318271c867f93465cd7a60034c` | 聪网已确认，commit height `40` |
-| Runes lock latest | `2bd0b006da9cc1050580e3f16a48625f635a64ecda118d1aeb383fe0292acd20` | 聪网已确认，commit height `41` |
-| BRC20 unlock latest | `b757801d700c74dbed9889bee0342a1376b4003193db933a76c54b029c82041d` | 聪网已确认，commit height `43` |
-| BRC20 lock latest | `5373e064ff0b408d10410d7160915f5c79b2cb7cfd0e91159f232daa67168e54` | 聪网已确认，commit height `44` |
-| retained old Core Node-side commitment | `d4774addc9758f26807a5d476e7305051051549a362e9659fc4f6152db25e634` | retained height `44`，BTC testnet4 mempool 可见 |
-| retained deAnchor | `13767d3d7139880cc571c7d0c7739656492965e4323af79d933009b3b3a5c173` | 聪网 height `3460` 已确认 |
-| state advance after retain | `7439b9ad4cf7dd9df0d3c7528dd11c272c914372742a17b9bf9e4fef8f10f1a4` | 小额 sats lock，commit height `45` |
-| punish tx | `94fc21bf3702f147152d3a9aa6312e32615be95228a3a11f10d6aa636290e7dc` | `stp.punish_build` verified，已广播，BTC testnet4 mempool 可见 |
+| fresh open funding | `dbaff278b630215bfe12543ab0f84287c7a3df424fc8381121a2057966003df1` | BTC testnet4 height `140388` |
+| BRC20 expand | `97e9fae9442559ac597649c03ad4eee095f6f58d4c2b5217fa6d7290b6747265` | `brc20:f:sgas` `1000`，commit height `1` |
+| sats unlock / lock | `4b3a2ab3a957f99884cb2e862b9879f61d8d9d2dcc1d1b79fd34eb77f4f45b04`、`41170da95b97d33723c47af6b1633e1d409b364aa01b9c0785595a44dbe5c19d` | commit height 推进到 `3` |
+| BRC20 splicing-out | `ddf3e3e712d9b5bb343fccdf6c4485accb4587dcb6afb1731fe8a87c36b64238` | BTC testnet4 height `140395`，通道 `sgas` `1000 -> 900` |
+| retained old Core Node-side commitment | `d6084d8f789a8977c5e6ed6f7245587aab71129df4776bf5b60a851cafda2939` | retained height `4`，随后推进到 height `5` |
+| punish package | `2364b55db774a2a032ec16f991b49ddc70ee7e4aa3b8c96aaf99960669c8ab7a`、`79a1fc6d17befb774aeee54e7f1675aa1f323653714441d1034ef1ead7912a22`、`f2d01ac1e9b1df247b45e2e4536efef8cfbfe70d563972197e7fa6f37f004e0c`、`4a426d996035e29e78ffb9f5fa570f0cce4ce26c17e1e39f06ed66303c7f7539` | old commitment 与全部 punish tx 均在 BTC testnet4 height `140402` 确认 |
 
-当前通道素材已经覆盖通道恢复、sats unlock/lock、Runes unlock/lock、Runes splicing-out、BRC20 splicing-out、BRC20 splicing-in、ORDX 小额 splicing-in 和 ORDX unlock/lock。最新一轮还完成了真实Core Node 侧旧 commitment 广播和真实 punish 广播：通道在 retained height `44` 后推进到 `45`，client safety snapshot 显示旧 commitment `d4774add...e634` 的 punish tx `94fc21...e7dc` 为 `verified=true`、`broadcastable=true`，随后旧 commitment 与 punish tx 均进入 BTC testnet4 mempool。该素材可以直接用于完整技术演示版的惩罚证明段落。
+这组素材适合作为“当前测试网最新安全验证”片段：它简短、完整，并且 old commitment 与 punish package 已确认。它不包含新的 Runes splicing-in；如果视频需要同时展示 Runes，需要重新采集一轮当前 L1/L2 都可复核的新素材。
 
 视频不展示网络错误、重试过程或后台排障。遇到等待确认、pending anchor 或未 ready 的状态，只展示 Agent 的最终可解释结论：暂停价值移动，等待 L1/L2 证据完整后再继续。
-
-`2026-06-13`，通道已恢复到新的 channel point `88e1b9dba50105996acf881183654742e3503bb7f553b4afe9c8165662e744c6:0`，并完成了一轮更适合视频演示的多资产流程：
-
-| 片段 | 真实证据 | 状态 |
-| --- | --- | --- |
-| BRC20 expand | `d4774addc9758f26807a5d476e7305051051549a362e9659fc4f6152db25e634:1` -> anchor `14c707412407c63dbb12e26b174494f2e061c706884ae0e1d6e067c34e2d26dc` | commit height `1` |
-| ORDX expand | `d4774addc9758f26807a5d476e7305051051549a362e9659fc4f6152db25e634:2` -> anchor `c908624076d08ef5da215d9e7ac33d6d3236a7ea6eb54065a666e9fc2ef57c7f` | commit height `3` |
-| Runes expand | `d4774addc9758f26807a5d476e7305051051549a362e9659fc4f6152db25e634:3` -> anchor `5b78b6382b8a8f84f4a59e7353294f76a74d2250a17d387d755d00ac8e4ccb2f` | commit height `4` |
-| sats unlock / lock | `1f1023962f5f82d6a7f3fe7811d9858294d533730dd9b944d188c1aed6e4dae0` / `ab8830a55d02fe576baf28aa8e8801d492eea14908ce1f85457c520c4ab0e435` | commit height `5` / `6` |
-| BRC20 unlock / lock | `245fe5a2a8ee09c895e9c83ce37c9efaa8866ecf569ec307514376150b6211ca` / `c00b0e01b3b1d7f9d436569988b29ac0fd62243123cdd120ab028a9b87f2634e` | commit height `7` / `8` |
-| retained old Core Node-side commitment | `3cc0479d77d1f9b9523bdd5f515821bd539df0c54fc39c11ae8f5db3b5791b0f` | retained height `8`，L1 mempool 可见 |
-| state advance after retain | `b822218ad2e8524392b3fa29549b133eea95c186f1cb7695f6fe6622c241d215` | commit height `9` |
-| punish package | `1abfb62dda8dc11816fd2483c079f8e58fd12bd7a47a78005a01667baef90f40`, `b32445e3423db7b550e7b6d949c41a8f5b81d5e09a8549cb7eae08a140e4c60f`, `25d895df2ccccdbee48dba65876f8a46981aaa62815d7d1555313150235ced6d`, `363d2c9482bdfd76861add15d9c520b0f5e8bc42318e1e598ad6a1b1d450f73e` | 全部在 BTC testnet4 height `139325` 确认，观察时确认数 `5` |
-
-这一轮素材比 `2026-06-11` 的单笔 punish 更完整：它展示了 Core Node 侧旧 commitment 下多协议资产的惩罚包，而不是只有普通双输出惩罚。完整技术演示版应优先采用这组素材。视频旁白应以 L1 已确认的 old commitment / punish 交易和 Core Node closed 状态作为惩罚演示结论，不展示中间调试过程。
-
-`2026-06-13` 后续又启动了一轮更干净的复拍流程：旧通道已关闭且不再复用，因此重新 `open` 一个 fresh client-core channel，再把通道地址上的遗留资产 `expand` 进新通道。
-
-| 片段 | 真实证据 | 状态 |
-| --- | --- | --- |
-| fresh open funding | `fc2282849c15286fe2e7dba05847dad376d4d49a04fde06111d0a3ceac48093c` | BTC testnet4 height `139342` 已确认 |
-| fresh opening anchor | `1162c17f071ea4c7cdfb77689ec9e9afcf1f82a9b813e806166db43e4e62a76e` | 新通道 `commitHeight=0` |
-| expand channel sats | `c66b47bf25eeeea439ed83d06f49cee08402e1321135a0de9a1afe5d5b242463` | 聪网 height `3488` 已确认，commit height `1` |
-| sats unlock / lock | `063f9df62ef0c70ad219ee70d7d617a13fa185afa2810689c2f81d5a6e01ea6b` / `08f0eb48c9d0bb09cc5843e4545ff04f44fc4f60bf3af44bca1979ee334ba726` | 聪网 height `3489` / `3490`，commit height `2` / `3` |
-| Runes splicing-in | `4ab20f45818dc73e11ad5834249f358a017c5c6b384074530c9e96e5364f06ed` -> L2 anchor `4919367e362fdf61d0943afe0b3629f79dc93fed5cf7bde811949fa44971ca1a` | L1 height `139370`，L2 height `3491`，commit height `4` |
-| BRC20 splicing-in | commit `03fb93e84154bd55c4fb47c5f08eb839189229ea13f6ade710c9b2bd6ff24d03`，reveal `015b6d3cbfce0ef37899d812a68713cfbb89fd84e25616fda6edf648aa52b66f`，splicing `c6481a19471dc2fc15ec411f9c2b04f5c48a13ea33a74e4e4be494cc3f703793` | 当前 L1 `0` 确认，local/core 均 `commitHeight=5`，BRC20 anchor `440828e1b6ef36a3136021b40d9f8940cf0f866f93ee3b1c95a3c9758432d531:0` 仍在 `pendingUtxosL2` |
-
-这轮 fresh open 素材更适合展示 Agent 的安全纪律：即使 BRC20 已经进入双方 commitment 的资产分配，只要 L1 splicing tx 尚未确认、L2 anchor 仍在 `pendingUtxosL2`，Agent 就不应执行 BRC20 unlock/lock。视频中可以把这作为“AI Agent 懂得等待可花费证明”的一幕，避免观众误以为 commitment balance 就等于可立即花费的 L2 UTXO。
-
-`2026-06-13` 后续，BRC20 splicing-in 完成收敛，Agent 补拍了 BRC20 往返和第二轮四笔 punish 包：
-
-| 片段 | 真实证据 | 状态 |
-| --- | --- | --- |
-| BRC20 anchor spendable | `440828e1b6ef36a3136021b40d9f8940cf0f866f93ee3b1c95a3c9758432d531:0` | 聪网 height `3492`，进入 `UtxosL2` |
-| BRC20 unlock / lock | `2e5e0fe1f44a8a6e1754558c5a9829a2b78bd6b661c7ba10f215e755888cd862` / `63fd7bf150e2678956fa765b4780c2ff5cf07cd203d0d04e7eb3ae31f7e3c289` | commit height `6` / `7` |
-| retained old Core Node-side commitment | `151226853632d61d177b3279fcf99a7c144beaa3d018abd55f00f5b2adc24909` | retained height `7`，随后用 `86310825ffa2d7d229d95b175c164ed2e32cefa354459f2060d68fb65ea326d7` 推进到 height `8` |
-| punish package | `459877810aa391f4da5ce6a7b0a817daee0dd63f4a24b8d77062dee7ef47fbee`, `23b3e6809eb5277ff9da7fb767ca8dc54e75f034104069f8c8a873b5e7c41451`, `c80dd18b79bbf1600a1a630be953de7e9f698d96c5b6a1d20eecf8f27dbb6859`, `22643d7c0b8f4a6aee93bcafceecc318ca56b9d31196e17b87fda43a9ee845d5` | 四笔均在 BTC testnet4 height `139387` 确认 |
-| fresh open after punish | `e9c283cc9979bafa4f32f872dc2d0c910b89d810ef6801a1ad55bbeb5e585782` | 惩罚确认后清理 stale channel，用 ordinary `stp.open` 重新打开；funding 已在 BTC testnet4 height `139406` 确认 |
-| fresh channel safety close-out | unlock `b88653f646e192765acaecbf338138c057c4ae420cbfddf7476f3cf5ea7994a8`，punish `84524f5aaa367f6ff7bcb15e1d01f8f7fa97fa93779c04cb96bc5ec58afa31a4` | fresh channel `READY_SAFE`，commit height `1`，新 revoked remote commitment 已有 verified / broadcastable punish coverage |
-
-这组素材可以作为完整技术演示版的第二条备选线：它展示了 BRC20 资产从 pending 到 spendable、再到 unlock/lock，最后进入旧 commitment 惩罚包。视频叙事不展示中间调试过程，只强调用户钱包持有承诺交易和惩罚旧状态的能力。最终画面使用 fresh open 后的新通道状态：funding 已确认、通道 `READY_SAFE`、commit height 已推进到 `1`，且新的 revoked remote commitment 已有 verified punish coverage。由于测试网即将回滚，本轮不再追加新的 expand/splicing/punish 链上操作。
 
 ## 1 分钟结构（优先）
 
@@ -120,11 +64,27 @@
 | --- | --- | --- |
 | 0:00-0:06 | PWA 钱包资产页 + 通道页 | 用户钱包连接 Core Node 的私人通道，不是托管账户 |
 | 0:06-0:12 | L1 浏览器 funding tx | BTC 进入 2-of-2 通道地址，这是安全边界 |
-| 0:12-0:24 | L1/L2 indexer + splicing tx | Runes、BRC20、ORDX 的真实 txid 证明多协议资产可进入或退出通道 |
+| 0:12-0:24 | L1/L2 indexer + splicing tx | 当前素材展示 BRC20 与 sats 的通道流转；Runes / ORDX 需要重新采集当前可复核 txid |
 | 0:24-0:36 | L2 浏览器 + unlock/lock tx | 资产可以在聪网个人地址流动，也可以重新回到通道保护 |
 | 0:36-0:48 | `stp.safety_snapshot` | Agent 读取承诺高度、local/remote commitment 和 punish coverage |
-| 0:48-0:56 | 旧 commitment `d4774add...e634` 与 punish `94fc21...e7dc` | Core Node 广播旧状态，Agent 用用户钱包广播 punish |
+| 0:48-0:56 | 旧 commitment `d6084d...2939` 与 punish package | Core Node 广播旧状态，Agent 用用户钱包广播 punish |
 | 0:56-1:00 | PWA 钱包 + 安全结论字幕 | 用户拥有链上退出和惩罚旧状态的能力 |
+
+## 当前演练结构
+
+新版视频不复用早期 L2 状态作当前结论。1 分钟版可以压缩为：
+
+| 时间 | 画面 | 讲述重点 |
+| --- | --- | --- |
+| 0:00-0:08 | PWA / Agent 执行 `stp.open` | “Agent 从普通 client open 开始，建立可验证的 STP 私人通道安全边界。” |
+| 0:08-0:18 | L1 indexer 查询通道地址白聪 UTXO | “通道地址上已有白聪 UTXO，Agent 用 expand 将其纳入通道管理。” |
+| 0:18-0:30 | `stp.expand` + L2 anchor | “通道地址上的 L1 UTXO 被重新纳入通道承诺状态。” |
+| 0:30-0:40 | Runes / BRC20 `stp.splicing_in` | “协议资产重新通过 splicing-in 进入通道，形成新的 L1/L2 证据。” |
+| 0:40-0:48 | unlock / lock / 小额 splicing-out | “资产可以进入聪网个人地址、回到通道保护，也可以小额退出回 BTC L1。” |
+| 0:48-0:54 | safety snapshot + retained old commitment | “每次状态推进后，旧 remote commitment 都有惩罚覆盖。” |
+| 0:54-1:00 | old commitment + punish tx 的 L1 浏览器 | “Core Node 广播旧状态时，用户钱包可以广播 punish tx 保护资产。” |
+
+完整技术演示版需要保留更多页面停留时间，展示 open funding、plain sats expand、Runes / BRC20 splicing-in、pending L2 anchor 到 spendable、unlock / lock、小额 splicing-out，以及 punish build dry-run 的输入输出摘要。
 
 ## 完整技术演示版（建议 3-5 分钟）
 

@@ -2,6 +2,25 @@
 
 本文给出开发者进入 SAT20 / 聪网生态的最短路径。
 
+## 先选择一个可运行目标
+
+| 目标 | 指南 |
+| --- | --- |
+| 部署第一个 EVM 合约 | [EVM Quickstart](evm-quickstart.md) |
+| 搭建社区 DEX / DAO | [Community DEX / DAO Quickstart](community-dex-quickstart.md) |
+| 部署社区 DAO | [DAO Quickstart](dao-quickstart.md) |
+| 部署 AMM 池 | [AMM Pool Quickstart](amm-pool-quickstart.md) |
+| 部署 Launchpad | [Launchpad Quickstart](launchpad-quickstart.md) |
+| 部署限价单模块 | [Limit Order Quickstart](limit-order-quickstart.md) |
+| 运行 Core Node、Indexer、Explorer | [Infrastructure Quickstart](infrastructure-quickstart.md) |
+| 集成 Wallet SDK | [Wallet SDK Quickstart](wallet-sdk-quickstart.md) |
+| 搭建白标 DEX | [White-label DEX](white-label-dex.md) |
+| 构建 SatoshiNet AI Agent | [AI Agent Quickstart](ai-agent-quickstart.md) |
+| 查看合约模板状态 | [合约模板目录](contract-template-catalog.md) |
+| 集成钱包或交易平台 | [交易平台与钱包接入](exchange-and-wallet.md) |
+
+每个 quickstart 都会逐步补齐环境要求、当前支持版本、测试网 RPC、Chain ID、测试资产、命令行步骤、配置示例、预期输出、Explorer 验证方式、常见错误和生产环境注意事项。
+
 ## 选择你要构建什么
 
 | 你要构建 | 起点 |
@@ -67,3 +86,5 @@ curl -fsSL https://raw.githubusercontent.com/sat20-labs/docs/main/ai/sat20-agent
 8. 通过 indexer 复核 L1/L2 资产证据链。
 
 验收清单见 [STP 第三方客户端实现验收清单](../protocol/stp/implementation-checklist.md)。
+
+**页面状态：规划中（Planning）**

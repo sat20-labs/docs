@@ -1,0 +1,113 @@
+{
+  "date": "2026-06-18",
+  "chain": "btc-testnet4-and-satoshinet-testnet",
+  "purpose": "Compact current-testnet STP drill evidence after SatoshiNet rollback: open, expand, unlock, lock, BRC20 splicing-out, retained old Core Node commitment, and client punish package.",
+  "notes": [
+    "This evidence uses current v3/code-backed endpoints and actual indexer/RPC responses, not stale Swagger output.",
+    "This compact run proves current-testnet punish capability. The fuller multi-asset video storyline can still use the earlier Runes+BRC20 evidence package where both assets were completed in one run.",
+    "Runes recovery was not forced in this compact run because the available candidate was tied to an old drained anchor state. The Agent stopped instead of inventing unsafe asset evidence."
+  ],
+  "actors": {
+    "client_l1_address": "tb1pxvm0c5gt6jcjg9el8fnnjuxwsn3yme9e0zkjnp0g4658suvkw0cq4mprqc",
+    "channel_address": "tb1q9kf9jpmh92e8gxp4sk3mrmax28726qurl04j6x70457vzu46fzdqhe9hzu",
+    "core_node_pubkey": "0367f26af23dc40fdad06752c38264fe621b7bbafb1d41ab436b87ded192f1336e"
+  },
+  "operations": [
+    {
+      "step": "open",
+      "l1_funding_txid": "dbaff278b630215bfe12543ab0f84287c7a3df424fc8381121a2057966003df1",
+      "funding_outpoint": "dbaff278b630215bfe12543ab0f84287c7a3df424fc8381121a2057966003df1:0",
+      "funding_value_sats": 40000,
+      "confirmation_height": 140388,
+      "result": "channel ready"
+    },
+    {
+      "step": "expand_all",
+      "l2_anchor_txid": "97e9fae9442559ac597649c03ad4eee095f6f58d4c2b5217fa6d7290b6747265",
+      "asset": "brc20:f:sgas",
+      "amount": "1000",
+      "commit_height_after": 1,
+      "result": "BRC20 asset entered channel commitment"
+    },
+    {
+      "step": "unlock",
+      "asset": "sats",
+      "amount": "1000",
+      "l2_txid": "4b3a2ab3a957f99884cb2e862b9879f61d8d9d2dcc1d1b79fd34eb77f4f45b04",
+      "commit_height_before": 1,
+      "commit_height_after": 2
+    },
+    {
+      "step": "lock",
+      "asset": "sats",
+      "amount": "500",
+      "l2_txid": "41170da95b97d33723c47af6b1633e1d409b364aa01b9c0785595a44dbe5c19d",
+      "commit_height_before": 2,
+      "commit_height_after": 3
+    },
+    {
+      "step": "splicing_out",
+      "asset": "brc20:f:sgas",
+      "amount": "100",
+      "l1_txid": "ddf3e3e712d9b5bb343fccdf6c4485accb4587dcb6afb1731fe8a87c36b64238",
+      "confirmation_height": 140395,
+      "commit_height_before": 3,
+      "commit_height_after": 4,
+      "channel_asset_after": "brc20:f:sgas 900"
+    },
+    {
+      "step": "retain_old_core_node_commitment",
+      "retained_commit_height": 4,
+      "retained_commit_txid": "d6084d8f789a8977c5e6ed6f7245587aab71129df4776bf5b60a851cafda2939",
+      "retained_deanchor_status": "constructed and locally accepted during retention; no current public txid is listed because the old-state deAnchor is not visible on the current L2 indexer",
+      "l2_acceptance_ok": true
+    },
+    {
+      "step": "advance_state",
+      "operation": "unlock sats 500",
+      "l2_txid": "030b357ad599d900564831cef63f79a2e07531022c3af4ceed8dd0d0df37bfdc",
+      "commit_height_before": 4,
+      "commit_height_after": 5
+    },
+    {
+      "step": "broadcast_old_core_node_commitment",
+      "old_commitment_txid": "d6084d8f789a8977c5e6ed6f7245587aab71129df4776bf5b60a851cafda2939",
+      "l1_broadcasted": true,
+      "confirmation_height": 140402,
+      "note": "The old retained deAnchor was not rebroadcast after state advance; missing-inputs is expected for this old-state drill."
+    },
+    {
+      "step": "punish_build_and_broadcast",
+      "old_commitment_txid": "d6084d8f789a8977c5e6ed6f7245587aab71129df4776bf5b60a851cafda2939",
+      "verified": true,
+      "broadcastable": true,
+      "punish_txids": [
+        "2364b55db774a2a032ec16f991b49ddc70ee7e4aa3b8c96aaf99960669c8ab7a",
+        "79a1fc6d17befb774aeee54e7f1675aa1f323653714441d1034ef1ead7912a22",
+        "f2d01ac1e9b1df247b45e2e4536efef8cfbfe70d563972197e7fa6f37f004e0c",
+        "4a426d996035e29e78ffb9f5fa570f0cce4ce26c17e1e39f06ed66303c7f7539"
+      ],
+      "confirmation_height": 140402,
+      "confirmations_observed": 4,
+      "result": "old Core Node commitment and all punish transactions confirmed in the same BTC testnet4 block"
+    }
+  ],
+  "post_punish_observation": {
+    "l2_channel_address_summary": "30000 sats",
+    "l2_client_address_summary": "980 sats",
+    "current_channel_record": {
+      "status": "CS_READY",
+      "status_code": 16,
+      "chan_point": "cda894102cfe72667c54e14b259b95d38037f8cbb6e39d1adeef7f8efb5d00f7:0",
+      "capacity_sats": 30000,
+      "commit_height": 0
+    },
+    "interpretation": "The old punished L1 state and the current channel record are separate evidence lines. Agent-facing reports must not merge them into one state transition."
+  },
+  "agent_rules_validated": [
+    "Do not rely on service success strings alone; query every returned L1 txid after package broadcast.",
+    "If peer/network result is unknown before final acknowledgement, local state must not advance without peer evidence.",
+    "If an asset recovery candidate cannot be safely tied to current channel evidence, stop and report the ambiguity instead of forcing an expand.",
+    "Use current v3/code-backed endpoints and actual runtime responses for validation."
+  ]
+}

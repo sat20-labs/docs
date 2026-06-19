@@ -1,0 +1,54 @@
+{
+  "project": "sat20-agent-wallet-one-minute-en",
+  "title": "SAT20 Agent Wallet / STP 1-Minute Public Video EN",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "badge": "Bitcoin testnet4 / SatoshiNet testnet",
+  "font_file": "/System/Library/Fonts/PingFang.ttc",
+  "output_file": "sat20-agent-wallet-one-minute-en-silent.mp4",
+  "segments": [
+    {
+      "id": "wallet-en",
+      "source": "frames/en-01-wallet.png",
+      "duration": 8.0,
+      "caption": "SAT20 Wallet keeps mnemonic and signing authority.",
+      "detail": "real PWA wallet page"
+    },
+    {
+      "id": "funding-en",
+      "source": "frames/en-02-funding-l1.png",
+      "duration": 10.0,
+      "caption": "A real BTC L1 funding transaction.",
+      "detail": "mempool.space/testnet4"
+    },
+    {
+      "id": "unlock-en",
+      "source": "frames/en-03-unlock-l2.png",
+      "duration": 10.0,
+      "caption": "A real SatoshiNet unlock transaction advances the commit height.",
+      "detail": "mempool.sat20.org/testnet"
+    },
+    {
+      "id": "oldcommit-en",
+      "source": "frames/en-04-oldcommit-l1.png",
+      "duration": 14.0,
+      "caption": "The revoked commitment is really broadcast on BTC L1.",
+      "detail": "revoked state on chain"
+    },
+    {
+      "id": "punish-en",
+      "source": "frames/en-05-punish-l1.png",
+      "duration": 12.0,
+      "caption": "The wallet broadcasts punish and sweeps funds back.",
+      "detail": "wallet-controlled recovery"
+    },
+    {
+      "id": "conclusion-en",
+      "source": "frames/en-06-conclusion.png",
+      "duration": 6.0,
+      "caption": "STP safety rests on commitments and punishment of revoked states.",
+      "detail": "user-controlled safety"
+    }
+  ]
+}

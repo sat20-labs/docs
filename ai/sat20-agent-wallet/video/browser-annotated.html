@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAT20 Agent Wallet Browser Shot</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0d0e12;
+      --panel: rgba(8, 10, 16, 0.82);
+      --panel-2: rgba(18, 22, 34, 0.92);
+      --border: rgba(255,255,255,0.12);
+      --text: #f5f7fb;
+      --muted: #b6bfd6;
+      --accent: #d14cff;
+      --good: #34d399;
+      --warn: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .frame {
+      width: 1280px;
+      height: 720px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      background: #05060a;
+    }
+    .shot {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      filter: saturate(1.03) contrast(1.02);
+    }
+    .veil-top {
+      display: none;
+    }
+    .veil-bottom {
+      display: none;
+    }
+    .topbar {
+      display: none;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .mark {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #9b5cff, #e54cff);
+      box-shadow: 0 0 28px rgba(204, 68, 255, 0.34);
+    }
+    .brand h1 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1;
+    }
+    .brand p {
+      margin: 4px 0 0;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .badge {
+      padding: 7px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(209, 76, 255, 0.34);
+      background: rgba(209, 76, 255, 0.12);
+      color: #f4d7ff;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .browser-chrome {
+      display: none;
+    }
+    .urlbar {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 0 10px;
+      border-radius: 10px;
+      background: rgba(9, 11, 18, 0.9);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+      overflow: hidden;
+    }
+    .url-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #34d399;
+      box-shadow: 13px 0 0 #f59e0b, 26px 0 0 #ef4444;
+      margin-right: 23px;
+      flex: 0 0 auto;
+    }
+    .url-text {
+      font-size: 12px;
+      color: #d8e0f3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .meta-row {
+      display: none;
+    }
+    .meta-chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(9, 11, 18, 0.88);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: #dbe4fa;
+      font-size: 13px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+    }
+    .info {
+      display: none;
+    }
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(8, 10, 16, 0.84);
+      backdrop-filter: blur(10px);
+      padding: 12px 14px;
+      max-width: 760px;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 8px;
+    }
+    .panel h2 {
+      margin: 0 0 4px;
+      font-size: 24px;
+      line-height: 1.15;
+    }
+    .panel p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .facts {
+      display: none;
+    }
+    .facts .head {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .fact {
+      display: grid;
+      grid-template-columns: 108px 1fr;
+      gap: 12px;
+      padding: 14px 18px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      align-items: start;
+    }
+    .fact:first-of-type { border-top: 0; }
+    .fact .label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .fact .value {
+      font-size: 16px;
+      line-height: 1.45;
+      word-break: break-word;
+    }
+    .fact .good { color: var(--good); }
+    .tag {
+      position: absolute;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(9, 11, 18, 0.96);
+      border: 1px solid rgba(255, 210, 77, 0.75);
+      color: var(--text);
+      font-size: 11px;
+      line-height: 1.1;
+      white-space: nowrap;
+      z-index: 4;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+    }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <img id="shot" class="shot" alt="">
+    <div class="veil-top"></div>
+    <div class="veil-bottom"></div>
+
+    <section class="topbar">
+      <div class="brand">
+        <div class="mark"></div>
+        <div>
+          <h1>SAT20 Agent Wallet</h1>
+          <p id="brand-sub"></p>
+        </div>
+      </div>
+      <div class="badge" id="badge"></div>
+    </section>
+
+    <section class="browser-chrome">
+      <div class="urlbar">
+        <div class="url-dot"></div>
+        <div class="url-text" id="url-text"></div>
+      </div>
+      <div class="meta-row" id="meta-row"></div>
+    </section>
+
+    <section class="info">
+      <div class="panel">
+        <div class="eyebrow" id="eyebrow"></div>
+        <h2 id="title"></h2>
+        <p id="summary"></p>
+      </div>
+      <div class="facts">
+        <div class="head" id="facts-head"></div>
+        <div id="facts-body"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const badge = "比特币 testnet4 / 聪网测试网";
+    const shared = {
+      funding: {
+        image: "./frames/raw-02-open-funding-mempool.png",
+        url: "https://mempool.space/testnet4/tx/cda894102cfe72667c54e14b259b95d38037f8cbb6e39d1adeef7f8efb5d00f7?mode=details",
+        callouts: [
+          { x: 72, y: 448, text: { zh: "用户", en: "User" } },
+          { x: 972, y: 448, text: { zh: "通道", en: "Channel" } },
+          { x: 972, y: 480, text: { zh: "对端", en: "Peer" } },
+          { x: 972, y: 512, text: { zh: "找零", en: "Change" } }
+        ]
+      },
+      unlock: {
+        image: "./frames/raw-03-unlock-l2-mempool.png",
+        url: "https://mempool.sat20.org/testnet/tx/d7a593b9301ecf795fc58d9c339b741663723e226cb984fb981a2ceebb953a11?mode=details",
+        callouts: [
+          { x: 72, y: 401, text: { zh: "通道", en: "Channel" } },
+          { x: 72, y: 453, text: { zh: "fee", en: "Fee" } },
+          { x: 984, y: 401, text: { zh: "余额", en: "Remainder" } },
+          { x: 978, y: 432, text: { zh: "到账", en: "Payout" } },
+          { x: 978, y: 464, text: { zh: "找零", en: "Change" } },
+          { x: 780, y: 496, text: { zh: "状态", en: "State" } }
+        ]
+      },
+      oldcommit: {
+        image: "./frames/raw-04-old-commitment-mempool.png",
+        url: "https://mempool.space/testnet4/tx/0d033af198e477de429c7ab656afec6e2cac5e672e62692fecf5b2a385c08f83?mode=details",
+        callouts: [
+          { x: 72, y: 448, text: { zh: "旧承诺", en: "Old commit" } },
+          { x: 972, y: 448, text: { zh: "清扫", en: "Sweep" } },
+          { x: 966, y: 480, text: { zh: "回通道", en: "To channel" } }
+        ]
+      },
+      punish: {
+        image: "./frames/raw-05-punish-mempool.png",
+        url: "https://mempool.space/testnet4/tx/6221d7793f2bbc2687d959aa2c144e25cc01be2decf9dbf2e4069cd9d21376e8?mode=details",
+        callouts: [
+          { x: 72, y: 448, text: { zh: "惩罚输入", en: "Punish" } },
+          { x: 972, y: 448, text: { zh: "用户", en: "User" } }
+        ]
+      }
+    };
+
+    const content = {
+      zh: {
+        brandSub: "真实交易页 + 地址归属标注",
+        factsHead: "关键说明",
+        funding: {
+          eyebrow: "步骤 1 / 打开通道",
+          title: "白聪先进入共享通道地址",
+          summary: "用户控制输入；通道输出和对端侧输出分开出现，用户找零仍回到自己地址。",
+          meta: ["URL 可公开复核", "确认区块 140402", "输出 0 进入通道地址"],
+          facts: [
+            ["交易编号", "cda894...00f7"],
+            ["状态", "<span class='good'>已在 mempool.space/testnet4 确认</span>"],
+            ["输入", "tb1pxvm...4mprqc"],
+            ["输出 0", "30000 聪 -> 通道地址"]
+          ]
+        },
+        unlock: {
+          eyebrow: "步骤 2 / 解锁",
+          title: "状态推进后，旧承诺变成可惩罚状态",
+          summary: "通道输入、用户 fee 输入、用户到账、找零和状态标记都能在同一笔聪网交易里看清楚。",
+          meta: ["URL 可公开复核", "提交高度 0 -> 1", "旧状态进入已撤销集合"],
+          facts: [
+            ["交易编号", "d7a593...3a11"],
+            ["网络", "mempool.sat20.org/testnet"],
+            ["作用", "提交高度 0 -> 1"],
+            ["意义", "旧状态进入已撤销集合"]
+          ]
+        },
+        oldcommit: {
+          eyebrow: "步骤 3 / 旧承诺上链",
+          title: "旧承诺真的会花费原始通道注资输出",
+          summary: "这不是日志，也不是模拟，而是任何第三方都能在一层浏览器里复核的真实交易路径。",
+          meta: ["URL 可公开复核", "确认区块 140407", "直接花费原注资输出点"],
+          facts: [
+            ["交易编号", "0d033a...8f83"],
+            ["状态", "<span class='good'>已在 mempool.space/testnet4 确认</span>"],
+            ["输入", "cda894...00f7:0"],
+            ["结论", "已撤销旧状态已经公开出现在一层网络"]
+          ]
+        },
+        punish: {
+          eyebrow: "步骤 4 / 惩罚",
+          title: "惩罚交易把暴露资产直接扫回用户地址",
+          summary: "只要旧状态真的上链，用户钱包就能沿惩罚路径收回资产控制权。",
+          meta: ["URL 可公开复核", "确认区块 140407", "作恶路径资产被扫回用户地址"],
+          facts: [
+            ["交易编号", "6221d7...76e8"],
+            ["状态", "<span class='good'>已在 mempool.space/testnet4 确认</span>"],
+            ["输入", "0d033a...8f83:0"],
+            ["输出", "4842 聪 -> 用户地址"]
+          ]
+        }
+      },
+      en: {
+        brandSub: "Real tx pages with address ownership labels",
+        factsHead: "Key Notes",
+        funding: {
+          eyebrow: "Step 1 / Open",
+          title: "The sats first enter the shared channel address",
+          summary: "The user controls the input, the shared channel output is visible, and user change still returns to the wallet.",
+          facts: [
+            ["txid", "cda894...00f7"],
+            ["status", "<span class='good'>Confirmed on mempool.space/testnet4</span>"],
+            ["input", "tb1pxvm...4mprqc"],
+            ["output 0", "30000 sats -> channel address"]
+          ]
+        },
+        unlock: {
+          eyebrow: "Step 2 / Unlock",
+          title: "State advance turns the old commitment into a punishable state",
+          summary: "The channel input, fee input, user payout, change and state marker are all visible in one SatoshiNet transaction.",
+          facts: [
+            ["txid", "d7a593...3a11"],
+            ["network", "mempool.sat20.org/testnet"],
+            ["effect", "commit height 0 -> 1"],
+            ["meaning", "the old state becomes punishable"]
+          ]
+        },
+        oldcommit: {
+          eyebrow: "Step 3 / Old commitment",
+          title: "The old commitment really spends the original funding outpoint",
+          summary: "This is a real BTC L1 path that any third party can verify in the explorer.",
+          facts: [
+            ["txid", "0d033a...8f83"],
+            ["status", "<span class='good'>Confirmed on mempool.space/testnet4</span>"],
+            ["input", "cda894...00f7:0"],
+            ["result", "revoked state visible on BTC L1"]
+          ]
+        },
+        punish: {
+          eyebrow: "Step 4 / Punish",
+          title: "Punish sweeps the exposed funds back to the user",
+          summary: "Once the old state is on chain, the wallet can immediately restore direct user control.",
+          facts: [
+            ["txid", "6221d7...76e8"],
+            ["status", "<span class='good'>Confirmed on mempool.space/testnet4</span>"],
+            ["input", "0d033a...8f83:0"],
+            ["output", "4842 sats -> tb1pxvm...4mprqc"]
+          ]
+        }
+      }
+    };
+
+    function renderFacts(localeData, key) {
+      const body = document.getElementById("facts-body");
+      body.innerHTML = "";
+      for (const [label, value] of localeData[key].facts) {
+        const row = document.createElement("div");
+        row.className = "fact";
+        const left = document.createElement("div");
+        left.className = "label";
+        left.textContent = label;
+        const right = document.createElement("div");
+        right.className = "value";
+        right.innerHTML = value;
+        row.appendChild(left);
+        row.appendChild(right);
+        body.appendChild(row);
+      }
+    }
+
+    function renderMeta(items) {
+      const row = document.getElementById("meta-row");
+      row.innerHTML = "";
+      for (const item of items || []) {
+        const chip = document.createElement("div");
+        chip.className = "meta-chip";
+        chip.textContent = item;
+        row.appendChild(chip);
+      }
+    }
+
+    function renderCallouts(key, locale) {
+      document.querySelectorAll(".tag").forEach((el) => el.remove());
+      const frame = document.querySelector(".frame");
+      for (const c of shared[key].callouts) {
+        const tag = document.createElement("div");
+        tag.className = "tag";
+        tag.style.left = `${c.x}px`;
+        tag.style.top = `${c.y}px`;
+        tag.textContent = c.text[locale];
+        frame.appendChild(tag);
+      }
+    }
+
+    function render() {
+      const [locale, key] = (location.hash.replace(/^#/, "") || "zh-funding").split("-");
+      const localeData = content[locale] || content.zh;
+      const shotData = shared[key] || shared.funding;
+      const pageData = localeData[key] || localeData.funding;
+
+      document.getElementById("shot").src = shotData.image;
+      document.getElementById("brand-sub").textContent = localeData.brandSub;
+      document.getElementById("badge").textContent = badge;
+      document.getElementById("url-text").textContent = shotData.url || "";
+      document.getElementById("eyebrow").textContent = pageData.eyebrow;
+      document.getElementById("title").textContent = pageData.title;
+      document.getElementById("summary").textContent = pageData.summary;
+      document.getElementById("facts-head").textContent = localeData.factsHead;
+      renderMeta(pageData.meta);
+      renderFacts(localeData, key);
+      renderCallouts(key, locale);
+    }
+
+    window.addEventListener("hashchange", render);
+    render();
+  </script>
+</body>
+</html>

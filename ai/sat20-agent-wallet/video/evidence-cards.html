@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAT20 Agent Wallet Evidence Cards</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0d0e12;
+      --panel: #161821;
+      --panel-2: #1d2030;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f5f7fb;
+      --muted: #a6adc1;
+      --accent: #cc44ff;
+      --good: #34d399;
+      --warn: #f59e0b;
+      --mono: "SFMono-Regular", "Menlo", "Monaco", monospace;
+      --sans: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(204, 68, 255, 0.18), transparent 32%),
+        radial-gradient(circle at top right, rgba(52, 211, 153, 0.12), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+    }
+
+    .frame {
+      width: 1440px;
+      min-height: 1080px;
+      margin: 0 auto;
+      padding: 56px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #9b5cff, #e54cff);
+      box-shadow: 0 0 30px rgba(204, 68, 255, 0.35);
+    }
+
+    .brand-text h1 {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .brand-text p {
+      margin: 6px 0 0;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .badge {
+      padding: 10px 16px;
+      border: 1px solid rgba(204, 68, 255, 0.28);
+      border-radius: 999px;
+      color: #f4d7ff;
+      background: rgba(204, 68, 255, 0.12);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      box-shadow: 0 20px 50px rgba(0,0,0,0.28);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 34px 36px 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0));
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .hero h2 {
+      margin: 16px 0 10px;
+      font-size: 42px;
+      line-height: 1.08;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 1120px;
+      font-size: 20px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .grid {
+      padding: 28px 36px 36px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .panel-title {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+      background: var(--panel-2);
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .rows {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      padding: 18px;
+      background: var(--panel);
+      align-items: start;
+    }
+
+    .label {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .value {
+      font-size: 17px;
+      line-height: 1.55;
+      word-break: break-word;
+    }
+
+    .mono {
+      font-family: var(--mono);
+      font-size: 15px;
+    }
+
+    .good {
+      color: var(--good);
+    }
+
+    .warn {
+      color: var(--warn);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    li span {
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <section class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div class="brand-text">
+          <h1>SAT20 Agent Wallet</h1>
+          <p>真实 STP / BTC testnet4 / SatoshiNet testnet 证据卡</p>
+        </div>
+      </div>
+      <div class="badge">Bitcoin testnet4 / SatoshiNet testnet</div>
+    </section>
+
+    <section class="card">
+      <div class="hero">
+        <div class="eyebrow" id="eyebrow"></div>
+        <h2 id="title"></h2>
+        <p id="summary"></p>
+      </div>
+      <div class="grid">
+        <section class="panel">
+          <div class="panel-title">核心事实</div>
+          <div class="rows" id="left-rows"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-title">安全含义</div>
+          <div class="rows" id="right-rows"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const cards = {
+      funding: {
+        eyebrow: "步骤 1 / open funding",
+        title: "BTC L1 funding 把资产送入 2-of-2 通道地址",
+        summary: "这是普通用户钱包连接 Core Node 的安全边界。资金先进入共享通道地址，随后所有状态推进都要靠双方签名的 commitment 证明。",
+        facts: [
+          ["txid", "cda894102cfe72667c54e14b259b95d38037f8cbb6e39d1adeef7f8efb5d00f7", true],
+          ["状态", "Confirmed at BTC testnet4 block 140402", false, "good"],
+          ["输入地址", "tb1pxvm0c5gt6jcjg9el8fnnjuxwsn3yme9e0zkjnp0g4658suvkw0cq4mprqc", true],
+          ["输出 0", "30000 sats -> tb1q9kf9jpmh92e8gxp4sk3mrmax28726qurl04j6x70457vzu46fzdqhe9hzu", false],
+          ["输出 1", "10000 sats -> public channel fee output", false],
+          ["结果", "channel ready at commit height 0", false, "good"]
+        ],
+        safety: [
+          ["用户控制", "通道资产不是交给 Core Node 托管，而是进入双方共同控制的 2-of-2 地址。"],
+          ["可验证性", "任意第三方都可以用 txid、outpoint 和通道地址，在 L1 上复核这个 open 是否真实发生。"],
+          ["后续前提", "后面的 unlock、lock、splicing 和 punish，都是围绕这个 funding outpoint 展开。"]
+        ]
+      },
+      retain: {
+        eyebrow: "步骤 2 / retain old commitment",
+        title: "测试网保留一份旧的 Core Node 侧 commitment",
+        summary: "这是测试网专用安全演练。目的不是移动资金，而是为后面的旧状态广播和 punish 演示保留一个可验证的作弊样本。",
+        facts: [
+          ["retained commit txid", "0d033af198e477de429c7ab656afec6e2cac5e672e62692fecf5b2a385c08f83", true],
+          ["保留高度", "commit height 0", false],
+          ["L2 acceptance", "true", false, "good"],
+          ["演练约束", "testnet only fault drill", false, "warn"],
+          ["结果", "Core Node retained its height-0 commitment for a testnet-only fault drill", false, "good"]
+        ],
+        safety: [
+          ["主网不可用", "主网不允许这种故障注入接口；它只存在于测试网，用来证明 Agent 真的能识别旧状态。"],
+          ["用户不暴露密钥", "保留旧状态不需要导出助记词、私钥或 revocation secret 给 Agent。"],
+          ["后续作用", "一旦通道状态推进，这份 height-0 commitment 就会变成可惩罚的已撤销状态。"]
+        ]
+      },
+      unlock: {
+        eyebrow: "步骤 3 / advance state",
+        title: "一次 unlock 把通道状态从 height 0 推进到 height 1",
+        summary: "这一步是安全演示的关键。只要 commit height 前进，之前保留的旧 commitment 就自动失效，后面如果再被广播，就会触发 punish。",
+        facts: [
+          ["L2 txid", "d7a593b9301ecf795fc58d9c339b741663723e226cb984fb981a2ceebb953a11", true],
+          ["操作", "unlock sats", false],
+          ["金额", "1000 sats", false],
+          ["commit height", "0 -> 1", false, "good"],
+          ["结果", "height-0 Core Node commitment became a revoked old state", false, "good"]
+        ],
+        safety: [
+          ["状态推进", "用户不是靠余额推断安全，而是靠新的 commitment 和新的 commit height 证明旧状态已被撤销。"],
+          ["旧状态风险", "从这一刻开始，任何人广播 height-0 的旧 remote commitment，都属于作弊或测试演练事件。"],
+          ["Agent 责任", "Agent 必须把旧状态纳入 punish coverage，而不是继续发起普通价值移动。"]
+        ]
+      },
+      oldcommit: {
+        eyebrow: "步骤 4 / revoked state broadcast",
+        title: "旧的 Core Node commitment 被真实广播到 BTC L1",
+        summary: "这不是模拟日志，而是已经出现在 BTC testnet4 上的真实交易。它消费了 funding outpoint，因此任何第三方都可以独立核验这次旧状态广播。",
+        facts: [
+          ["txid", "0d033af198e477de429c7ab656afec6e2cac5e672e62692fecf5b2a385c08f83", true],
+          ["状态", "Confirmed at BTC testnet4 block 140407", false, "good"],
+          ["输入", "cda894102cfe72667c54e14b259b95d38037f8cbb6e39d1adeef7f8efb5d00f7:0", true],
+          ["输出", "5000 sats to remote branch, 24807 sats back to channel address", false],
+          ["deAnchor 结果", "old retained deAnchor was rejected after state advance: missing-inputs", false, "warn"]
+        ],
+        safety: [
+          ["可识别作弊", "因为 tx 输入直接指向 funding outpoint，客户端和第三方观察者都能确认它是哪一版 commitment。"],
+          ["为什么能罚", "这笔广播发生在 commit height 已经前进之后，所以它属于已撤销旧状态。"],
+          ["行动顺序", "一旦看到这笔 tx，正确动作不是 reopen，也不是继续 splicing，而是先 punish。"]
+        ]
+      },
+      punish: {
+        eyebrow: "步骤 5 / punish broadcast",
+        title: "用户钱包构造并广播 punish tx，把资产扫回用户控制",
+        summary: "这是 STP 最重要的一击。只要对方广播旧状态，用户钱包就能凭自己持有的承诺和惩罚材料，把作恶路径上的资产直接扫回用户地址。",
+        facts: [
+          ["punish txid", "6221d7793f2bbc2687d959aa2c144e25cc01be2decf9dbf2e4069cd9d21376e8", true],
+          ["状态", "Confirmed at BTC testnet4 block 140407", false, "good"],
+          ["输入", "0d033af198e477de429c7ab656afec6e2cac5e672e62692fecf5b2a385c08f83:0", true],
+          ["输出", "4842 sats -> tb1pxvm0c5gt6jcjg9el8fnnjuxwsn3yme9e0zkjnp0g4658suvkw0cq4mprqc", false],
+          ["结果", "client wallet punished the revoked commitment and closed the unsafe channel", false, "good"]
+        ],
+        safety: [
+          ["控制权归属", "最终资产回到用户地址，而不是留给 Core Node，也不是留在一个不可解释的中间状态。"],
+          ["第三方可复核", "punish tx 直接花费 old commitment 的输出，这条因果链在 L1 上完全公开。"],
+          ["协议含义", "STP 的安全性不是口头承诺，而是“旧状态一旦上链，用户就能罚”。"]
+        ]
+      },
+      safety: {
+        eyebrow: "结论 / user-controlled safety",
+        title: "STP 的核心说服力，是让用户真正掌握资产安全",
+        summary: "钱包负责助记词、签名和授权；STP 负责承诺交易和旧状态惩罚；indexer 与 explorer 负责把每一个安全结论变成可复核证据。",
+        facts: [
+          ["钱包侧", "PWA 持有助记词，不把私钥导出给 Agent", false, "good"],
+          ["协议侧", "local commitment / remote commitment / punish coverage", false],
+          ["证据侧", "L1 txid、L2 txid、commit height、channel point 都可追溯", false],
+          ["Agent 规则", "普通价值移动前先看 READY_SAFE 和 punish coverage", false],
+          ["最终目标", "让用户相信：资产控制权始终在自己手里", false, "good"]
+        ],
+        safety: [
+          ["不是托管桥", "用户不是把币交给一个黑盒服务，而是靠可验证的承诺和惩罚机制保护自己。"],
+          ["适合 Agent", "AI Agent 比人更容易持续检查 safety snapshot、commitment export 和 punish status。"],
+          ["适合生态扩张", "这正是 SAT20 / SatoshiNet 吸引钱包、开发者、交易平台和机构的底层理由。"]
+        ]
+      }
+    };
+
+    function addRows(target, rows, right = false) {
+      for (const row of rows) {
+        const wrap = document.createElement("div");
+        wrap.className = "row";
+        const left = document.createElement("div");
+        left.className = "label";
+        left.textContent = row[0];
+        const rightEl = document.createElement("div");
+        rightEl.className = "value";
+        if (row[2]) rightEl.classList.add("mono");
+        if (row[3]) rightEl.classList.add(row[3]);
+        rightEl.textContent = row[1];
+        wrap.appendChild(left);
+        wrap.appendChild(rightEl);
+        target.appendChild(wrap);
+      }
+    }
+
+    function render() {
+      const key = location.hash.replace(/^#/, "") || "funding";
+      const data = cards[key] || cards.funding;
+      document.getElementById("eyebrow").textContent = data.eyebrow;
+      document.getElementById("title").textContent = data.title;
+      document.getElementById("summary").textContent = data.summary;
+      document.getElementById("left-rows").innerHTML = "";
+      document.getElementById("right-rows").innerHTML = "";
+      addRows(document.getElementById("left-rows"), data.facts);
+      addRows(document.getElementById("right-rows"), data.safety);
+    }
+
+    window.addEventListener("hashchange", render);
+    render();
+  </script>
+</body>
+</html>

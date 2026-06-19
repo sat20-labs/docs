@@ -129,6 +129,8 @@ PWA adapter 内部调用 `sat20wallet.wasm` 和 `stpd.wasm` 完成钱包与 STP 
 
 当前 PWA DApp Connect 桥已经暴露 `wallet.*` 和 `stp.*` 标准方法。`wallet.status` / `stp.status` 是只读查询；创建/导入/导出助记词、改密、发送资产和通道状态变更操作会进入 PWA 的 Agent Operation 授权弹窗，用户确认后再执行。
 
+`wallet.send_assets` 是 Agent 可控钱包的基础能力。Agent 只提交转账意图：网络、资产、金额、目标地址和可选备注；PWA 负责自动选币、估费、构造交易、展示预览、请求用户授权、签名广播和返回 txid。Agent 不应直接持有私钥、助记词或绕过 PWA 授权，也不应默认要求用户手工选择 asset UTXO 或 fee UTXO。
+
 当前限制：PWA 侧 `wallet.transaction` / `stp.transaction` 轮询还需要继续标准化；后续应在 PWA 内补齐交易、reservation、L1/L2 可见性和下一步建议。
 
 ### 本地测试钱包 Adapter

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAT20 Wallet Card</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0d0e12;
+      --panel: #171922;
+      --border: rgba(255,255,255,0.08);
+      --text: #f5f7fb;
+      --muted: #a6adc1;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(204, 68, 255, 0.18), transparent 32%),
+        radial-gradient(circle at top right, rgba(52, 211, 153, 0.12), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .frame { width: 1440px; min-height: 1080px; margin: 0 auto; padding: 56px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-mark {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: linear-gradient(135deg, #9b5cff, #e54cff);
+      box-shadow: 0 0 30px rgba(204, 68, 255, 0.35);
+    }
+    .brand h1 { margin: 0; font-size: 30px; }
+    .brand p { margin: 6px 0 0; font-size: 15px; color: var(--muted); }
+    .badge {
+      padding: 10px 16px; border: 1px solid rgba(204, 68, 255, 0.28);
+      border-radius: 999px; color: #f4d7ff; background: rgba(204, 68, 255, 0.12); font-size: 14px;
+    }
+    .card {
+      border: 1px solid var(--border); border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      box-shadow: 0 20px 50px rgba(0,0,0,0.28); overflow: hidden;
+    }
+    .hero { padding: 34px 36px 28px; border-bottom: 1px solid var(--border); }
+    .eyebrow {
+      display: inline-block; padding: 8px 12px; border-radius: 999px;
+      font-size: 13px; color: var(--muted); background: rgba(255,255,255,0.04);
+    }
+    h2 { margin: 16px 0 10px; font-size: 42px; line-height: 1.08; }
+    .hero p { margin: 0; font-size: 20px; line-height: 1.55; color: var(--muted); max-width: 1120px; }
+    .content { display: grid; grid-template-columns: 1.06fr 0.94fr; gap: 26px; padding: 28px 36px 36px; align-items: start; }
+    .shot { border: 1px solid var(--border); border-radius: 18px; overflow: hidden; background: var(--panel); }
+    .shot img { display: block; width: 100%; height: auto; }
+    .facts { border: 1px solid var(--border); border-radius: 18px; background: var(--panel); overflow: hidden; }
+    .facts h3 { margin: 0; padding: 16px 18px; font-size: 15px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .fact { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 18px; border-top: 1px solid var(--border); }
+    .fact:first-of-type { border-top: 0; }
+    .label { color: var(--muted); font-size: 14px; }
+    .value { font-size: 18px; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <section class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div>
+          <h1>SAT20 Agent Wallet</h1>
+          <p id="brand-sub"></p>
+        </div>
+      </div>
+      <div class="badge">比特币 testnet4 / 聪网测试网</div>
+    </section>
+
+    <section class="card">
+      <div class="hero">
+        <div class="eyebrow" id="eyebrow"></div>
+        <h2 id="title"></h2>
+        <p id="summary"></p>
+      </div>
+      <div class="content">
+        <div class="shot">
+          <img src="./frames/01-pwa-wallet-overview.png" alt="SAT20 Wallet overview">
+        </div>
+        <div class="facts">
+          <h3 id="facts-title"></h3>
+          <div id="facts-body"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const locales = {
+      zh: {
+        brandSub: "真实 PWA 钱包界面 + 穿越协议执行入口",
+        eyebrow: "步骤 0 / 钱包控制界面",
+        title: "PWA 钱包负责助记词、签名授权和资产操作",
+        summary: "AI Agent 不直接持有私钥。它通过 SAT20 Wallet 发起资产发送、通道操作和安全演练，让用户把控制权留在钱包里。",
+        factsTitle: "关键原则",
+        facts: [
+          ["密钥托管", "PWA 持有助记词和签名权限，AI Agent 只拿操作结果，不拿私钥。"],
+          ["操作范围", "钱包页可见比特币、聪网、ORDX、Runes、BRC20 等资产入口。"],
+          ["协议配合", "穿越协议负责通道、承诺交易、惩罚路径；钱包负责授权和可验证执行。"],
+          ["Agent 角色", "AI Agent 应先读取安全状态，再执行价值移动，而不是越过钱包直接操作密钥。"]
+        ]
+      },
+      en: {
+        brandSub: "Real PWA wallet UI and STP execution entry",
+        eyebrow: "Step 0 / wallet control surface",
+        title: "The PWA wallet owns mnemonic, signing and authorization",
+        summary: "The Agent does not hold private keys. It operates through SAT20 Wallet for transfers, STP channel actions and safety drills, while control remains inside the wallet.",
+        factsTitle: "Core Principles",
+        facts: [
+          ["Key custody", "The PWA holds mnemonic and signing authority. The Agent receives operation results, not private keys."],
+          ["Surface", "The wallet UI exposes BTC, SatoshiNet, ORDX, Runes and BRC20 asset entry points."],
+          ["Protocol split", "STP covers channels, commitments and punish paths; the wallet covers authorization and execution."],
+          ["Agent role", "The Agent should inspect safety state first, then move value through the wallet instead of bypassing key control."]
+        ]
+      }
+    };
+
+    function render() {
+      const key = location.hash.replace(/^#/, "") || "zh";
+      const data = locales[key] || locales.zh;
+      document.getElementById("brand-sub").textContent = data.brandSub;
+      document.getElementById("eyebrow").textContent = data.eyebrow;
+      document.getElementById("title").textContent = data.title;
+      document.getElementById("summary").textContent = data.summary;
+      document.getElementById("facts-title").textContent = data.factsTitle;
+      const body = document.getElementById("facts-body");
+      body.innerHTML = "";
+      for (const [label, value] of data.facts) {
+        const row = document.createElement("div");
+        row.className = "fact";
+        const left = document.createElement("div");
+        left.className = "label";
+        left.textContent = label;
+        const right = document.createElement("div");
+        right.className = "value";
+        right.textContent = value;
+        row.appendChild(left);
+        row.appendChild(right);
+        body.appendChild(row);
+      }
+    }
+    window.addEventListener("hashchange", render);
+    render();
+  </script>
+</body>
+</html>

@@ -1,62 +1,72 @@
 # SAT20 与聪网
 
-SAT20 是围绕比特币原生资产建立的协议与网络体系。它的核心目标是让 BTC、Ordinals、Runes、BRC20、ORDX 等资产在保持用户控制权的前提下，获得更低成本、更快确认、更适合应用和合约的流动环境。
+## 让每一个 BTC 社区拥有自己的金融基础设施
 
-聪网 SatoshiNet 是 SAT20 生态的比特币原生扩展网络。它不是托管桥，也不是独立发行一套与比特币无关的新资产系统。聪网的资产入口来自比特币主网，资产事实由 indexer 统一表达，安全边界由 STP 通道、承诺交易、惩罚交易、强制关闭和 BTC L1 可验证交易共同构成。
+聪网 SatoshiNet 是 SAT20 生态的比特币原生扩展网络。它让 BTC、Ordinals、Runes、BRC20、ORDX 等主网资产在保持用户控制权的前提下，进入更低成本、更快确认、可编程、可由 AI Agent 协助操作的应用环境。
 
-## 核心判断
+SAT20 的目标不是只提供一组协议，而是帮助 BTC 社区搭建可自主运营的金融基础设施：Core Node、Indexer、Explorer、钱包、Launchpad、AMM、限价单、通道合约、DAO、社区基金、DEX 前端与后台，以及面向 AI Agent 的安全操作接口。
 
-比特币生态长期缺少一个同时满足三件事的网络：
+- [为我的社区搭建 DEX / DAO](community-stack/readme.md)
+- [查看当前可用能力](ecosystem/satoshinet-today.md)
+- [加入 Builder Program](ecosystem/builder-program.md)
 
-1. 资产来自比特币主网，而不是由中心化桥托管或凭空发行。
-2. 用户始终保留退出能力，Core Node 失败或作恶时仍能保护资产。
-3. 网络足够便宜、快速、可编程，可以承载交易、合约、AI Agent 和更复杂的应用。
+## 当前能做什么
 
-聪网要解决的就是这个问题。
+| 能力 | 当前用途 | 入口 |
+| --- | --- | --- |
+| 社区基础设施 | 为 BTC 社区规划 Core Node、Indexer、Explorer、钱包、DEX、DAO 和运营后台 | [Community Stack](community-stack/readme.md) |
+| 资产进入聪网 | 通过 Indexer 识别 BTC L1 资产事实，通过 STP 将资产纳入用户可退出的通道安全边界 | [STP 简介](learn/stp.md) |
+| 用户使用 | 安装钱包、进入聪网、完成第一次 Swap、使用 Explorer 验证交易 | [Use](use/readme.md) |
+| 开发者构建 | 部署 EVM 合约、搭建社区 DEX / DAO、运行基础设施、构建 Agent | [Build](build/readme.md) |
+| AI Agent 操作 | 让 Agent 在不持有私钥、不绕过钱包授权的前提下执行资产安全检查和操作 | [SAT20 Agent Wallet](ai/sat20-agent-wallet/readme.md) |
+| 生态合作 | 申请试点、贡献工具、提供流动性、运行节点或参与内容与安全建设 | [Ecosystem](ecosystem/readme.md) |
 
-## 四个基础
+## 一个 BTC 社区可以拥有
 
-| 基础 | 作用 |
+| 模块 | 社区得到什么 |
 | --- | --- |
-| STP | 让 BTC L1 资产进入、流通和退出聪网，同时保持用户控制权 |
-| Indexer | 将 BTC、Ordinals、Runes、BRC20、ORDX 等主网资产统一表达为可查询、可验证的资产事实 |
-| 智能合约 | 让聪网从资产流通层发展为应用网络 |
-| GAS | 为聪网合约执行、交易处理和生态激励提供经济入口 |
+| Core Node | 面向社区用户和应用的聪网接入点 |
+| Indexer | BTC L1 多协议资产事实查询和验证能力 |
+| Explorer | 交易、通道、合约、资产和社区活动的可视化入口 |
+| Wallet / SDK | 用户资产控制、签名授权和应用接入入口 |
+| Launchpad | 社区资产发行、分发和启动工具 |
+| AMM / 限价单 | 社区内部和跨社区流动性 |
+| DAO / 社区基金 | 社区参数、资产、贡献和公共资金管理 |
+| DEX 前端与后台 | 社区可运营的交易与资产管理产品 |
+| AI Agent | 通过对话完成安全检查、操作引导、部署规划和运营辅助 |
 
-STP 和 indexer 是资产进入聪网的基础。Indexer 说明主网上有哪些资产、在哪些 UTXO 中、状态是否确认；STP 负责把这些资产纳入用户可退出、可惩罚旧状态的通道安全边界。智能合约和 GAS 是聪网应用生态的助推器：它们让资产进入聪网之后可以参与交易、做市、支付、合约和更复杂的应用。
+## 选择你的角色
 
-AI Agent 是新的使用界面。STP 的通道安全、承诺交易、惩罚交易和跨层状态对普通用户很复杂，但 Agent 可以读取证据、执行检查、调用钱包 adapter，并向用户解释下一步是否安全。
+| 你是谁 | 从这里开始 |
+| --- | --- |
+| 我运营一个 BTC 社区 | [社区路径](start-here/btc-community.md) |
+| 我是 Solidity / EVM 开发者 | [开发者路径](start-here/developers.md) |
+| 我运行基础设施 | [基础设施路径](start-here/infrastructure.md) |
+| 我是钱包或交易平台 | [钱包与交易平台路径](start-here/wallet-exchange.md) |
+| 我是 AI Agent 开发者 | [AI Agent 路径](start-here/ai-agent-builders.md) |
+| 我想提供流动性 | [流动性路径](start-here/liquidity.md) |
 
-## 从哪里开始
+## 为什么可信
 
-如果你是第一次了解 SAT20：
+SAT20 的可信基础来自四层组合：
 
-1. 阅读 [为什么需要比特币原生扩展网络](learn/bitcoin-native.md)。
-2. 阅读 [资产安全模型](learn/security-model.md)。
-3. 阅读 [Indexer：比特币资产事实层](learn/indexer.md)。
-4. 阅读 [STP 简介](learn/stp.md)。
-5. 阅读 [智能合约与 GAS](learn/smart-contracts-and-gas.md)。
-6. 阅读 [AI Agent 与用户资产控制](learn/ai-agent.md)。
+1. BTC L1 是资产来源和最终结算层。
+2. Indexer 将 BTC、Ordinals、Runes、BRC20、ORDX 等资产统一表达为可查询、可复核的资产事实。
+3. STP 通过通道、承诺交易、惩罚交易和强制关闭路径，让用户在 Core Node 失败或作恶时仍保留退出能力。
+4. SatoshiNet 提供低成本、快速确认、可编程的执行环境，智能合约和 GAS 让资产进入可持续使用场景。
 
-如果你要构建应用：
+AI Agent 是新的使用界面。普通用户不必理解每一笔承诺交易的细节，但 Agent 可以读取证据、执行检查、调用钱包 adapter，并向用户解释当前资产是否仍处在可控状态。
 
-1. 从 [开发者中心](build/readme.md) 开始。
-2. 阅读 [开发者快速开始](build/quickstart.md)。
-3. 选择 STP、Indexer、智能合约或 PWA adapter 的接入路径。
+## 下一步
 
-如果你要让 AI Agent 操作 STP：
-
-1. 阅读 [比特币生态 AI Agent 资产安全评估规范](ai/bitcoin-agent-safety-standard.md)。
-2. 安装并初始化 [SAT20 PWA Wallet](https://sat20.org/pwa/?install=1)，在钱包内创建或导入钱包，并完成备份和解锁。
-3. 阅读 [SAT20 Agent Wallet 安装与使用](ai/sat20-agent-wallet/readme.md)。
-4. 安装 SAT20 Agent Wallet skill：
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/sat20-labs/docs/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/scripts/install.sh | bash
-```
-
-5. 让 Agent 通过 PWA adapter 执行 `wallet.status`、`stp.status` 和 `stp.safety_snapshot`，确认钱包、网络、Core Node 和通道安全状态。
-6. 阅读 [SAT20 Agent Wallet 验证矩阵与数据缺口](ai/sat20-agent-wallet/verification-and-data-gaps.md)。
+| 目标 | 页面 |
+| --- | --- |
+| 三分钟了解聪网能为你做什么 | [Start Here](start-here/readme.md) |
+| 查看已经可用、测试网可用和开发中的模块 | [SatoshiNet Today](ecosystem/satoshinet-today.md) |
+| 学会使用钱包、Swap、Explorer 和 Agent | [Use](use/readme.md) |
+| 跑通第一个合约、DEX、节点或 Agent | [Build](build/readme.md) |
+| 理解 STP、Indexer、通道合约和安全模型 | [Protocol](protocol/readme.md) |
+| 申请合作或贡献生态 | [Builder Program](ecosystem/builder-program.md) |
 
 ## 官方入口
 
@@ -65,16 +75,4 @@ curl -fsSL https://raw.githubusercontent.com/sat20-labs/docs/main/ai/sat20-agent
 - X：[SAT20Labs](https://x.com/SAT20Labs)
 - GitHub：[sat20-labs](https://github.com/sat20-labs)
 
-## 文档结构
-
-| 入口 | 内容 |
-| --- | --- |
-| Learn | 面向所有读者，解释聪网、STP、Indexer、安全模型、智能合约、GAS 和 AI Agent |
-| Use | 面向用户，说明钱包、跨层流动、资产验证和风险边界 |
-| Build | 面向开发者、钱包、交易平台和基础设施团队 |
-| Protocol | 面向实现者和审计者，记录 STP、SatoshiNet、ORDX、Indexer 和合约协议 |
-| AI Agent | 面向 Agent 开发者和钱包 adapter，实现可验证的资产控制 |
-| Ecosystem | 面向建设者、资产方、交易平台、投资机构和社区成员 |
-| Roadmap | 说明聪网生态的阶段目标、公开里程碑和长期方向 |
-
-这份文档会持续演进。我们优先保证协议事实准确、测试网证据可复核、开发者路径可执行，然后再逐步完善英文文档、官网内容和社区材料。
+这份文档同时服务用户、开发者、社区、节点运营者、钱包、交易平台、AI Agent 和战略合作伙伴。协议文档负责可信度，使用指南负责可操作性，生态页面负责把更多 BTC 社区和建设者带入聪网。
