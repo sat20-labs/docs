@@ -1,4 +1,4 @@
-# Ecosystem：生态建设
+# 生态建设
 
 聪网生态需要 BTC 社区、开发者、节点运营者、钱包、交易平台、Indexer、Explorer、做市商、AI Agent 构建者、研究者和内容贡献者共同参与。
 
@@ -65,7 +65,7 @@
 - [战略合作伙伴](strategic-partners.md)
 - [合作伙伴与贡献指南](partners-and-contribution.md)
 - [Docs 成功指标](docs-success-metrics.md)
-- [网络费用与 GAS](gas.md)
+- [网络经济](../network-economics/readme.md)
 - [Indexer 接入与资产事实层](../build/indexer.md)
 - [开发者中心](../build/readme.md)
 - [SAT20 Agent Wallet 安装与使用](../ai/sat20-agent-wallet/readme.md)

@@ -2,7 +2,7 @@
 
 * [欢迎来到 SAT20](readme.md)
 
-* Start Here：选择你的路径
+* 开始：选择你的路径
   * [概述](start-here/readme.md)
   * [我运营一个 BTC 社区](start-here/btc-community.md)
   * [我是开发者](start-here/developers.md)
@@ -11,7 +11,7 @@
   * [我是 AI Agent 开发者](start-here/ai-agent-builders.md)
   * [我想提供流动性](start-here/liquidity.md)
 
-* Community Stack：社区自有基础设施
+* 社区技术栈：社区自有基础设施
   * [为你的 BTC 社区搭建完整基础设施](community-stack/readme.md)
 
 * Learn：理解聪网
@@ -23,7 +23,7 @@
   * [智能合约与 GAS](learn/smart-contracts-and-gas.md)
   * [AI Agent 与用户资产控制](learn/ai-agent.md)
 
-* Use：使用聪网
+* 使用聪网
   * [概述](use/readme.md)
   * [钱包与资产](use/wallet-and-assets.md)
   * [获取测试资产和测试 GAS](use/test-assets-and-gas.md)
@@ -40,10 +40,10 @@
   * [退出聪网与故障恢复](use/exit-and-recovery.md)
   * [常见问题](use/faq.md)
 
-* Build：开发者中心
+* 开发者中心
   * [概述](build/readme.md)
   * [开发者快速开始](build/quickstart.md)
-  * [五分钟部署第一个 EVM 合约](build/evm-quickstart.md)
+  * [EVM 开发者预览](build/evm-quickstart.md)
   * [搭建社区 DEX / DAO](build/community-dex-quickstart.md)
   * [部署社区 DAO](build/dao-quickstart.md)
   * [部署 AMM 池](build/amm-pool-quickstart.md)
@@ -58,7 +58,17 @@
   * [Indexer 接入与资产事实层](build/indexer.md)
   * [交易平台与钱包接入](build/exchange-and-wallet.md)
 
-* Protocol：协议与白皮书
+* 运行网络：节点与基础设施
+  * [概述](run/readme.md)
+  * [挖矿节点](run/mining-node.md)
+  * [核心节点](run/core-node.md)
+  * [L1 / L2 Indexer](run/indexer.md)
+  * [Explorer / RPC](run/explorer-rpc.md)
+  * [监控、备份与升级](run/operations.md)
+  * [节点质押与退出](run/staking-and-exit.md)
+  * [去中心化路线](run/decentralization-roadmap.md)
+
+* 协议与安全
   * [SAT20 协议体系](protocol/readme.md)
   * Indexer
     * [Indexer：比特币资产事实层](learn/indexer.md)
@@ -77,10 +87,18 @@
     * [模板合约](protocol/contracts/template.md)
     * [自然语言合约](protocol/contracts/agent.md)
     * [EVM 合约](protocol/contracts/evm.md)
-  * Network Economics
-    * [网络费用与 GAS](ecosystem/gas.md)
+  * Security
+    * [威胁模型与信任假设](protocol/security/threat-model.md)
 
-* AI Agent
+* 网络经济
+  * [概述](network-economics/readme.md)
+  * [GAS：网络费用与安全资产](network-economics/gas.md)
+  * [费用流与节点激励](network-economics/fees-and-incentives.md)
+  * [挖矿节点 / 核心节点质押](network-economics/node-staking.md)
+  * [GAS 分配草案](network-economics/distribution-draft.md)
+  * [设计中问题](network-economics/open-questions.md)
+
+* AI Agent：自动化与安全
   * [概述](ai/readme.md)
   * [比特币生态 AI Agent 资产安全评估规范](ai/bitcoin-agent-safety-standard.md)
   * [AI Agent 与用户资产控制](learn/ai-agent.md)
@@ -93,10 +111,9 @@
     * [Agent 可控钱包规划](ai/sat20-agent-wallet/roadmap.md)
     * [测试网验证记录](ai/sat20-agent-wallet/testnet-validation.md)
     * [测试网演练总结](ai/sat20-agent-wallet/testnet-drill-summary-2026-06-13.md)
-    * [1 分钟演示脚本](ai/sat20-agent-wallet/testnet-demo-storyboard.md)
-    * [惩罚演练短视频制作规范](ai/sat20-agent-wallet/testnet-punish-drill-video.md)
+    * [1 分钟演示视频](ai/sat20-agent-wallet/demo-video.md)
 
-* Ecosystem：生态建设
+* 生态建设
   * [概述](ecosystem/readme.md)
   * [SatoshiNet Today：当前可用能力](ecosystem/satoshinet-today.md)
   * [Built on SatoshiNet](ecosystem/built-on-satoshinet.md)
@@ -104,11 +121,22 @@
   * [Builder Program](ecosystem/builder-program.md)
   * [战略合作伙伴](ecosystem/strategic-partners.md)
   * [合作伙伴与贡献指南](ecosystem/partners-and-contribution.md)
-  * [Docs 成功指标](ecosystem/docs-success-metrics.md)
-  * [网络费用与 GAS](ecosystem/gas.md)
 
-* [路线图](roadmap.md)
-* [背景](why.md)
-* [API 源码地图](build/api-source-map.md)
-* [捐赠](donate.md)
-* [关于](about.md)
+* 治理与支持
+  * [概述](governance-support/readme.md)
+  * [SAT20 Labs](governance-support/sat20-labs.md)
+  * [未来基金会](governance-support/future-foundation.md)
+  * [SIP 改进流程](governance-support/sip.md)
+  * [支持协议开发](governance-support/support-development.md)
+  * [安全披露](governance-support/security-disclosure.md)
+
+* 状态与路线图
+  * [路线图](roadmap.md)
+  * [Docs 成功指标](ecosystem/docs-success-metrics.md)
+  * [Docs 内容规划](docs-restructure-plan.md)
+
+* 资源
+  * [背景](why.md)
+  * [API 源码地图](build/api-source-map.md)
+  * [支持聪网生态](donate.md)
+  * [关于](about.md)

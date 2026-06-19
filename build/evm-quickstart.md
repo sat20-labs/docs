@@ -1,19 +1,17 @@
-# EVM Quickstart：部署第一个聪网合约
+# EVM 开发者预览
 
-本文是面向 Solidity / EVM 开发者的入口页。当前先定义可执行 Quickstart 应包含的内容；待 EVM Runtime、RPC、Chain ID、Faucet 和工具链稳定后补充命令行步骤。
+本文是面向 Solidity / EVM 开发者的预览入口。EVM Runtime、RPC、Chain ID、Faucet、示例仓库和 Explorer 验证流程稳定后，本页会升级为可执行 Quickstart。
 
 ## 目标
 
-开发者应能在测试网上完成：
+开发者预览阶段需要明确：
 
-1. 配置聪网 EVM RPC。
-2. 获取测试 GAS。
-3. 编译一个 Solidity 合约。
-4. 部署合约。
-5. 调用合约。
-6. 在 Explorer 中验证部署和调用结果。
+1. EVM Runtime 当前支持范围。
+2. SatoshiNet UTXO 原生资产模型如何与 EVM 语义组合。
+3. RPC、ABI、Event、Result TX 和合约状态的边界。
+4. 工具链、示例仓库和测试网入口何时进入公开可执行状态。
 
-## Quickstart 应包含
+## 升级为 Quickstart 前需要补齐
 
 | 项目 | 内容 |
 | --- | --- |

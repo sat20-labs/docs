@@ -2,6 +2,10 @@
 
 > 本文说明如何安装和使用通用 SAT20 Agent Wallet skill，让 AI Agent 通过 SAT20 钱包适配器操作 SAT20 Wallet、STP 通道、BTC L1 资产和聪网资产。Codex 可以直接使用本文中的 skill 包；其他 Agent 也可以读取同一 `SKILL.md`、references 和 scripts 接入。
 
+## 演示视频
+
+- [1 分钟中文有声版演示视频](demo-video.md)
+
 ## 设计目标
 
 SAT20 Agent Wallet 建立在 [比特币生态 AI Agent 资产安全评估规范](../bitcoin-agent-safety-standard.md) 之上。Agent 在操作 SAT20/STP 之前，应先用这套通用规范判断资产控制权、退出能力、链上证据、Core Node 风险和缺失数据，再决定是否允许价值移动。

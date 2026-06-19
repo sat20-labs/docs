@@ -6,20 +6,20 @@
 
 | 目标 | 指南 |
 | --- | --- |
-| 部署第一个 EVM 合约 | [EVM Quickstart](evm-quickstart.md) |
-| 搭建社区 DEX / DAO | [Community DEX / DAO Quickstart](community-dex-quickstart.md) |
+| 理解 EVM 开发者预览 | [EVM 开发者预览](evm-quickstart.md) |
+| 搭建社区 DEX / DAO | [社区 DEX / DAO Quickstart](community-dex-quickstart.md) |
 | 部署社区 DAO | [DAO Quickstart](dao-quickstart.md) |
 | 部署 AMM 池 | [AMM Pool Quickstart](amm-pool-quickstart.md) |
 | 部署 Launchpad | [Launchpad Quickstart](launchpad-quickstart.md) |
 | 部署限价单模块 | [Limit Order Quickstart](limit-order-quickstart.md) |
-| 运行 Core Node、Indexer、Explorer | [Infrastructure Quickstart](infrastructure-quickstart.md) |
+| 运行核心节点、Indexer、Explorer | [基础设施 Quickstart](infrastructure-quickstart.md) |
 | 集成 Wallet SDK | [Wallet SDK Quickstart](wallet-sdk-quickstart.md) |
 | 搭建白标 DEX | [White-label DEX](white-label-dex.md) |
 | 构建 SatoshiNet AI Agent | [AI Agent Quickstart](ai-agent-quickstart.md) |
 | 查看合约模板状态 | [合约模板目录](contract-template-catalog.md) |
 | 集成钱包或交易平台 | [交易平台与钱包接入](exchange-and-wallet.md) |
 
-每个 quickstart 都会逐步补齐环境要求、当前支持版本、测试网 RPC、Chain ID、测试资产、命令行步骤、配置示例、预期输出、Explorer 验证方式、常见错误和生产环境注意事项。
+带状态标签的页面表示内容仍在规划或对应系统仍在开发。未达到可运行标准前，页面会保留状态说明和待补清单。
 
 ## 选择你要构建什么
 

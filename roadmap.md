@@ -1,114 +1,47 @@
 # 路线图
 
-SAT20 / 聪网路线图围绕一个长期目标展开：建设比特币原生扩展网络，让 BTC 主网资产在保持用户控制权的前提下进入可编程、低成本、可自动化的应用环境。
+SAT20 / 聪网路线图围绕一个长期目标展开：建设开放的比特币原生执行网络，让 BTC 主网资产在保持用户控制权的前提下进入可编程、低成本、可自动化的应用环境。
 
-路线图不是价格承诺，也不是固定日期表。它记录当前优先级、阶段目标和需要公开验证的里程碑。
+路线图不是价格承诺，也不是固定日期表。每一项完成状态都需要尽量对应公开代码、文档、交易、合约地址、测试记录或外部部署案例。
 
-## Now / Next / Later
+## Now
 
-| 阶段 | 当前重点 | 外部建设者可以参与什么 |
-| --- | --- | --- |
-| Now | Community Stack 文档、首批社区 DEX / DAO 试点、EVM Runtime 测试、SAT20 Agent Wallet、Builder Program 开放 | 申请社区试点、部署第一个合约、运行基础设施、提交钱包或 Agent 集成 |
-| Next | Community Builder Agent、钱包通信机制、EVM SDK/RPC 工具链、完整自部署工具包、更多流动性和 Explorer 伙伴 | 贡献部署工具、合约模板、SDK、索引器、Explorer、教程和测试网案例 |
-| Later | 对话式半自动部署、社区运营 Agent、多社区流动性协作、更完整的开发者支持和更高程度基础设施去中心化 | 成为长期生态项目、区域社区、节点网络、审计和治理参与者 |
+| 事项 | 状态 | 验收标准 | 外部贡献入口 |
+| --- | --- | --- | --- |
+| Community Stack 真实部署文档 | 规划中 | 至少一个社区 DEX / DAO 测试网流程可复现 | [社区技术栈](community-stack/readme.md) |
+| 首批 DEX / DAO 试点 | 规划中 | 有测试网入口、合约或交易证据、用户指南 | [Builder Program](ecosystem/builder-program.md) |
+| EVM 开发者预览 | 开发中 | RPC、Chain ID、Faucet、示例仓库和 Explorer 验证明确 | [EVM 开发者预览](build/evm-quickstart.md) |
+| 测试网用户闭环 | 规划中 | 钱包、测试资产、第一次 Swap、Explorer 验证、退出与恢复可走通 | [Use](use/readme.md) |
+| Mining / Core Node 与 GAS 经济规范草案 | 设计中 | 质押、费用、处罚、退出和开放问题公开 | [网络经济](network-economics/readme.md) |
+| Builder Program 申请入口 | 规划中 | 有可提交表单或 GitHub Issue Template | [Builder Program](ecosystem/builder-program.md) |
+| 协议开发可持续支持 | 规划中 | 支持方式、资金用途、交付物和责任实体清晰 | [支持协议开发](governance-support/support-development.md) |
 
-每个公开里程碑都应尽量给出当前状态、参与方式、验收标准、公开证据和外部可贡献点。
+## Next
 
-## 阶段一：STP + Indexer 资产基础
+| 事项 | 状态 | 验收标准 | 外部贡献入口 |
+| --- | --- | --- | --- |
+| 可复制白标 DEX 工具包 | 规划中 | 前端、后台、合约、Indexer、Explorer、钱包接入可部署 | [白标 DEX](build/white-label-dex.md) |
+| 第三方节点和 Indexer | 规划中 | 外部团队能运行并提供公开证据 | [运行网络](run/readme.md) |
+| EVM SDK / RPC | 开发中 | 最小合约部署、调用、事件和 Result TX 可验证 | [EVM 合约](protocol/contracts/evm.md) |
+| Community Builder Agent | 开发中 | 需求收集、配置草案、人工确认、测试网部署计划和证据报告 | [Community Builder Agent](ai/community-builder-agent.md) |
+| 首批外部生态案例 | 规划中 | Built on SatoshiNet 至少收录一个外部项目 | [Built on SatoshiNet](ecosystem/built-on-satoshinet.md) |
+| 核心英文文档 | 规划中 | 首页、Community Stack、Today、安全、节点、GAS、Builder Program 同步英文 | docs-en |
 
-目标：证明资产进入聪网不是托管桥，而是由统一资产索引和用户可验证通道共同支撑的跨层资产系统。Indexer 负责表达 BTC L1 上的资产事实，STP 负责让这些资产进入可退出、可惩罚旧状态的通道安全边界。
+## Later
 
-重点：
+| 事项 | 状态 | 验收标准 | 外部贡献入口 |
+| --- | --- | --- | --- |
+| 对话式半自动部署 | 规划中 | Agent 可生成部署配置，管理员确认后执行 |
+| 多社区共享流动性 | 规划中 | AMM、限价单、聚合和跨社区路由可验证 |
+| 更开放的节点准入 | 设计中 | 节点注册、质押、退出、处罚和公开状态页明确 |
+| 未来基金会与公开 Treasury Policy | 规划中 | 法律结构、治理、多签、资金来源和利益冲突政策公开 |
+| SIP 协议改进流程 | 规划中 | 提案格式、讨论流程、版本管理和治理边界明确 |
+| 更完整的开发者支持体系 | 规划中 | Grant、赞助、服务合同、审计和文档协作机制明确 |
 
-1. BTC L1 多协议资产的统一索引。
-2. L1/L2 ascend、descend 和通道资产证据链。
-3. STP 通道生命周期。
-4. splicing-in / splicing-out。
-5. unlock / lock / lock-with-expand。
-6. commitment export。
-7. punish coverage。
-8. 测试网旧承诺广播和惩罚演练。
-9. SAT20 Agent Wallet skill 和 PWA adapter。
+## 原则
 
-当前文档：
-
-- [Indexer：比特币资产事实层](learn/indexer.md)
-- [Indexer 接入与资产事实层](build/indexer.md)
-- [STP 技术白皮书](protocol/stp/readme.md)
-- [SAT20 Agent Wallet 资产安全控制指南](ai/sat20-agent-wallet/asset-safety.md)
-- [SAT20 Agent Wallet 安装与使用](ai/sat20-agent-wallet/readme.md)
-
-## 阶段二：智能合约与 GAS
-
-目标：让聪网从资产流通网络发展为应用网络。
-
-重点：
-
-1. 模板合约。
-2. AMM、限价单、稳定币、支付等基础应用。
-3. GAS 费用模型。
-4. 合约 indexer 与 L2 状态索引。
-5. 合约开发者工具。
-6. EVM 兼容路径。
-7. 自然语言合约和 AI Agent 合约探索。
-
-当前文档：
-
-- [智能合约与 GAS](learn/smart-contracts-and-gas.md)
-- [智能合约协议](protocol/contracts/readme.md)
-- [网络费用与 GAS](ecosystem/gas.md)
-
-## 阶段三：开发者和基础设施
-
-目标：降低外部团队接入成本，让钱包、交易平台、Indexer、浏览器、Agent 和应用开发者能参与建设。
-
-重点：
-
-1. 开发者快速开始。
-2. 钱包与交易平台接入。
-3. L1/L2 Indexer API、L2 节点内置索引和 L1 事实分布式验证路线。
-4. PWA Wallet adapter。
-5. 多语言 STP client。
-6. 测试网工具和示例应用。
-
-当前文档：
-
-- [开发者中心](build/readme.md)
-- [开发者快速开始](build/quickstart.md)
-- [交易平台与钱包接入](build/exchange-and-wallet.md)
-
-## 阶段四：生态增长
-
-目标：吸引 BTC 社区、开发者、节点运营者、交易平台、钱包、流动性伙伴和 AI Agent 团队进入聪网生态。
-
-重点：
-
-1. Builder Program。
-2. Community Stack。
-3. 首批社区 DEX / DAO 试点。
-4. 资产社区接入。
-5. 交易平台、钱包和做市商合作。
-6. Indexer / Explorer / Core Node 节点生态。
-7. 官方内容、视频、教程和社区 FAQ。
-8. X 与 Telegram 社区建设。
-
-当前文档：
-
-- [Ecosystem](ecosystem/readme.md)
-- [Community Stack](community-stack/readme.md)
-- [SatoshiNet Today](ecosystem/satoshinet-today.md)
-- [Builder Program](ecosystem/builder-program.md)
-- [当前生态需求](ecosystem/ecosystem-needs.md)
-
-## 长期方向
-
-聪网的长期方向是成为比特币资产的应用层：
-
-1. 资产事实由 BTC L1 和 indexer 表达。
-2. 资产控制权由 STP 保障。
-3. 应用执行由聪网智能合约承载。
-4. 网络资源由 GAS 定价。
-5. 用户体验由钱包和 AI Agent 改善。
-6. 生态增长由开发者、资产方、交易平台、Indexer 和社区共同推动。
-
-每个阶段都必须有可验证证据：交易、代码、测试网演练、API、文档和用户可复现流程。
+1. 计划和现实严格分开。
+2. 安全用证据表达，不用绝对口号。
+3. GAS 和节点经济不使用价格、固定收益或回购叙事。
+4. AI Agent 是复杂基础设施的使用与自动化界面，不是聪网存在的根本理由。
+5. 开放网络的目标是让社区、开发者、节点和基础设施团队都能独立参与。

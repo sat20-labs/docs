@@ -1,48 +1,45 @@
-# SatoshiNet Today：当前可用能力
+# SatoshiNet Today：当前能力与证据
 
-本文用于展示聪网当前已经具备或正在建设的能力，避免外部读者误以为聪网仍只是协议规划。
+本文展示聪网当前已经具备或正在建设的能力。它不是营销列表，而是公开状态索引。
 
-状态标签：
+## 状态维度
 
-| 状态 | 含义 |
+| 维度 | 说明 |
 | --- | --- |
-| Available | 已具备可使用能力，仍需按具体场景验证 |
-| Testnet | 已在测试网验证或适合测试网试点 |
-| In Development | 正在开发或整合中 |
-| Experimental | 实验性能力，需要明确风险边界 |
-| Planned | 规划中 |
+| 实现状态 | 已实现（Implemented）、开发中（In Development）、规划中（Planned）、实验性（Experimental） |
+| 可用环境 | 公开测试网、有限测试、主网、未部署 |
+| 文档证据 | 完整、部分、缺失、协议规范 |
 
 ## 能力矩阵
 
-| 模块 | 状态 | 适用对象 | 公开证据 / 下一步 |
-| --- | --- | --- | --- |
-| SatoshiNet Core Node | Testnet | 节点运营者、社区、基础设施团队 | 参考 [SatoshiNet 协议概览](../protocol/satoshinet/readme.md) |
-| L1 Indexer | Available | 钱包、交易平台、DEX、Explorer | 参考 [Indexer 接入](../build/indexer.md) |
-| L2 Indexer | Testnet | 钱包、Explorer、STP 客户端、Agent | 参考 [API 源码地图](../build/api-source-map.md) |
-| Explorer | Available / Testnet | 用户、社区、交易平台 | 后续补充统一入口和案例 |
-| SAT20 PWA Wallet | Testnet | 用户、Agent、钱包集成 | 入口：[安装 PWA Wallet](https://sat20.org/pwa/?install=1) |
-| Wallet SDK | Available | 钱包、DApp、交易平台、Agent | 参考 [交易平台与钱包接入](../build/exchange-and-wallet.md) |
-| STP / Transcend | Testnet | 跨层资产应用、钱包、Agent | 参考 [STP 技术白皮书](../protocol/stp/readme.md) |
-| AMM | Testnet | 社区、DEX、做市商 | 后续补充 Demo、合约地址和部署指南 |
-| 限价单 | Testnet | DEX、社区、专业交易用户 | 后续补充 Demo、合约地址和部署指南 |
-| Launchpad | Testnet | 资产社区、项目方 | 后续补充使用手册和案例 |
-| DAO / 社区基金 | In Development / Testnet | BTC 社区 | 后续补充模板和治理流程 |
-| EVM Runtime | In Development | Solidity 开发者 | 参考 [EVM 合约](../protocol/contracts/evm.md) |
-| Natural Language Contract | Experimental | AI Agent 与合约开发者 | 参考 [自然语言合约](../protocol/contracts/agent.md) |
-| Community Builder Agent | Planned / Experimental | BTC 社区、Agent 开发者 | 参考 [AI Agent 开发者路径](../start-here/ai-agent-builders.md) |
+| 模块 | 实现状态 | 可用环境 | 文档证据 | 公开证据 / 下一步 |
+| --- | --- | --- | --- | --- |
+| SatoshiNet 核心节点 | 已实现 | 公开测试网 | 部分 | 参考 [运行网络](../run/readme.md) |
+| L1 Indexer | 已实现 | 可用 | 部分 | 参考 [Indexer 接入](../build/indexer.md) |
+| L2 Indexer | 已实现 | 公开测试网 | 部分 | 参考 [API 源码地图](../build/api-source-map.md) |
+| Explorer | 已实现 | 测试网 | 部分 | 补充统一入口和验证案例 |
+| SAT20 PWA Wallet | 已实现 | 测试网 | 部分 | [安装 PWA Wallet](https://sat20.org/pwa/?install=1) |
+| Wallet SDK | 已实现 | 可用 | 部分 | 参考 [交易平台与钱包接入](../build/exchange-and-wallet.md) |
+| STP / Transcend | 已实现 | 公开测试网 | 部分 | 参考 [STP 技术白皮书](../protocol/stp/readme.md) |
+| AMM | 已实现 | 测试网 | 部分 | 补充 Demo、合约地址和部署指南 |
+| 限价单 | 已实现 | 测试网 | 部分 | 补充 Demo、合约地址和部署指南 |
+| Launchpad | 已实现 | 测试网 | 部分 | 补充使用手册和案例 |
+| DAO / 社区基金 | 已实现 | 有限测试网 | 部分 | 补充模板、UID、捐献、空投和治理流程 |
+| EVM Runtime | 开发中 | 内部 / 测试网 | 协议规范 | 参考 [EVM 合约](../protocol/contracts/evm.md) |
+| Natural Language Contract | 实验性 | 内部 / 测试网 | 协议规范 | 参考 [自然语言合约](../protocol/contracts/agent.md) |
+| Community Builder Agent | 规划中 / 实验性 | 未部署 | 缺失 | 参考 [Community Builder Agent](../ai/community-builder-agent.md) |
+| 挖矿节点 | 开发中 | 测试网 | 缺失 | 参考 [挖矿节点](../run/mining-node.md) |
+| 核心节点 | 开发中 | 测试网 | 缺失 | 参考 [核心节点](../run/core-node.md) |
+| GAS 经济 | 设计中 | 未部署 | 草案 | 参考 [网络经济](../network-economics/readme.md) |
 
-## 如何补充证据
+## 每项能力需要补齐的证据
 
-每一项能力后续都应尽量补充：
-
-1. 在线体验链接。
-2. GitHub 源码。
-3. 部署指南。
-4. 测试网交易或合约地址。
-5. Explorer / Indexer 证据。
-6. 操作视频或截图。
-7. 当前限制和风险边界。
-
-这张表会持续更新。它不是营销列表，而是聪网生态建设进度的公开索引。
+1. GitHub Repo / commit / release。
+2. Demo 或测试网入口。
+3. 合约地址或 txid。
+4. Explorer / Indexer 证据。
+5. 测试记录。
+6. 已知限制。
+7. 最后验证日期。
 
 **页面状态：规划中（Planning）**

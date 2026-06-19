@@ -35,7 +35,7 @@ STP 必须满足以下目标：
 | 节点 | 职责 |
 | --- | --- |
 | Bootstrap Node | 辅助 Core Node 发现和准入 |
-| Core Node | 提供 STP 服务，与钱包建立私人通道，协签通道交易，维护服务侧通道状态，并运行或配置 L1 indexer |
+| Core Node | 覆盖 Mining Node 全部功能，并提供 STP 服务，与钱包建立私人通道，协签通道交易，维护服务侧通道状态，并运行或配置 L1 indexer |
 | Mining Node | 参与聪网出块，不提供 STP 通道服务 |
 | Wallet Client | 用户钱包或客户端，连接 Core Node，持有私钥、通道状态、承诺交易和惩罚材料 |
 

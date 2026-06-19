@@ -10,7 +10,7 @@
 
 | 目标 | 下一步 |
 | --- | --- |
-| 部署第一个 EVM 合约 | [EVM Quickstart](../build/evm-quickstart.md) |
+| 理解 EVM 开发者预览 | [EVM 开发者预览](../build/evm-quickstart.md) |
 | 构建社区 DEX / DAO | [社区 DEX / DAO Quickstart](../build/community-dex-quickstart.md) |
 | 接入资产数据 | [Indexer 接入与资产事实层](../build/indexer.md) |
 | 实现 STP 客户端 | [第三方 STP 客户端接入指南](../protocol/stp/client-integration.md) |
@@ -33,4 +33,3 @@
 3. 钱包和交易平台集成开发者。
 4. Indexer、Explorer、RPC、监控和数据服务开发者。
 5. AI Agent adapter、部署助手和安全验证助手开发者。
-

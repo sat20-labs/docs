@@ -2,6 +2,8 @@
 
 SAT20 / 聪网是长期的开源基础设施建设。你可以通过捐赠、代码贡献、文档贡献、测试网验证、节点运行、社区合作和生态项目参与来支持聪网。
 
+支持协议开发不等同于购买 GAS，也不代表投资、权益、收益、治理权或网络利润承诺。GAS 网络经济、节点质押和未来基金会是独立的协议与治理设计，仍在逐步公开。
+
 ## BTC 捐赠
 
 捐赠地址：
@@ -24,6 +26,8 @@ bc1ppejz29yxpz66yzkaxh6dek8pzsm8aajne6p4qak0xhxphkwzqnmsw45sur
 | 节点和服务器 | 运行测试网节点、Indexer、Explorer、RPC 或监控 |
 | 社区合作 | 帮助 BTC 社区试点 DEX、DAO、钱包入口和基础设施 |
 | 安全贡献 | 报告漏洞、审计合约、验证跨层资产状态和恢复路径 |
+
+更多方式见 [支持协议开发](governance-support/support-development.md)。
 
 ## 透明度原则
 

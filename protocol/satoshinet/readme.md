@@ -30,7 +30,7 @@ SatoshiNet，中文名聪网，是 SAT20 生态中的比特币原生扩展网络
 | 节点 | 职责 |
 | --- | --- |
 | Bootstrap Node | 辅助 Core Node 发现和准入 |
-| Core Node | 提供 STP 服务，与钱包建立私人通道，协签通道交易，维护通道状态，并运行或配置 L1 indexer |
+| Core Node | 覆盖 Mining Node 全部功能，并提供 STP 服务，与钱包建立私人通道，协签通道交易，维护通道状态，并运行或配置 L1 indexer |
 | Mining Node | 参与聪网出块，不提供 STP 服务 |
 | Wallet Client | 普通用户钱包或轻客户端，连接 Core Node，持有私钥、通道状态和安全材料 |
 
@@ -75,7 +75,7 @@ L2 indexer 集成在聪网节点中，负责解析 SatoshiNet 上的 UTXO、asce
 
 GAS 是聪网合约执行、交易处理和生态激励的经济入口。围绕 GAS 的资产、使用、激励和分配机制，将成为聪网生态吸引开发者、交易平台、投资机构和 BTC 资产社区的重要部分。
 
-通道合约见 [通道合约](../channel-contracts/readme.md)，智能合约细节见 [智能合约协议](../contracts/readme.md)，网络费用与 GAS 见 [网络费用与 GAS](../../ecosystem/gas.md)。
+通道合约见 [通道合约](../channel-contracts/readme.md)，智能合约细节见 [智能合约协议](../contracts/readme.md)，网络费用与 GAS 见 [网络经济](../../network-economics/readme.md)。
 
 ## 安全模型
 
