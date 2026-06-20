@@ -94,8 +94,7 @@
   * [概述](network-economics/readme.md)
   * [GAS：网络费用与安全资产](network-economics/gas.md)
   * [费用流与节点激励](network-economics/fees-and-incentives.md)
-  * [挖矿节点 / 核心节点质押](network-economics/node-staking.md)
-  * [GAS 分配草案](network-economics/distribution-draft.md)
+  * [挖矿节点 / 核心节点质押](network-economics/node-staking.md)<!-- [GAS 分配草案](network-economics/distribution-draft.md) -->
   * [设计中问题](network-economics/open-questions.md)
 
 * AI Agent：自动化与安全
