@@ -129,13 +129,9 @@
   * [支持协议开发](governance-support/support-development.md)
   * [安全披露](governance-support/security-disclosure.md)
 
-* 状态与路线图
-  * [路线图](roadmap.md)
-  * [Docs 成功指标](ecosystem/docs-success-metrics.md)
-  * [Docs 内容规划](docs-restructure-plan.md)
-
 * 资源
   * [背景](why.md)
+  * [路线图](roadmap.md)
   * [API 源码地图](build/api-source-map.md)
   * [支持聪网生态](donate.md)
   * [关于](about.md)
