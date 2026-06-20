@@ -76,6 +76,8 @@
     * [资产发行协议](protocol/indexer/asset-issuance.md)
   * STP
     * [STP 技术白皮书](protocol/stp/readme.md)
+    * [STP 消息与数据模型](protocol/stp/messages-and-data-model.md)
+    * [STP 消息流程](protocol/stp/message-sequences.md)
     * [第三方 STP 客户端接入指南](protocol/stp/client-integration.md)
     * [STP 第三方客户端实现验收清单](protocol/stp/implementation-checklist.md)
   * SatoshiNet

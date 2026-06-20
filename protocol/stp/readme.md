@@ -201,7 +201,14 @@ STP 客户端应支持以下恢复能力：
 7. 结果未知恢复。
 8. Safety snapshot、commitment export、punish status、force close plan 和 sweep build 等安全接口。
 
-第三方实现细节见 [第三方 STP 客户端接入指南](client-integration.md) 和 [STP 第三方客户端实现验收清单](implementation-checklist.md)。
+互操作文档见：
+
+| 文档 | 用途 |
+| --- | --- |
+| [STP 消息与数据模型](messages-and-data-model.md) | 定义第三方客户端需要理解的消息族、公共字段、资产对象、承诺对象和错误语义 |
+| [STP 消息流程](message-sequences.md) | 按 open、splicing、lock、unlock、close、punish 等操作说明消息顺序和验证点 |
+| [第三方 STP 客户端接入指南](client-integration.md) | 面向钱包、SDK、PWA adapter、CLI 和 AI Agent 的接入接口建议 |
+| [STP 第三方客户端实现验收清单](implementation-checklist.md) | 第三方客户端进入测试网和主网前必须通过的能力检查 |
 
 ## 面向 AI Agent 的可验证安全
 
