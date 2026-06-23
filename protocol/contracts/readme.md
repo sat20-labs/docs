@@ -241,7 +241,7 @@ Canonical Result TX
 6. caller/invoker身份解析必须依赖最后一个输入的前序输出地址，节点的UTXO视图必须能提供该前序输出脚本。
 7. mempool必须拒绝外部提交的`CONTRACT_RESULT`，Result TX只允许由出块流程插入候选区块。
 8. 本地测试必须覆盖deploy、invoke、result-only trigger、Agent ready/confirm、EVM state root、Template state root和混合区块state root。
-9. 上线前需要固定gas参数、区块gas上限、合约Result打包费和触发器打包费。
+9. 上线前需要固定gas参数、区块gas上限、合约Result打包费和触发器打包费；默认单次deploy/invoke gas上限为`50,000,000`，默认单次触发器gas上限为`5,000,000`，默认单区块EVM gas上限为`1,000,000,000`。
 10. 节点、钱包、区块浏览器、资产浏览器和市场必须使用同一套合约交易解析和状态查询字段。
 
 
