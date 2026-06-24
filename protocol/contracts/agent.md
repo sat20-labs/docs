@@ -245,6 +245,7 @@ Agent合约state root必须进入统一contract state root。
 
 预测型自然语言合约
 ----
+[仅用于测试网络演示]
 
 第一阶段优先支持预测型自然语言合约。预测型自然语言合约是`ContractTypeAgent`下的固定子类型：
 
