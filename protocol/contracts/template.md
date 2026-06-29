@@ -200,8 +200,9 @@ AMM swap规则：
 4. AMM卖出参数中的`Amt`表示最小可接受输出聪数量，输入资产数量以Call TX funding output为准。
 5. AMM买入参数中的`Amt`表示最小可接受输出资产数量，输入聪数量以Call TX funding output为准；`UnitPrice`只能作为报价或滑点约束，不能作为输入金额的第二来源。
 6. 滑点保护失败时，本区块直接生成refund result。
-7. 同一区块内AMM先处理swap，再处理add/remove liquidity，以对齐原通道合约。
-8. 因addliq达到ready的区块不会同时撮合之前等待中的swap，等待中的swap会在后续区块结算。
+7. 同一区块内多笔swap使用本区块结算开始时的池子和K进行定价；相同方向、相同输入金额的swap应得到一致报价和输出。实际可输出资产仍受本区块可用池子余额约束。
+8. 同一区块内AMM先处理swap，再处理add/remove liquidity，以对齐原通道合约。
+9. 因addliq达到ready的区块不会同时撮合之前等待中的swap，等待中的swap会在后续区块结算。
 
 AMM默认调用规则：
 
