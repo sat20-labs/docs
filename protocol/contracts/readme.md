@@ -94,6 +94,8 @@ CONTENT_TYPE_CONTRACT_STATE_ROOT = OP_DATA_34
 
 如果一笔交易没有合约OP_RETURN，但包含输出到有效合约地址的输出，该输出可以被合约解释为默认调用。默认调用不携带显式action和参数，其业务语义由对应合约类型和合约实例定义。
 
+部署交易可以因为合约内容较大而使用多个合约OP_RETURN分片。普通交易和合约调用交易不应滥用OP_RETURN；除协议明确允许的部署分片外，交易中的OP_RETURN数量应受mempool策略限制，当前普通路径不应超过4个OP_RETURN。
+
 
 合约关闭和利润分配
 ----
@@ -120,7 +122,7 @@ CONTRACT_INVOKE
 
 `CONTRACT_INVOKE`用于调用合约。
 
-调用交易必须至少有一个输出转入被调用合约地址，作为gas/funding输出。该输出用于：
+调用交易必须有一个输出转入被调用合约地址，作为本次调用的gas/funding输出。该输出用于：
 
 1. 绑定Call TX和Result TX。
 2. 承载本次调用转入合约的资产。
@@ -129,7 +131,7 @@ CONTRACT_INVOKE
 
 被调用合约地址不写入OP_RETURN。节点必须通过Call TX中输出到合约地址的输出确定被调用合约。
 
-显式`CONTRACT_INVOKE`只能调用一个合约。如果交易中存在多个输出到合约地址的输出，这些输出必须属于同一个合约地址。默认调用没有显式payload，可以按每个合约输出分别触发对应合约的默认行为。
+显式`CONTRACT_INVOKE`只能调用一个合约，且对当前被调用合约只能有一个gas/funding输出。这样可以避免同一调用内出现多个经济输入来源，确保Call TX、Result TX、caller和退款目标都能确定性解析。默认调用没有显式payload，可以按每个合约输出分别触发对应合约的默认行为。
 
 调用发起者身份由调用交易最后一个输入对应的前序输出地址解析得到。共识路径不使用witness中的公钥、签名公钥或其他可替换字段作为caller/invoker身份来源；如果最后一个输入的前序输出不可获得或无法解析地址，调用无效。
 
@@ -246,8 +248,8 @@ Canonical Result TX
 1. 合约解析、区块验证和出块侧Result Builder全部开启，并使用相同网络参数和合约地址前缀。
 2. coinbase必须写入统一contract state root，验证节点必须检查state root承诺。
 3. EVM触发器扫描必须在每个候选区块运行，不能只在区块包含普通合约交易时运行。
-4. Agent合约必须配置CoreNode地址、公钥、Agent收款地址、bootstrap收款地址和链参数。
-5. Agent `confirm`必须携带CoreNode公钥和签名，节点必须验证公钥、地址和签名。
+4. Agent合约必须配置CoreNode地址、Agent收款地址、bootstrap收款地址和链参数。
+5. Agent `ready`、`reject`和`confirm`必须由CoreNode地址发起，节点必须按最后输入前序输出地址验证CoreNode调用者身份。
 6. caller/invoker身份解析必须依赖最后一个输入的前序输出地址，节点的UTXO视图必须能提供该前序输出脚本。
 7. mempool必须拒绝外部提交的`CONTRACT_RESULT`，Result TX只允许由出块流程插入候选区块。
 8. 本地测试必须覆盖deploy、invoke、result-only trigger、Agent ready/confirm、EVM state root、Template state root和混合区块state root。
@@ -264,8 +266,8 @@ Canonical Result TX
 2. 合约调用接口：构造`CONTRACT_INVOKE`，必须包含转入合约地址的gas/funding输出，并展示由最后输入前序输出解析得到的caller/invoker。
 3. 合约结果查询接口：按txid、contract address、call id或trigger id查询canonical Result TX、状态、资产转移、gas费用和错误信息。
 4. 合约状态查询接口：按合约地址查询合约类型、当前状态、state root、最近更新时间、余额和类型特有状态。
-5. EVM接口：提供EVM地址和聪网合约地址互转、ABI calldata构造、event/log查询、EVM storage/code hash查询和触发器查询。
-6. Agent接口：提供预测合约deploy/ready/bet/confirm状态、投注聚合、候选结果、确认材料、CoreNode签名和结算/退款结果查询。
+5. EVM接口：提供EVM地址和聪网合约地址互转、ABI calldata构造、event/log查询、EVM storage/code hash查询、触发器查询、compiler config和源码metadata查询。
+6. Agent接口：提供预测合约deploy/ready/bet/confirm状态、投注聚合、候选结果、确认材料、CoreNode调用者身份和结算/退款结果查询。
 7. 资产接口：按合约地址查询全部UTXO资产余额，并区分合约资金池、gas/funding输入、Result输出和找零输出。
 8. 市场接口：市场只展示已经进入`Ready`或类型定义可公开展示状态的合约；涉及投注、购买或资产转移时，必须从节点查询最新状态和余额后构造交易。
 
@@ -284,7 +286,7 @@ Canonical Result TX
 3. 合约Result表：result txid、contract address、result type、call id、trigger id、输入UTXO、输出资产转移、gas费用、执行状态、错误信息、高度和时间。
 4. 合约状态表：contract address、contract type、state root、当前状态、类型特有状态、更新时间和最后Result txid；状态来源必须是已提交post-state projection。
 5. EVM扩展表：EVM地址映射、code hash、storage root、logs/events、registered triggers和trigger执行历史。
-6. Agent扩展表：Agent合约内容hash、ready结果、bet记录、outcome聚合、confirm记录、CoreNode公钥、CoreNode签名、result hash和结算/退款明细。
+6. Agent扩展表：Agent合约内容hash、ready结果、bet记录、outcome聚合、confirm记录、CoreNode调用者身份、确认结果文本、结果URL和结算/退款明细。
 7. 资产视图：合约地址UTXO资产余额、已锁定资金池、Result转出、找零和费用归集。
 8. 重组处理：索引器必须能按区块高度回滚合约部署、调用、Result、状态、触发器和资产视图。
 
@@ -294,14 +296,16 @@ Canonical Result TX
 Mempool规则
 ----
 
+mempool只做结构、地址、费用和基础协议检查。具体合约业务动作无效时，不应因为业务语义失败而阻塞mempool或出块；执行层应按合约规则将该调用处理为no-op或生成确定性的退款Result。`CONTRACT_RESULT`例外：Result TX由节点自动生成，不能忽略错误，验证不一致时区块无效。
+
 mempool必须拒绝以下交易：
 
 1. payload格式非法的`CONTRACT_DEPLOY`或`CONTRACT_INVOKE`。
 2. 没有输出到合约地址的显式`CONTRACT_INVOKE`。
 3. 输出到不存在合约地址的合约调用。
-4. 同一个显式`CONTRACT_INVOKE`输出到多个不同合约地址。
+4. 显式`CONTRACT_INVOKE`没有且仅有一个输出到被调用合约地址。
 5. gas limit缺失或超过协议上限。
 6. gas/funding不足。
 7. gas资产类型不符合协议规定。
-8. 本地模拟无法通过。
+8. 除部署分片外，OP_RETURN数量超过当前策略上限。
 9. 外部提交的`CONTRACT_RESULT`。
