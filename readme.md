@@ -133,7 +133,7 @@ AI Agent Wallet：基于 SAT20 Wallet 的授权交互入口
 | 智能合约 / EVM Runtime | Testnet / Iterating | EVM Runtime 已开发完成并上线测试网，模板合约和合约开发者体验持续迭代 |
 | DKVS / D-Indexer | In Development | DKVS 和分布式 L1 Indexer 正在开发中，服务未来更开放的节点、索引和 Agent 协作网络 |
 | SAT20 Wallet / AI Agent Wallet | Implemented · Iterating | SAT20 Wallet 已有插件和 PWA 两种形式；AI Agent Wallet 在此基础上继续演进 |
-| VSN / 长期治理 | Design / R&D | 继续进行设计、实验和验证，不应被表达为已完成生产能力 |
+| VSN / 长期治理 | Design / R&D | 继续进行设计、实验和验证，不表达为已完成生产能力 |
 
 ## 状态与证据
 
@@ -150,7 +150,7 @@ Docs 使用统一状态表达：
 | 研发中（R&D） | 研究性基础设施方向，可能继续调整 |
 | 实验性（Experimental） | 研究性功能，可能改变或取消 |
 
-每一项状态都应尽量链接到代码、文档、Demo、Explorer、合约地址、测试交易或验证记录。
+每一项状态持续链接到代码、文档、Demo、Explorer、合约地址、测试交易或验证记录。
 
 ## 官方入口
 
