@@ -1,4 +1,4 @@
-# 生态建设
+# 概述
 
 聪网生态需要 BTC 社区、开发者、节点运营者、钱包、交易平台、Indexer、Explorer、做市商、AI Agent 构建者、研究者和内容贡献者共同参与。
 
@@ -21,14 +21,7 @@
 
 ## 角色路径
 
-| 角色 | 目标 | 入口 |
-| --- | --- |
-| BTC 社区 | 搭建社区 DEX、DAO、钱包和基础设施 | [社区路径](../start-here/btc-community.md) |
-| Solidity / EVM 开发者 | 部署第一个合约，迁移经典合约，使用 BTC 原生资产 | [开发者路径](../start-here/developers.md) |
-| 基础设施团队 | 运行 Core Node、Indexer、Explorer 或公共 RPC | [基础设施路径](../start-here/infrastructure.md) |
-| 钱包或交易平台 | 集成资产查询、充值提现、STP 状态和钱包授权 | [钱包与交易平台路径](../start-here/wallet-exchange.md) |
-| AI Agent 开发者 | 接入钱包安全边界、社区部署工具和合约操作接口 | [AI Agent 路径](../start-here/ai-agent-builders.md) |
-| 做市商 / 流动性伙伴 | 建立 AMM 池、限价单市场和跨社区流动性 | [流动性路径](../start-here/liquidity.md) |
+\| 角色 | 目标 | 入口 | | --- | --- | | BTC 社区 | 搭建社区 DEX、DAO、钱包和基础设施 | [社区路径](../start-here/btc-community.md) | | Solidity / EVM 开发者 | 部署第一个合约，迁移经典合约，使用 BTC 原生资产 | [开发者路径](../start-here/developers.md) | | 基础设施团队 | 运行 Core Node、Indexer、Explorer 或公共 RPC | [基础设施路径](../start-here/infrastructure.md) | | 钱包或交易平台 | 集成资产查询、充值提现、STP 状态和钱包授权 | [钱包与交易平台路径](../start-here/wallet-exchange.md) | | AI Agent 开发者 | 接入钱包安全边界、社区部署工具和合约操作接口 | [AI Agent 路径](../start-here/ai-agent-builders.md) | | 做市商 / 流动性伙伴 | 建立 AMM 池、限价单市场和跨社区流动性 | [流动性路径](../start-here/liquidity.md) |
 
 ## 生态增长飞轮
 
@@ -46,28 +39,28 @@
 
 ## 当前重点
 
-| 重点 | 说明 |
-| --- | --- |
-| 社区试点 | 帮助首批 BTC 社区搭建 DEX / DAO / Explorer / 钱包入口 |
-| EVM 开发体验 | 让 Solidity 开发者能部署、调用、验证第一个合约 |
-| 流动性基础 | AMM、限价单、Launchpad 和跨社区交易场景 |
-| Agent Wallet & Safety | 让 AI Agent 能验证资产安全并通过钱包授权操作 |
-| Community Builder Agent | 让社区通过对话规划基础设施、参数、合约和部署流程 |
-| 数据与证据 | 用 Indexer、Explorer、交易和测试网演练证明每一步 |
+| 重点                      | 说明                                        |
+| ----------------------- | ----------------------------------------- |
+| 社区试点                    | 帮助首批 BTC 社区搭建 DEX / DAO / Explorer / 钱包入口 |
+| EVM 开发体验                | 让 Solidity 开发者能部署、调用、验证第一个合约              |
+| 流动性基础                   | AMM、限价单、Launchpad 和跨社区交易场景                |
+| Agent Wallet & Safety   | 让 AI Agent 能验证资产安全并通过钱包授权操作               |
+| Community Builder Agent | 让社区通过对话规划基础设施、参数、合约和部署流程                  |
+| 数据与证据                   | 用 Indexer、Explorer、交易和测试网演练证明每一步          |
 
 ## 下一步
 
-- [Community Stack](../community-stack/readme.md)
-- [SatoshiNet Today](satoshinet-today.md)
-- [Built on SatoshiNet](built-on-satoshinet.md)
-- [当前生态需求](ecosystem-needs.md)
-- [Builder Program](builder-program.md)
-- [战略合作伙伴](strategic-partners.md)
-- [合作伙伴与贡献指南](partners-and-contribution.md)
-- [Docs 成功指标](docs-success-metrics.md)
-- [网络经济](../network-economics/readme.md)
-- [Indexer 接入与资产事实层](../build/indexer.md)
-- [开发者中心](../build/readme.md)
-- [SAT20 Agent Wallet 安装与使用](../ai/sat20-agent-wallet/readme.md)
+* [Community Stack](../community-stack/)
+* [SatoshiNet Today](satoshinet-today.md)
+* [Built on SatoshiNet](built-on-satoshinet.md)
+* [当前生态需求](ecosystem-needs.md)
+* [Builder Program](builder-program.md)
+* [战略合作伙伴](strategic-partners.md)
+* [合作伙伴与贡献指南](partners-and-contribution.md)
+* [Docs 成功指标](/broken/pages/7A7ekCXRDevHai6fEYxS)
+* [网络经济](../network-economics/)
+* [Indexer 接入与资产事实层](../build/indexer.md)
+* [开发者中心](../build/)
+* [SAT20 Agent Wallet 安装与使用](../ai/sat20-agent-wallet/)
 
 **页面状态：规划中（Planning）**

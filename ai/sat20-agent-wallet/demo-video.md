@@ -1,4 +1,4 @@
-# SAT20 Agent Wallet 1 分钟演示视频
+# 1 分钟演示视频
 
 这是 SAT20 Agent Wallet / STP 的对外演示视频入口。
 
@@ -11,14 +11,14 @@
 
 ## 视频
 
-- [1 分钟中文有声版](video/build/sat20-agent-wallet-one-minute-zh.mp4)
+* [1 分钟中文有声版](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/video/build/sat20-agent-wallet-one-minute-zh.mp4)
 
 ## 配套材料
 
-- [测试网验证记录](testnet-validation.md)
-- [测试网演练总结](testnet-drill-summary-2026-06-13.md)
-- [1 分钟演示脚本](testnet-demo-storyboard.md)
-- [惩罚演练短视频制作规范](testnet-punish-drill-video.md)
+* [测试网验证记录](testnet-validation.md)
+* [测试网演练总结](testnet-drill-summary-2026-06-13.md)
+* [1 分钟演示脚本](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/testnet-demo-storyboard.md)
+* [惩罚演练短视频制作规范](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/testnet-punish-drill-video.md)
 
 ## 说明
 

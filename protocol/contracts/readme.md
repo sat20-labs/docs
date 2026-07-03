@@ -1,7 +1,6 @@
-智能合约
-====
+# 智能合约协议
 
-本文定义聪网智能合约的通用协议。智能合约不同于 [通道合约](../channel-contracts/readme.md)：通道合约主要用于管理公共资产池，并协调用户发起的 L1/L2 跨层动作；智能合约则运行在 SatoshiNet 全局执行环境中。
+本文定义聪网智能合约的通用协议。智能合约不同于 [通道合约](../channel-contracts/)：通道合约主要用于管理公共资产池，并协调用户发起的 L1/L2 跨层动作；智能合约则运行在 SatoshiNet 全局执行环境中。
 
 具体合约类型的差异见：
 
@@ -9,17 +8,13 @@
 2. [EVM合约](evm.md)
 3. [自然语言合约](agent.md)
 
-
-协议边界
-----
+## 协议边界
 
 聪网智能合约是运行在聪网上的可编程共识状态机。合约状态由聪网节点维护，资产来源和资产结算由聪网UTXO模型表达。
 
-智能合约不同于 [通道合约](../channel-contracts/readme.md)。通道合约面向公共资产池和 L1/L2 协调，典型能力是公共资产穿越与资产发射；智能合约基于链上交易、合约VM状态、canonical `CONTRACT_RESULT`和区块级state root。智能合约发起的资产转移不需要私钥签名，必须由VM执行结果授权。
+智能合约不同于 [通道合约](../channel-contracts/)。通道合约面向公共资产池和 L1/L2 协调，典型能力是公共资产穿越与资产发射；智能合约基于链上交易、合约VM状态、canonical `CONTRACT_RESULT`和区块级state root。智能合约发起的资产转移不需要私钥签名，必须由VM执行结果授权。
 
-
-合约类型
-----
+## 合约类型
 
 聪网智能合约第一阶段包含三类：
 
@@ -27,9 +22,7 @@
 2. EVM合约：由EVM执行器执行，对应`ContractTypeEVM`。
 3. 自然语言合约：由AI Agent支持的自然语言协议合约，对应`ContractTypeAgent`，第一阶段优先支持预测型Agent合约，以单CoreNode Agent模式进入聪网合约结果流程。
 
-
-核心模型
-----
+## 核心模型
 
 1. UTXO是链上资产的唯一来源。
 2. VM是合约状态机。
@@ -40,19 +33,17 @@
 7. 所有节点必须确定性重放合约执行。
 8. 合约UTXO不通过传统私钥签名解锁，而由VM执行结果授权花费。
 
-
-地址规则
-----
+## 地址规则
 
 主网合约地址格式：
 
-```text
+```
 ca + version + type + hash
 ```
 
 测试网合约地址格式：
 
-```text
+```
 tc + version + type + hash
 ```
 
@@ -64,9 +55,7 @@ tc + version + type + hash
 4. `type`表示合约类型。
 5. `hash`由合约类型定义长度和计算方式。
 
-
-交易类型
-----
+## 交易类型
 
 合约相关交易分为四类：
 
@@ -75,30 +64,28 @@ tc + version + type + hash
 3. `CONTRACT_RESULT`
 4. `COINBASE_CONTRACT_STATE_ROOT`
 
-合约交易通过OP_RETURN携带部署、调用、结果和state root的协议envelope：
+合约交易通过OP\_RETURN携带部署、调用、结果和state root的协议envelope：
 
-```text
+```
 OP_RETURN | SAT20_MAGIC_NUMBER | CONTENT_TYPE | CONTENT
 ```
 
 当前内容类型：
 
-```text
+```
 CONTENT_TYPE_CONTRACT_DEPLOY     = OP_DATA_31
 CONTENT_TYPE_CONTRACT_INVOKE     = OP_DATA_32
 CONTENT_TYPE_CONTRACT_RESULT     = OP_DATA_33
 CONTENT_TYPE_CONTRACT_STATE_ROOT = OP_DATA_34
 ```
 
-`CONTRACT_INVOKE`的OP_RETURN只应携带action、nonce、gas limit，以及无法从交易输出推导的非经济参数。资产名称、资产数量、satoshi数量、gas/funding输出等经济参数以Call TX中转入合约地址的输出为准，不应在OP_RETURN中重复表达。若某类调用需要滑点、最小可接受输出、deadline、证明hash或calldata等非经济参数，可以放入invoke payload。
+`CONTRACT_INVOKE`的OP\_RETURN只应携带action、nonce、gas limit，以及无法从交易输出推导的非经济参数。资产名称、资产数量、satoshi数量、gas/funding输出等经济参数以Call TX中转入合约地址的输出为准，不应在OP\_RETURN中重复表达。若某类调用需要滑点、最小可接受输出、deadline、证明hash或calldata等非经济参数，可以放入invoke payload。
 
-如果一笔交易没有合约OP_RETURN，但包含输出到有效合约地址的输出，该输出可以被合约解释为默认调用。默认调用不携带显式action和参数，其业务语义由对应合约类型和合约实例定义。
+如果一笔交易没有合约OP\_RETURN，但包含输出到有效合约地址的输出，该输出可以被合约解释为默认调用。默认调用不携带显式action和参数，其业务语义由对应合约类型和合约实例定义。
 
-部署交易可以因为合约内容较大而使用多个合约OP_RETURN分片。普通交易和合约调用交易不应滥用OP_RETURN；除协议明确允许的部署分片外，交易中的OP_RETURN数量应受mempool策略限制，当前普通路径不应超过4个OP_RETURN。
+部署交易可以因为合约内容较大而使用多个合约OP\_RETURN分片。普通交易和合约调用交易不应滥用OP\_RETURN；除协议明确允许的部署分片外，交易中的OP\_RETURN数量应受mempool策略限制，当前普通路径不应超过4个OP\_RETURN。
 
-
-合约关闭和利润分配
-----
+## 合约关闭和利润分配
 
 智能合约支持统一的关闭语义。`close`调用只能由合约deployer发起；具体合约可以在关闭前先按自身状态规则返还有明确归属的资产，例如未成交订单、LP份额或其他用户可识别权益。
 
@@ -106,9 +93,7 @@ CONTENT_TYPE_CONTRACT_STATE_ROOT = OP_DATA_34
 
 该规则适用于模版合约、EVM合约和自然语言合约。不同合约类型只能决定哪些资产在关闭前具有明确用户归属，不能改变最终无归属利润和非管理资产的通用处理方式。
 
-
-CONTRACT_DEPLOY
-----
+## CONTRACT\_DEPLOY
 
 `CONTRACT_DEPLOY`用于部署合约。
 
@@ -116,9 +101,7 @@ CONTRACT_DEPLOY
 
 每个有效部署都必须在同一区块内由canonical `CONTRACT_RESULT`记录部署结果和state root。
 
-
-CONTRACT_INVOKE
-----
+## CONTRACT\_INVOKE
 
 `CONTRACT_INVOKE`用于调用合约。
 
@@ -129,15 +112,13 @@ CONTRACT_INVOKE
 3. 预付合约调用费用。
 4. 在需要结算时作为`CONTRACT_RESULT`输入。
 
-被调用合约地址不写入OP_RETURN。节点必须通过Call TX中输出到合约地址的输出确定被调用合约。
+被调用合约地址不写入OP\_RETURN。节点必须通过Call TX中输出到合约地址的输出确定被调用合约。
 
 显式`CONTRACT_INVOKE`只能调用一个合约，且对当前被调用合约只能有一个gas/funding输出。这样可以避免同一调用内出现多个经济输入来源，确保Call TX、Result TX、caller和退款目标都能确定性解析。默认调用没有显式payload，可以按每个合约输出分别触发对应合约的默认行为。
 
 调用发起者身份由调用交易最后一个输入对应的前序输出地址解析得到。共识路径不使用witness中的公钥、签名公钥或其他可替换字段作为caller/invoker身份来源；如果最后一个输入的前序输出不可获得或无法解析地址，调用无效。
 
-
-CONTRACT_RESULT
-----
+## CONTRACT\_RESULT
 
 `CONTRACT_RESULT`用于记录VM执行结果并结算资产转移。
 
@@ -151,11 +132,9 @@ CONTRACT_RESULT
 6. Result TX允许批量结算多个执行项，批量顺序必须与协议执行顺序一致。
 7. 注册触发器到期后可以在没有同区块普通合约交易的情况下产生`CONTRACT_RESULT`。验证节点必须通过Result TX花费的合约UTXO识别合约类型和合约地址，并基于上一状态、当前区块高度和确认时间重放到期触发器；无法证明触发器真实存在、已经到期且仍有效的孤立Result TX无效。
 
-`CONTRACT_RESULT`的OP_RETURN只写入执行状态摘要和结果数量。call id、合约地址、输入输出、完整trace和资产转移明细由区块交易、本地重放和节点索引器推导。
+`CONTRACT_RESULT`的OP\_RETURN只写入执行状态摘要和结果数量。call id、合约地址、输入输出、完整trace和资产转移明细由区块交易、本地重放和节点索引器推导。
 
-
-State Root
-----
+## State Root
 
 合约state root写入coinbase交易，不修改区块头结构。
 
@@ -167,9 +146,7 @@ State Root
 4. 将模版合约state root、EVM合约state root和Agent合约state root合成统一的contract state root。
 5. 在coinbase中写入最终contract state root。
 
-
-Gas和费用
-----
+## Gas和费用
 
 智能合约使用统一的gas资产支付费用。
 
@@ -189,9 +166,7 @@ Gas和费用
 5. 执行成功且没有资产转移的调用可以不生成Result TX。
 6. 需要资产转移、退款、revert或out of gas的调用必须生成Result TX。
 
-
-Canonical Result TX
-----
+## Canonical Result TX
 
 所有节点必须按相同规则构造和验证canonical Result TX。
 
@@ -210,11 +185,9 @@ Canonical Result TX
 2. 同一执行项产生多个输出时，按VM定义的顺序输出。
 3. 找零输出回同一个合约地址。
 4. 找零输出位于资产输出之后。
-5. OP_RETURN输出位于最后。
+5. OP\_RETURN输出位于最后。
 
-
-区块构造和验证
-----
+## 区块构造和验证
 
 出块节点构造区块时：
 
@@ -239,9 +212,7 @@ Canonical Result TX
 
 任一检查不一致，区块无效。
 
-
-测试网集成检查项
-----
+## 测试网集成检查项
 
 测试网启用合约前，节点配置必须至少确认：
 
@@ -256,9 +227,7 @@ Canonical Result TX
 9. 上线前需要固定gas参数、区块gas上限、合约Result打包费和触发器打包费；默认单次deploy/invoke gas上限为`50,000,000`，默认单次触发器gas上限为`5,000,000`，默认单区块EVM gas上限为`1,000,000,000`。
 10. 节点、钱包、区块浏览器、资产浏览器和市场必须使用同一套合约交易解析和状态查询字段。
 
-
-钱包、浏览器和市场接口契约
-----
+## 钱包、浏览器和市场接口契约
 
 钱包、区块浏览器、资产浏览器和市场集成合约功能时，至少需要共享以下接口语义：
 
@@ -273,9 +242,7 @@ Canonical Result TX
 
 这些接口返回的交易、状态和资产结果必须能追溯到链上交易、canonical Result TX和区块state root，不能只依赖前端本地推断。
 
-
-索引器落库和查询要求
-----
+## 索引器落库和查询要求
 
 索引器必须为合约功能建立可查询的链上视图。索引器只消费已确认区块、canonical Result TX、已提交的contract index event和已提交的contract post-state projection；索引器不得执行template、EVM或Agent runtime，也不得自行生成合约历史。
 
@@ -292,9 +259,7 @@ Canonical Result TX
 
 查询API至少应支持按合约地址、txid、调用者地址、合约类型、状态、高度范围、trigger id、Agent outcome和EVM event topic检索。
 
-
-Mempool规则
-----
+## Mempool规则
 
 mempool只做结构、地址、费用和基础协议检查。具体合约业务动作无效时，不应因为业务语义失败而阻塞mempool或出块；执行层应按合约规则将该调用处理为no-op或生成确定性的退款Result。`CONTRACT_RESULT`例外：Result TX由节点自动生成，不能忽略错误，验证不一致时区块无效。
 
@@ -307,5 +272,5 @@ mempool必须拒绝以下交易：
 5. gas limit缺失或超过协议上限。
 6. gas/funding不足。
 7. gas资产类型不符合协议规定。
-8. 除部署分片外，OP_RETURN数量超过当前策略上限。
+8. 除部署分片外，OP\_RETURN数量超过当前策略上限。
 9. 外部提交的`CONTRACT_RESULT`。

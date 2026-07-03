@@ -18,9 +18,9 @@ AI Agent 在聪网生态中有两条产品线。
 
 入口：
 
-- [SAT20 Agent Wallet 安装与使用](../ai/sat20-agent-wallet/readme.md)
-- [资产安全控制指南](../ai/sat20-agent-wallet/asset-safety.md)
-- [验证矩阵与数据缺口](../ai/sat20-agent-wallet/verification-and-data-gaps.md)
+* [SAT20 Agent Wallet 安装与使用](../ai/sat20-agent-wallet/)
+* [资产安全控制指南](../ai/sat20-agent-wallet/asset-safety.md)
+* [验证矩阵与数据缺口](../ai/sat20-agent-wallet/verification-and-data-gaps.md)
 
 ## Community Builder Agent
 
@@ -41,7 +41,6 @@ AI Agent 在聪网生态中有两条产品线。
 ## 推荐路径
 
 1. 从 [SatoshiNet AI Agent Quickstart](../build/ai-agent-quickstart.md) 开始。
-2. 使用 [Community Stack](../community-stack/readme.md) 理解社区完整方案。
+2. 使用 [Community Stack](../community-stack/) 理解社区完整方案。
 3. 将每个模块的用户输入、配置输出、部署结果和验证证据结构化。
 4. 优先在测试网完成只读查询、配置生成和人工确认部署。
-

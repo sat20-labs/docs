@@ -1,4 +1,4 @@
-# 社区 DEX / DAO Quickstart
+# 搭建社区 DEX / DAO
 
 本文用于指导社区从零开始搭建测试网 DEX / DAO 原型。当前先定义标准流程，后续补充具体部署脚本、配置文件和截图。
 
@@ -24,7 +24,7 @@
 
 ## 推荐步骤
 
-1. 阅读 [Community Stack](../community-stack/readme.md)。
+1. 阅读 [Community Stack](../community-stack/)。
 2. 选择最小模块组合。
 3. 生成部署配置。
 4. 在测试网部署合约或启用模板。

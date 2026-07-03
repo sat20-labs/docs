@@ -1,4 +1,4 @@
-# 运行基础设施 Quickstart
+# 运行核心节点、Indexer 和 Explorer
 
 本文用于基础设施团队启动聪网节点、Indexer、Explorer、RPC 和监控服务。当前先定义路径，后续补充完整命令和配置。
 
@@ -21,7 +21,7 @@
 
 ## 推荐步骤
 
-1. 阅读 [SatoshiNet 协议概览](../protocol/satoshinet/readme.md)。
+1. 阅读 [SatoshiNet 协议概览](../protocol/satoshinet/)。
 2. 阅读 [API 源码地图](api-source-map.md)。
 3. 先在测试网启动节点或 Indexer。
 4. 验证高度同步、交易查询、资产查询和错误处理。

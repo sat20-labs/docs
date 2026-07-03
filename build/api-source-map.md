@@ -6,23 +6,23 @@ SAT20 当前仍在快速演进，接口字段、错误码和测试网能力会�
 
 ## 接口域
 
-| 接口域 | 负责项目 | 面向对象 | 当前文档策略 |
-| --- | --- | --- | --- |
-| BTC L1 Indexer API | [`indexer`](https://github.com/sat20-labs/indexer) | 钱包、交易平台、浏览器、STP 客户端、Agent | 以 Gin router、handler 和 wire model 为准 |
-| SatoshiNet Node RPC | [`satoshinet`](https://github.com/sat20-labs/satoshinet) | 节点运维、矿工、钱包、合约工具 | 以 JSON-RPC command、handler 和 help registry 为准 |
-| SatoshiNet L2 Indexer API | [`satoshinet/indexer`](https://github.com/sat20-labs/satoshinet/tree/main/indexer) | 钱包、交易平台、浏览器、STP 客户端、Agent | 以 L2 indexer router、handler 和 model 为准 |
-| SAT20 Wallet WASM / PWA Adapter API | [`sat20wallet`](https://github.com/sat20-labs/sat20wallet) | 钱包 UI、DApp、AI Agent、PWA adapter | 以 WASM wrapper、PWA bridge、Agent adapter contract 为准 |
-| STP Agent Adapter API | [`docs`](https://github.com/sat20-labs/docs) + [`sat20wallet`](https://github.com/sat20-labs/sat20wallet) + [`transcend`](https://github.com/sat20-labs/transcend) | AI Agent 和第三方 STP 客户端 | 以 `sat20-agent-wallet` skill 契约和实现 adapter 为准 |
+| 接口域                                 | 负责项目                                                                                                                                                               | 面向对象                            | 当前文档策略                                              |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- | --------------------------------------------------- |
+| BTC L1 Indexer API                  | [`indexer`](https://github.com/sat20-labs/indexer)                                                                                                                 | 钱包、交易平台、浏览器、STP 客户端、Agent       | 以 Gin router、handler 和 wire model 为准                |
+| SatoshiNet Node RPC                 | [`satoshinet`](https://github.com/sat20-labs/satoshinet)                                                                                                           | 节点运维、矿工、钱包、合约工具                 | 以 JSON-RPC command、handler 和 help registry 为准       |
+| SatoshiNet L2 Indexer API           | [`satoshinet/indexer`](https://github.com/sat20-labs/satoshinet/tree/main/indexer)                                                                                 | 钱包、交易平台、浏览器、STP 客户端、Agent       | 以 L2 indexer router、handler 和 model 为准              |
+| SAT20 Wallet WASM / PWA Adapter API | [`sat20wallet`](https://github.com/sat20-labs/sat20wallet)                                                                                                         | 钱包 UI、DApp、AI Agent、PWA adapter | 以 WASM wrapper、PWA bridge、Agent adapter contract 为准 |
+| STP Agent Adapter API               | [`docs`](https://github.com/sat20-labs/docs) + [`sat20wallet`](https://github.com/sat20-labs/sat20wallet) + [`transcend`](https://github.com/sat20-labs/transcend) | AI Agent 和第三方 STP 客户端           | 以 `sat20-agent-wallet` skill 契约和实现 adapter 为准       |
 
 ## 稳定性等级
 
-| 等级 | 含义 | 接入建议 |
-| --- | --- | --- |
-| Public Stable | 对外稳定接口，字段变化需要兼容 | 可用于生产接入 |
-| Public Experimental | 可用于测试网和早期集成，字段可能变化 | 接入方需要保留兼容层 |
-| Internal | 内部模块接口，不承诺外部兼容 | 不建议第三方直接依赖 |
-| Testnet Only | 只在测试网可用，主网必须拒绝 | 仅用于演练、验证和故障注入 |
-| Deprecated | 历史接口或过时文档 | 不作为新接入依据 |
+| 等级                  | 含义                 | 接入建议          |
+| ------------------- | ------------------ | ------------- |
+| Public Stable       | 对外稳定接口，字段变化需要兼容    | 可用于生产接入       |
+| Public Experimental | 可用于测试网和早期集成，字段可能变化 | 接入方需要保留兼容层    |
+| Internal            | 内部模块接口，不承诺外部兼容     | 不建议第三方直接依赖    |
+| Testnet Only        | 只在测试网可用，主网必须拒绝     | 仅用于演练、验证和故障注入 |
+| Deprecated          | 历史接口或过时文档          | 不作为新接入依据      |
 
 ## BTC L1 Indexer API
 
@@ -30,18 +30,18 @@ BTC L1 indexer 负责解析 BTC 主网上的 UTXO、sat range、Ordinals、Runes
 
 权威源码入口：
 
-| 内容 | GitHub 源码 |
-| --- | --- |
-| 服务启动与 RPC 初始化 | [`main.go`](https://github.com/sat20-labs/indexer/blob/main/main.go) |
-| Gin 总路由与 Swagger 挂载 | [`rpcserver/router.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/router.go) |
-| 基础接口 router / handler | [`rpcserver/base/router.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/base/router.go), [`rpcserver/base/handler.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/base/handler.go) |
+| 内容                            | GitHub 源码                                                                                                                                                                                                                                                                                                                        |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 服务启动与 RPC 初始化                 | [`main.go`](https://github.com/sat20-labs/indexer/blob/main/main.go)                                                                                                                                                                                                                                                             |
+| Gin 总路由与 Swagger 挂载           | [`rpcserver/router.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/router.go)                                                                                                                                                                                                                                     |
+| 基础接口 router / handler         | [`rpcserver/base/router.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/base/router.go), [`rpcserver/base/handler.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/base/handler.go)                                                                                                                 |
 | ORDX / 多资产接口 router / handler | [`rpcserver/ordx/router.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/ordx/router.go), [`rpcserver/ordx/handler.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/ordx/handler.go), [`rpcserver/ordx/handler_v3.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/ordx/handler_v3.go) |
-| Ordinals 内容接口 | [`rpcserver/ord/router.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/ord/router.go), [`rpcserver/ord/handler.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/ord/handler.go) |
-| BTC 节点代理接口 | [`rpcserver/bitcoind/router.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/bitcoind/router.go), [`rpcserver/bitcoind/handler.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/bitcoind/handler.go) |
-| 对外响应模型 | [`rpcserver/wire/`](https://github.com/sat20-labs/indexer/tree/main/rpcserver/wire) |
-| indexer 管理与协议处理 | [`indexer/indexermgr.go`](https://github.com/sat20-labs/indexer/blob/main/indexer/indexermgr.go), [`indexer/handle.go`](https://github.com/sat20-labs/indexer/blob/main/indexer/handle.go) |
-| ORDX 协议处理 | [`indexer/ft/`](https://github.com/sat20-labs/indexer/tree/main/indexer/ft), [`indexer/nft/`](https://github.com/sat20-labs/indexer/tree/main/indexer/nft), [`indexer/ns/`](https://github.com/sat20-labs/indexer/tree/main/indexer/ns) |
-| Runes / BRC20 处理 | [`indexer/runes/`](https://github.com/sat20-labs/indexer/tree/main/indexer/runes), [`indexer/brc20/`](https://github.com/sat20-labs/indexer/tree/main/indexer/brc20) |
+| Ordinals 内容接口                 | [`rpcserver/ord/router.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/ord/router.go), [`rpcserver/ord/handler.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/ord/handler.go)                                                                                                                     |
+| BTC 节点代理接口                    | [`rpcserver/bitcoind/router.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/bitcoind/router.go), [`rpcserver/bitcoind/handler.go`](https://github.com/sat20-labs/indexer/blob/main/rpcserver/bitcoind/handler.go)                                                                                                 |
+| 对外响应模型                        | [`rpcserver/wire/`](https://github.com/sat20-labs/indexer/tree/main/rpcserver/wire)                                                                                                                                                                                                                                              |
+| indexer 管理与协议处理               | [`indexer/indexermgr.go`](https://github.com/sat20-labs/indexer/blob/main/indexer/indexermgr.go), [`indexer/handle.go`](https://github.com/sat20-labs/indexer/blob/main/indexer/handle.go)                                                                                                                                       |
+| ORDX 协议处理                     | [`indexer/ft/`](https://github.com/sat20-labs/indexer/tree/main/indexer/ft), [`indexer/nft/`](https://github.com/sat20-labs/indexer/tree/main/indexer/nft), [`indexer/ns/`](https://github.com/sat20-labs/indexer/tree/main/indexer/ns)                                                                                          |
+| Runes / BRC20 处理              | [`indexer/runes/`](https://github.com/sat20-labs/indexer/tree/main/indexer/runes), [`indexer/brc20/`](https://github.com/sat20-labs/indexer/tree/main/indexer/brc20)                                                                                                                                                             |
 
 接入重点：
 
@@ -57,19 +57,19 @@ SatoshiNet 节点 RPC 继承 btcd 风格 JSON-RPC，同时扩展聪网交易、�
 
 权威源码入口：
 
-| 内容 | GitHub 源码 |
-| --- | --- |
-| 节点启动与 RPC server 启动 | [`btcd.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcd.go), [`server.go`](https://github.com/sat20-labs/satoshinet/blob/main/server.go) |
-| JSON-RPC server | [`rpcserver.go`](https://github.com/sat20-labs/satoshinet/blob/main/rpcserver.go) |
-| RPC handler adapter | [`rpcadapters.go`](https://github.com/sat20-labs/satoshinet/blob/main/rpcadapters.go) |
-| WebSocket RPC | [`rpcwebsocket.go`](https://github.com/sat20-labs/satoshinet/blob/main/rpcwebsocket.go) |
-| RPC help / result registry | [`rpcserverhelp.go`](https://github.com/sat20-labs/satoshinet/blob/main/rpcserverhelp.go) |
-| JSON-RPC command 注册与解析 | [`btcjson/register.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/register.go), [`btcjson/cmdparse.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/cmdparse.go) |
-| 链节点命令与结果 | [`btcjson/chainsvrcmds.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/chainsvrcmds.go), [`btcjson/chainsvrresults.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/chainsvrresults.go) |
-| btcd 扩展命令与结果 | [`btcjson/btcdextcmds.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/btcdextcmds.go), [`btcjson/btcdextresults.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/btcdextresults.go) |
-| 钱包相关命令模型 | [`btcjson/walletsvrcmds.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/walletsvrcmds.go), [`btcjson/walletsvrresults.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/walletsvrresults.go) |
-| 合约执行与结果 | [`contract/`](https://github.com/sat20-labs/satoshinet/tree/main/contract) |
-| POS 挖矿 | [`mining/posminer/`](https://github.com/sat20-labs/satoshinet/tree/main/mining/posminer) |
+| 内容                         | GitHub 源码                                                                                                                                                                                                                  |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 节点启动与 RPC server 启动        | [`btcd.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcd.go), [`server.go`](https://github.com/sat20-labs/satoshinet/blob/main/server.go)                                                                       |
+| JSON-RPC server            | [`rpcserver.go`](https://github.com/sat20-labs/satoshinet/blob/main/rpcserver.go)                                                                                                                                          |
+| RPC handler adapter        | [`rpcadapters.go`](https://github.com/sat20-labs/satoshinet/blob/main/rpcadapters.go)                                                                                                                                      |
+| WebSocket RPC              | [`rpcwebsocket.go`](https://github.com/sat20-labs/satoshinet/blob/main/rpcwebsocket.go)                                                                                                                                    |
+| RPC help / result registry | [`rpcserverhelp.go`](https://github.com/sat20-labs/satoshinet/blob/main/rpcserverhelp.go)                                                                                                                                  |
+| JSON-RPC command 注册与解析     | [`btcjson/register.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/register.go), [`btcjson/cmdparse.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/cmdparse.go)                           |
+| 链节点命令与结果                   | [`btcjson/chainsvrcmds.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/chainsvrcmds.go), [`btcjson/chainsvrresults.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/chainsvrresults.go)     |
+| btcd 扩展命令与结果               | [`btcjson/btcdextcmds.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/btcdextcmds.go), [`btcjson/btcdextresults.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/btcdextresults.go)         |
+| 钱包相关命令模型                   | [`btcjson/walletsvrcmds.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/walletsvrcmds.go), [`btcjson/walletsvrresults.go`](https://github.com/sat20-labs/satoshinet/blob/main/btcjson/walletsvrresults.go) |
+| 合约执行与结果                    | [`contract/`](https://github.com/sat20-labs/satoshinet/tree/main/contract)                                                                                                                                                 |
+| POS 挖矿                     | [`mining/posminer/`](https://github.com/sat20-labs/satoshinet/tree/main/mining/posminer)                                                                                                                                   |
 
 接入重点：
 
@@ -83,18 +83,18 @@ SatoshiNet L2 indexer 集成在聪网节点体系中，负责解析 L2 UTXO、as
 
 权威源码入口：
 
-| 内容 | GitHub 源码 |
-| --- | --- |
-| L2 indexer 启动 | [`indexer/main.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/main.go) |
-| L2 indexer 总路由 | [`indexer/rpcserver/router.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/rpcserver/router.go) |
-| SatoshiNet 查询 router / handler | [`indexer/rpcserver/satoshinet/router.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/rpcserver/satoshinet/router.go), [`indexer/rpcserver/satoshinet/handler.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/rpcserver/satoshinet/handler.go) |
+| 内容                                  | GitHub 源码                                                                                                                                                                                                                                                                                                                                                                                         |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| L2 indexer 启动                       | [`indexer/main.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/main.go)                                                                                                                                                                                                                                                                                                           |
+| L2 indexer 总路由                      | [`indexer/rpcserver/router.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/rpcserver/router.go)                                                                                                                                                                                                                                                                                   |
+| SatoshiNet 查询 router / handler      | [`indexer/rpcserver/satoshinet/router.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/rpcserver/satoshinet/router.go), [`indexer/rpcserver/satoshinet/handler.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/rpcserver/satoshinet/handler.go)                                                                                                                    |
 | indexer 查询 router / handler / model | [`indexer/rpcserver/indexer/router.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/rpcserver/indexer/router.go), [`indexer/rpcserver/indexer/handler.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/rpcserver/indexer/handler.go), [`indexer/rpcserver/indexer/model.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/rpcserver/indexer/model.go) |
-| L2 indexer 管理器 | [`indexer/indexer/indexermgr.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/indexer/indexermgr.go) |
-| L2 交易处理 | [`indexer/indexer/handle.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/indexer/handle.go) |
-| ascend / descend / STP 相关解析 | [`indexer/indexer/base/transcend.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/indexer/base/transcend.go), [`indexer/indexer/stp/transcend.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/indexer/stp/transcend.go) |
-| channel 状态索引 | [`indexer/indexer/base/channel_state.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/indexer/base/channel_state.go) |
-| 合约索引 | [`indexer/indexer/contract_index.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/indexer/contract_index.go), [`indexer/indexer/contract/indexer.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/indexer/contract/indexer.go) |
-| L2 RPC client | [`indexer/share/satsnet_rpc/rpc.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/share/satsnet_rpc/rpc.go), [`indexer/share/satsnet_rpc/rpcclient.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/share/satsnet_rpc/rpcclient.go) |
+| L2 indexer 管理器                      | [`indexer/indexer/indexermgr.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/indexer/indexermgr.go)                                                                                                                                                                                                                                                                               |
+| L2 交易处理                             | [`indexer/indexer/handle.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/indexer/handle.go)                                                                                                                                                                                                                                                                                       |
+| ascend / descend / STP 相关解析         | [`indexer/indexer/base/transcend.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/indexer/base/transcend.go), [`indexer/indexer/stp/transcend.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/indexer/stp/transcend.go)                                                                                                                                            |
+| channel 状态索引                        | [`indexer/indexer/base/channel_state.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/indexer/base/channel_state.go)                                                                                                                                                                                                                                                               |
+| 合约索引                                | [`indexer/indexer/contract_index.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/indexer/contract_index.go), [`indexer/indexer/contract/indexer.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/indexer/contract/indexer.go)                                                                                                                                      |
+| L2 RPC client                       | [`indexer/share/satsnet_rpc/rpc.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/share/satsnet_rpc/rpc.go), [`indexer/share/satsnet_rpc/rpcclient.go`](https://github.com/sat20-labs/satoshinet/blob/main/indexer/share/satsnet_rpc/rpcclient.go)                                                                                                                                  |
 
 接入重点：
 
@@ -110,21 +110,21 @@ SAT20 Wallet 负责私钥、助记词、签名、资产发送、用户授权、P
 
 权威源码入口：
 
-| 内容 | GitHub 源码 |
-| --- | --- |
-| Go WASM 入口 | [`sdk/wasm/main.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wasm/main.go) |
-| 钱包核心管理 | [`sdk/wallet/manager.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/manager.go), [`sdk/wallet/wallet.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/wallet.go) |
-| 钱包基础接口 | [`sdk/wallet/interface.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/interface.go) |
-| 普通资产发送 | [`sdk/wallet/interface_send.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/interface_send.go), [`sdk/wallet/interface_send2.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/interface_send2.go) |
-| PSBT / 签名接口 | [`sdk/wallet/interface_psbt.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/interface_psbt.go), [`sdk/wallet/sign.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/sign.go) |
-| 合约客户端接口 | [`sdk/wallet/interface_contract_client.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/interface_contract_client.go), [`sdk/wallet/interface_contract_unified.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/interface_contract_unified.go) |
-| STP / 通道钱包能力 | [`sdk/wallet/channelwallet.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/channelwallet.go), [`sdk/wallet/chaininfo_satsnet.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/chaininfo_satsnet.go) |
-| PWA WASM wrapper | [`pwa/utils/sat20.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/utils/sat20.ts), [`pwa/utils/stp.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/utils/stp.ts) |
-| PWA Agent adapter | [`pwa/composables/usePwaAgentAdapter.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/composables/usePwaAgentAdapter.ts) |
-| PWA DApp Connect 类型 | [`pwa/types/sat20-dapp-connect.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/types/sat20-dapp-connect.ts) |
-| PWA DApp bridge | [`pwa/composables/usePwaDappBridge.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/composables/usePwaDappBridge.ts) |
-| 授权弹窗与授权状态 | [`pwa/components/approve/ApproveAgentOperation.vue`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/components/approve/ApproveAgentOperation.vue), [`pwa/store/approve.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/store/approve.ts) |
-| L1 / L2 资产 hooks | [`pwa/composables/hooks/useL1Assets.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/composables/hooks/useL1Assets.ts), [`pwa/composables/hooks/useL2Assets.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/composables/hooks/useL2Assets.ts) |
+| 内容                  | GitHub 源码                                                                                                                                                                                                                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Go WASM 入口          | [`sdk/wasm/main.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wasm/main.go)                                                                                                                                                                                           |
+| 钱包核心管理              | [`sdk/wallet/manager.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/manager.go), [`sdk/wallet/wallet.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/wallet.go)                                                                             |
+| 钱包基础接口              | [`sdk/wallet/interface.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/interface.go)                                                                                                                                                                             |
+| 普通资产发送              | [`sdk/wallet/interface_send.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/interface_send.go), [`sdk/wallet/interface_send2.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/interface_send2.go)                                             |
+| PSBT / 签名接口         | [`sdk/wallet/interface_psbt.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/interface_psbt.go), [`sdk/wallet/sign.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/sign.go)                                                                   |
+| 合约客户端接口             | [`sdk/wallet/interface_contract_client.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/interface_contract_client.go), [`sdk/wallet/interface_contract_unified.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/interface_contract_unified.go) |
+| STP / 通道钱包能力        | [`sdk/wallet/channelwallet.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/channelwallet.go), [`sdk/wallet/chaininfo_satsnet.go`](https://github.com/sat20-labs/sat20wallet/blob/main/sdk/wallet/chaininfo_satsnet.go)                                           |
+| PWA WASM wrapper    | [`pwa/utils/sat20.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/utils/sat20.ts), [`pwa/utils/stp.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/utils/stp.ts)                                                                                           |
+| PWA Agent adapter   | [`pwa/composables/usePwaAgentAdapter.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/composables/usePwaAgentAdapter.ts)                                                                                                                                                 |
+| PWA DApp Connect 类型 | [`pwa/types/sat20-dapp-connect.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/types/sat20-dapp-connect.ts)                                                                                                                                                             |
+| PWA DApp bridge     | [`pwa/composables/usePwaDappBridge.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/composables/usePwaDappBridge.ts)                                                                                                                                                     |
+| 授权弹窗与授权状态           | [`pwa/components/approve/ApproveAgentOperation.vue`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/components/approve/ApproveAgentOperation.vue), [`pwa/store/approve.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/store/approve.ts)                       |
+| L1 / L2 资产 hooks    | [`pwa/composables/hooks/useL1Assets.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/composables/hooks/useL1Assets.ts), [`pwa/composables/hooks/useL2Assets.ts`](https://github.com/sat20-labs/sat20wallet/blob/main/pwa/composables/hooks/useL2Assets.ts)               |
 
 接入重点：
 
@@ -139,15 +139,15 @@ STP Agent Adapter 是面向 AI Agent 的语言无关 JSON 契约。它不替代�
 
 权威文档与源码入口：
 
-| 内容 | GitHub 源码 |
-| --- | --- |
-| SAT20 Agent Wallet 安装与使用 | [`ai/sat20-agent-wallet/readme.md`](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/readme.md) |
-| 互操作技能规范 | [`ai/sat20-agent-wallet/interoperability.md`](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/interoperability.md) |
-| Adapter contract | [`ai/sat20-agent-wallet/skills/sat20-agent-wallet/references/adapter-contract.md`](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/references/adapter-contract.md) |
-| 操作 playbooks | [`ai/sat20-agent-wallet/skills/sat20-agent-wallet/references/operation-playbooks.md`](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/references/operation-playbooks.md) |
-| PWA WASM adapter 说明 | [`ai/sat20-agent-wallet/skills/sat20-agent-wallet/references/pwa-wasm-adapter.md`](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/references/pwa-wasm-adapter.md) |
-| 通用转发脚本 | [`ai/sat20-agent-wallet/skills/sat20-agent-wallet/scripts/stp_adapter.py`](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/scripts/stp_adapter.py) |
-| transcend RPC adapter | [`ai/sat20-agent-wallet/skills/sat20-agent-wallet/scripts/stp_transcend_rpc_adapter.py`](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/scripts/stp_transcend_rpc_adapter.py) |
+| 内容                       | GitHub 源码                                                                                                                                                                                                                         |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SAT20 Agent Wallet 安装与使用 | [`ai/sat20-agent-wallet/readme.md`](../ai/sat20-agent-wallet/)                                                                                                                                                                    |
+| 互操作技能规范                  | [`ai/sat20-agent-wallet/interoperability.md`](../ai/sat20-agent-wallet/interoperability.md)                                                                                                                                       |
+| Adapter contract         | [`ai/sat20-agent-wallet/skills/sat20-agent-wallet/references/adapter-contract.md`](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/references/adapter-contract.md)                   |
+| 操作 playbooks             | [`ai/sat20-agent-wallet/skills/sat20-agent-wallet/references/operation-playbooks.md`](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/references/operation-playbooks.md)             |
+| PWA WASM adapter 说明      | [`ai/sat20-agent-wallet/skills/sat20-agent-wallet/references/pwa-wasm-adapter.md`](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/references/pwa-wasm-adapter.md)                   |
+| 通用转发脚本                   | [`ai/sat20-agent-wallet/skills/sat20-agent-wallet/scripts/stp_adapter.py`](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/scripts/stp_adapter.py)                                   |
+| transcend RPC adapter    | [`ai/sat20-agent-wallet/skills/sat20-agent-wallet/scripts/stp_transcend_rpc_adapter.py`](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/scripts/stp_transcend_rpc_adapter.py)       |
 | workspace wallet adapter | [`ai/sat20-agent-wallet/skills/sat20-agent-wallet/scripts/stp_workspace_wallet_adapter.py`](https://github.com/sat20-labs/docs/blob/main/ai/sat20-agent-wallet/skills/sat20-agent-wallet/scripts/stp_workspace_wallet_adapter.py) |
 
 接入重点：

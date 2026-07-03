@@ -8,24 +8,24 @@ SAT20 / 聪网是长期的开源基础设施建设。你可以通过捐赠、代
 
 捐赠地址：
 
-```text
+```
 bc1ppejz29yxpz66yzkaxh6dek8pzsm8aajne6p4qak0xhxphkwzqnmsw45sur
 ```
 
-![捐赠地址](assets/donate.jpg)
+![捐赠地址](.gitbook/assets/donate.jpg)
 
 捐赠将用于项目维护、开源开发、测试网基础设施、文档和内容、开发者支持、演示环境、sat20.org 与 docs.sat20.org 的托管费用，以及在资源允许时支持生态公共品。
 
 ## 其他支持方式
 
-| 方式 | 可以做什么 |
-| --- | --- |
-| 代码贡献 | 修复问题、补充测试、实现工具、改进 SDK、合约、Indexer 或钱包 |
-| 文档贡献 | 改进教程、翻译、截图、案例和错误排查说明 |
-| 测试网验证 | 复现钱包、STP、合约、DEX、Explorer 和 Agent 的流程 |
-| 节点和服务器 | 运行测试网节点、Indexer、Explorer、RPC 或监控 |
-| 社区合作 | 帮助 BTC 社区试点 DEX、DAO、钱包入口和基础设施 |
-| 安全贡献 | 报告漏洞、审计合约、验证跨层资产状态和恢复路径 |
+| 方式     | 可以做什么                                |
+| ------ | ------------------------------------ |
+| 代码贡献   | 修复问题、补充测试、实现工具、改进 SDK、合约、Indexer 或钱包 |
+| 文档贡献   | 改进教程、翻译、截图、案例和错误排查说明                 |
+| 测试网验证  | 复现钱包、STP、合约、DEX、Explorer 和 Agent 的流程 |
+| 节点和服务器 | 运行测试网节点、Indexer、Explorer、RPC 或监控     |
+| 社区合作   | 帮助 BTC 社区试点 DEX、DAO、钱包入口和基础设施        |
+| 安全贡献   | 报告漏洞、审计合约、验证跨层资产状态和恢复路径              |
 
 更多方式见 [支持协议开发](governance-support/support-development.md)。
 
