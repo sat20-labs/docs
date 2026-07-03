@@ -11,7 +11,7 @@
   * [我是 AI Agent 开发者](start-here/ai-agent-builders.md)
   * [我想提供流动性](start-here/liquidity.md)
 
-* 社区技术栈：社区自有基础设施
+* 生态落地路径：社区自有基础设施
   * [为你的 BTC 社区搭建完整基础设施](community-stack/readme.md)
 
 * Learn：理解聪网
