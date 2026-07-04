@@ -11,6 +11,8 @@
 | 目标 | 下一步 |
 | --- | --- |
 | 理解 EVM 开发者预览 | [EVM 开发者预览](../build/evm-quickstart.md) |
+| 查看 EVM 样本合约 | [EVM 样本合约](../build/evm-sample-contracts.md) |
+| 测试 Prediction / Agent 合约 | [Prediction 合约 Quickstart](../build/prediction-contract-quickstart.md) |
 | 构建社区 DEX / DAO | [社区 DEX / DAO Quickstart](../build/community-dex-quickstart.md) |
 | 接入资产数据 | [Indexer 接入与资产事实层](../build/indexer.md) |
 | 实现 STP 客户端 | [第三方 STP 客户端接入指南](../protocol/stp/client-integration.md) |

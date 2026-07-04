@@ -45,7 +45,7 @@ SatoshiNet 提供交易、资产、区块、合约和应用执行；
 | Indexer | 主网上线的 BTC L1 与聪网资产事实层 |
 | STP / Transcend | 主网上线的 BTC L1 与聪网之间的跨层资产控制、退出和惩罚协议 |
 | SatoshiNet | 主网上线的交易、资产、区块、合约、应用和服务执行网络 |
-| 智能合约 | 基于 SatoshiNet 的可编程执行层，包括模板合约、EVM Runtime 测试网和未来 Agent 合约方向 |
+| 智能合约 | 基于 SatoshiNet 的可编程执行层，框架已完成开发并进入公开测试网；当前测试 Agent / Prediction 合约，以及 PWA `工具 -> 智能合约` 中的模板 AMM / 限价单、EVM `ConstantProductAMM` / `LimitOrderBook` 样本 |
 | DKVS / D-Indexer | 开发中的分布式键值基础设施和分布式 L1 Indexer；DKVS 是 D-Indexer 的底层基础之一 |
 | SAT20 Wallet | 已有浏览器插件和 PWA 两种形式，并持续迭代的钱包入口 |
 | AI Agent Wallet | 从 SAT20 Wallet 演进而来的 Agent 授权操作入口 |
@@ -76,7 +76,7 @@ STP：主网跨层控制、退出与惩罚
    ↓
 SatoshiNet：主网交易、资产、区块和服务执行
    ↓
-智能合约：模板合约、EVM Runtime 测试网、Agent 合约方向
+智能合约：已进入公开测试网的 Agent / Prediction 合约，以及 PWA 工具中的模板 AMM / 限价单、EVM ConstantProductAMM / LimitOrderBook
    ↓
 DKVS / D-Indexer：分布式数据、状态协作和 L1 资产事实网络
    ↓
@@ -91,6 +91,7 @@ AI Agent Wallet：基于 SAT20 Wallet 的授权交互入口
 | 社区基础设施 | 为 BTC 社区规划节点、Indexer、Explorer、钱包、DEX、DAO、Launchpad 和运营后台 | [社区技术栈](community-stack/readme.md) |
 | 资产进入聪网 | 通过主网 Indexer 识别 BTC L1 资产事实，通过主网 STP 将资产纳入用户可退出的通道安全边界 | [STP 简介](learn/stp.md) |
 | 用户使用 | 使用 SAT20 Wallet 插件或 PWA 进入聪网、完成 Swap、使用 Explorer 验证交易 | [使用聪网](use/readme.md) |
+| 测试智能合约 | 使用 PWA Wallet 领取测试 GAS、部署或参与 Prediction 合约测试 | [Prediction 合约测试](use/prediction-contract.md) |
 | 开发者构建 | 接入 Indexer、STP、SatoshiNet、智能合约、Wallet SDK 和社区 DEX / DAO | [开发者中心](build/readme.md) |
 | 节点运行 | 运行挖矿节点、核心节点、Indexer、Explorer、RPC 和监控服务 | [运行网络](run/readme.md) |
 | 网络经济 | 理解 GAS、费用流、节点质押、激励和设计中参数 | [网络经济](network-economics/readme.md) |
@@ -130,7 +131,7 @@ AI Agent Wallet：基于 SAT20 Wallet 的授权交互入口
 | Indexer | Implemented · Mainnet | 主网上线的 BTC L1 与聪网资产事实层，为资产、交易、确认和协议事件提供可复核状态 |
 | STP | Implemented · Mainnet | STP 已开发完成并上线主网，承担跨层资产控制、退出和旧状态惩罚路径 |
 | SatoshiNet | Implemented · Mainnet | 主网执行网络，承载交易、资产表达、基础应用和服务运行 |
-| 智能合约 / EVM Runtime | Testnet / Iterating | EVM Runtime 已开发完成并上线测试网，模板合约和合约开发者体验持续迭代 |
+| 智能合约 / EVM Runtime / Agent 合约 | Testnet / Iterating | 智能合约框架已完成开发并进入公开测试网；当前验证 Agent / Prediction 合约，以及 PWA `工具 -> 智能合约` 中的模板 AMM / 限价单、EVM `ConstantProductAMM` / `LimitOrderBook` 样本 |
 | DKVS / D-Indexer | In Development | DKVS 和分布式 L1 Indexer 正在开发中，服务未来更开放的节点、索引和 Agent 协作网络 |
 | SAT20 Wallet / AI Agent Wallet | Implemented · Iterating | SAT20 Wallet 已有插件和 PWA 两种形式；AI Agent Wallet 在此基础上继续演进 |
 | VSN / 长期治理 | Design / R&D | 继续进行设计、实验和验证，不表达为已完成生产能力 |

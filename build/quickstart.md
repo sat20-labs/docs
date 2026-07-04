@@ -4,33 +4,34 @@
 
 ## 先选择一个可运行目标
 
-| 目标                      | 指南                                                     |
-| ----------------------- | ------------------------------------------------------ |
-| 理解 EVM 开发者预览            | [EVM 开发者预览](evm-quickstart.md)                         |
-| 搭建社区 DEX / DAO          | [社区 DEX / DAO Quickstart](community-dex-quickstart.md) |
-| 部署社区 DAO                | [DAO Quickstart](dao-quickstart.md)                    |
-| 部署 AMM 池                | [AMM Pool Quickstart](amm-pool-quickstart.md)          |
-| 部署 Launchpad            | [Launchpad Quickstart](launchpad-quickstart.md)        |
-| 部署限价单模块                 | [Limit Order Quickstart](limit-order-quickstart.md)    |
-| 运行核心节点、Indexer、Explorer | [基础设施 Quickstart](infrastructure-quickstart.md)        |
-| 集成 Wallet SDK           | [Wallet SDK Quickstart](wallet-sdk-quickstart.md)      |
-| 搭建白标 DEX                | [White-label DEX](white-label-dex.md)                  |
-| 构建 SatoshiNet AI Agent  | [AI Agent Quickstart](ai-agent-quickstart.md)          |
-| 查看合约模板状态                | [合约模板目录](contract-template-catalog.md)                 |
-| 集成钱包或交易平台               | [交易平台与钱包接入](exchange-and-wallet.md)                    |
+| 目标 | 指南 |
+| --- | --- |
+| 理解 EVM 开发者预览 | [EVM 开发者预览](evm-quickstart.md) |
+| 查看 EVM 样本合约 | [EVM 样本合约](evm-sample-contracts.md) |
+| 搭建社区 DEX / DAO | [社区 DEX / DAO Quickstart](community-dex-quickstart.md) |
+| 部署社区 DAO | [DAO Quickstart](dao-quickstart.md) |
+| 部署 AMM 池 | [AMM Pool Quickstart](amm-pool-quickstart.md) |
+| 部署 Launchpad | [Launchpad Quickstart](launchpad-quickstart.md) |
+| 部署限价单模块 | [Limit Order Quickstart](limit-order-quickstart.md) |
+| 运行核心节点、Indexer、Explorer | [基础设施 Quickstart](infrastructure-quickstart.md) |
+| 集成 Wallet SDK | [Wallet SDK Quickstart](wallet-sdk-quickstart.md) |
+| 搭建白标 DEX | [White-label DEX](white-label-dex.md) |
+| 构建 SatoshiNet AI Agent | [AI Agent Quickstart](ai-agent-quickstart.md) |
+| 查看合约模板状态 | [合约模板目录](contract-template-catalog.md) |
+| 集成钱包或交易平台 | [交易平台与钱包接入](exchange-and-wallet.md) |
 
 带状态标签的页面表示内容仍在规划或对应系统仍在开发。未达到可运行标准前，页面会保留状态说明和待补清单。
 
 ## 选择你要构建什么
 
-| 你要构建           | 起点                                            |
-| -------------- | --------------------------------------------- |
-| STP 钱包或客户端     | `sat20-agent-wallet` skill 与 adapter contract |
-| Indexer / 数据服务 | L1/L2 indexer、资产事实层和多协议资产状态                   |
-| 聪网应用           | 智能合约文档与测试网                                    |
-| 交易平台接入         | Indexer、STP 状态和充值提现流程                         |
-| AI Agent       | SAT20 Agent Wallet skill、PWA adapter、安全验证矩阵   |
-| 区块浏览器或数据服务     | L1/L2 indexer 和交易状态模型                         |
+| 你要构建 | 起点 |
+| --- | --- |
+| STP 钱包或客户端 | `sat20-agent-wallet` skill 与 adapter contract |
+| Indexer / 数据服务 | L1/L2 indexer、资产事实层和多协议资产状态 |
+| 聪网应用 | 智能合约文档与测试网 |
+| 交易平台接入 | Indexer、STP 状态和充值提现流程 |
+| AI Agent | SAT20 Agent Wallet skill、PWA adapter、安全验证矩阵 |
+| 区块浏览器或数据服务 | L1/L2 indexer 和交易状态模型 |
 
 ## 安装钱包与 Agent Skill
 
@@ -84,6 +85,7 @@ curl -fsSL https://raw.githubusercontent.com/sat20-labs/docs/main/ai/sat20-agent
 6. 验证 punish coverage。
 7. 处理未知网络结果。
 8. 通过 indexer 复核 L1/L2 资产证据链。
+9. 部署或调用至少一个测试网智能合约，例如 Prediction，或在 PWA `工具 -> 智能合约` 中测试模板 AMM、模板限价单、EVM `ConstantProductAMM`、EVM `LimitOrderBook`。
 
 验收清单见 [STP 第三方客户端实现验收清单](../protocol/stp/implementation-checklist.md)。
 
