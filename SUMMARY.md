@@ -1,8 +1,8 @@
 # Table of contents
 
+* [README](README.md)
 * [欢迎来到 SAT20](readme.md)
-
-* 开始：选择你的路径
+* [开始：选择你的路径](kai-shi-xuan-ze-ni-de-lu-jing/README.md)
   * [概述](start-here/readme.md)
   * [我运营一个 BTC 社区](start-here/btc-community.md)
   * [我是开发者](start-here/developers.md)
@@ -10,11 +10,9 @@
   * [我是钱包或交易平台](start-here/wallet-exchange.md)
   * [我是 AI Agent 开发者](start-here/ai-agent-builders.md)
   * [我想提供流动性](start-here/liquidity.md)
-
-* 生态落地路径：社区自有基础设施
+* [生态落地路径：社区自有基础设施](sheng-tai-luo-di-lu-jing-she-qu-zi-you-ji-chu-she-shi/README.md)
   * [为你的 BTC 社区搭建完整基础设施](community-stack/readme.md)
-
-* Learn：理解聪网
+* [Learn：理解聪网](learn-li-jie-cong-wang/README.md)
   * [概述](learn/readme.md)
   * [为什么需要比特币原生扩展网络](learn/bitcoin-native.md)
   * [资产安全模型](learn/security-model.md)
@@ -22,8 +20,7 @@
   * [STP 简介](learn/stp.md)
   * [智能合约与 GAS](learn/smart-contracts-and-gas.md)
   * [AI Agent 与用户资产控制](learn/ai-agent.md)
-
-* 使用聪网
+* [使用聪网](shi-yong-cong-wang/README.md)
   * [概述](use/readme.md)
   * [钱包与资产](use/wallet-and-assets.md)
   * [获取测试资产和测试 GAS](use/test-assets-and-gas.md)
@@ -40,8 +37,7 @@
   * [使用 AI Agent 查询和操作](use/ai-agent.md)
   * [退出聪网与故障恢复](use/exit-and-recovery.md)
   * [常见问题](use/faq.md)
-
-* 开发者中心
+* [开发者中心](kai-fa-zhe-zhong-xin/README.md)
   * [概述](build/readme.md)
   * [开发者快速开始](build/quickstart.md)
   * [EVM 开发者预览](build/evm-quickstart.md)
@@ -60,8 +56,7 @@
   * [API 源码地图](build/api-source-map.md)
   * [Indexer 接入与资产事实层](build/indexer.md)
   * [交易平台与钱包接入](build/exchange-and-wallet.md)
-
-* 运行网络：节点与基础设施
+* [运行网络：节点与基础设施](yun-xing-wang-luo-jie-dian-yu-ji-chu-she-shi/README.md)
   * [概述](run/readme.md)
   * [挖矿节点](run/mining-node.md)
   * [核心节点](run/core-node.md)
@@ -70,44 +65,41 @@
   * [监控、备份与升级](run/operations.md)
   * [节点质押与退出](run/staking-and-exit.md)
   * [去中心化路线](run/decentralization-roadmap.md)
-
-* 协议与安全
+* [协议与安全](xie-yi-yu-an-quan/README.md)
   * [SAT20 协议体系](protocol/readme.md)
-  * Indexer
+  * [Indexer](xie-yi-yu-an-quan/indexer/README.md)
     * [Indexer：比特币资产事实层](learn/indexer.md)
     * [Indexer 接入与资产事实层](build/indexer.md)
     * [资产发行协议](protocol/indexer/asset-issuance.md)
-  * STP
+  * [STP](xie-yi-yu-an-quan/stp/README.md)
     * [STP 技术白皮书](protocol/stp/readme.md)
     * [STP 消息与数据模型](protocol/stp/messages-and-data-model.md)
     * [STP 消息流程](protocol/stp/message-sequences.md)
     * [第三方 STP 客户端接入指南](protocol/stp/client-integration.md)
     * [STP 第三方客户端实现验收清单](protocol/stp/implementation-checklist.md)
-  * SatoshiNet
+  * [SatoshiNet](xie-yi-yu-an-quan/satoshinet/README.md)
     * [SatoshiNet 协议概览](protocol/satoshinet/readme.md)
-  * Channel Contracts
+  * [Channel Contracts](xie-yi-yu-an-quan/channel-contracts/README.md)
     * [通道合约](protocol/channel-contracts/readme.md)
-  * Smart Contracts
+  * [Smart Contracts](xie-yi-yu-an-quan/smart-contracts/README.md)
     * [智能合约协议](protocol/contracts/readme.md)
     * [模板合约](protocol/contracts/template.md)
     * [自然语言合约](protocol/contracts/agent.md)
     * [EVM 合约](protocol/contracts/evm.md)
-  * Security
+  * [Security](xie-yi-yu-an-quan/security/README.md)
     * [威胁模型与信任假设](protocol/security/threat-model.md)
-
-* 网络经济
+* [网络经济](wang-luo-jing-ji/README.md)
   * [概述](network-economics/readme.md)
   * [GAS：网络费用与安全资产](network-economics/gas.md)
   * [费用流与节点激励](network-economics/fees-and-incentives.md)
-  * [挖矿节点 / 核心节点质押](network-economics/node-staking.md)<!-- [GAS 分配草案](network-economics/distribution-draft.md) -->
+  * [挖矿节点 / 核心节点质押](network-economics/node-staking.md)
   * [设计中问题](network-economics/open-questions.md)
-
-* AI Agent：自动化与安全
+* [AI Agent：自动化与安全](ai-agent-zi-dong-hua-yu-an-quan/README.md)
   * [概述](ai/readme.md)
   * [比特币生态 AI Agent 资产安全评估规范](ai/bitcoin-agent-safety-standard.md)
   * [AI Agent 与用户资产控制](learn/ai-agent.md)
   * [Community Builder Agent](ai/community-builder-agent.md)
-  * SAT20 Agent Wallet
+  * [SAT20 Agent Wallet](ai-agent-zi-dong-hua-yu-an-quan/sat20-agent-wallet/README.md)
     * [安装与使用](ai/sat20-agent-wallet/readme.md)
     * [互操作技能规范](ai/sat20-agent-wallet/interoperability.md)
     * [资产安全控制指南](ai/sat20-agent-wallet/asset-safety.md)
@@ -116,8 +108,7 @@
     * [测试网验证记录](ai/sat20-agent-wallet/testnet-validation.md)
     * [测试网演练总结](ai/sat20-agent-wallet/testnet-drill-summary-2026-06-13.md)
     * [1 分钟演示视频](ai/sat20-agent-wallet/demo-video.md)
-
-* 生态建设
+* [生态建设](sheng-tai-jian-she/README.md)
   * [概述](ecosystem/readme.md)
   * [SatoshiNet Today：当前可用能力](ecosystem/satoshinet-today.md)
   * [Built on SatoshiNet](ecosystem/built-on-satoshinet.md)
@@ -125,16 +116,14 @@
   * [Builder Program](ecosystem/builder-program.md)
   * [战略合作伙伴](ecosystem/strategic-partners.md)
   * [合作伙伴与贡献指南](ecosystem/partners-and-contribution.md)
-
-* 治理与支持
+* [治理与支持](zhi-li-yu-zhi-chi/README.md)
   * [概述](governance-support/readme.md)
   * [SAT20 Labs](governance-support/sat20-labs.md)
   * [未来基金会](governance-support/future-foundation.md)
   * [SIP 改进流程](governance-support/sip.md)
   * [支持协议开发](governance-support/support-development.md)
   * [安全披露](governance-support/security-disclosure.md)
-
-* 资源
+* [资源](zi-yuan/README.md)
   * [背景](why.md)
   * [路线图](roadmap.md)
   * [API 源码地图](build/api-source-map.md)
