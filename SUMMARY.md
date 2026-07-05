@@ -79,6 +79,7 @@
     * [STP 第三方客户端实现验收清单](protocol/stp/implementation-checklist.md)
   * [SatoshiNet](xie-yi-yu-an-quan/satoshinet/README.md)
     * [SatoshiNet 协议概览](protocol/satoshinet/readme.md)
+  * [DKVS](protocol/dkvs/readme.md)
   * [Channel Contracts](xie-yi-yu-an-quan/channel-contracts/README.md)
     * [通道合约](protocol/channel-contracts/readme.md)
   * [Smart Contracts](xie-yi-yu-an-quan/smart-contracts/README.md)
