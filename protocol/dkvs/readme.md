@@ -29,11 +29,13 @@ DKVS key 使用路径形式：
 | `/svc/<service>/...` | 服务配置和服务发现 | service resolver 返回的当前 signing key 或 owner address |
 | `/mail/<mailbox>/msg/<msg_id>` | 离线消息 | 任意有效 signer 可投递，quota 后续阶段实现 |
 | `/mail/<mailbox>/share/<package>/<share>` | Guardian/share 数据 | mailbox owner 写入 |
-| `/blob/<object>/manifest` 和 `/blob/<object>/chunk/<n>` | 小 blob 分片 | record signer 负责完整性，SDK 校验 manifest/chunk |
+| `/blob/<account_id>/<object_id>/manifest` 和 `/blob/<account_id>/<object_id>/chunk/<n>` | 用户命名的小 blob 分片 | 仅 `sha256(pubkey)==account_id` 的 owner 可写 |
 | `/tmp/...` | 临时数据 | TTL 受限 |
 | `/sys/...` | 系统参数、miner/pool 元数据等系统数据 | 只允许配置的 system signer |
 
 segment 字符集限制为 `[a-z0-9._-]`，并有长度限制。DKVS-safe name 原样作为 `name_id`；不安全 canonical name 使用 `hex(sha256(canonical_name))`。
+
+`object_id` 是 owner 自己选择的稳定名称，可以是用户熟悉的文件名或对象名，不是内容 hash。同一 `account_id + object_id` 可通过更高版本 record 更新。写入时必须先提交 manifest，再提交 chunks；manifest 和全部 chunks 必须使用相同 pubkey、seq 和 expiry，节点逐块校验 chunk hash，并在读取组装时校验最终 content hash。内容 hash 只保证完整性，不参与对象寻址或写入权限。
 
 ## Record 与选择规则
 
@@ -132,7 +134,7 @@ DKVS 使用 6 个 SatoshiNet 原生 wire command：
 | `dkvssyncreq` | 分页启动同步请求 |
 | `dkvssyncres` | 分页同步响应 |
 
-miner 新连接后执行分页同步；收到 notify 后用 get/data 拉取缺失 record。接收端必须完整重新验证，不能信任远端节点。
+miner 新连接后执行带随机 session id 的分页同步；普通节点只按已配置的 key/prefix/mailbox/service 订阅同步。收到 notify 后用 get/data 拉取缺失 record，接收端完整重新验证并向其他 peer 转发更新。节点还会周期性对 miner 发起反熵同步，以补齐丢失 notify、短暂断线或分页期间发生的更新；同一 peer 同一时刻只运行一个同步 session，分页响应同时受 record 数量和 wire payload 大小限制。
 
 ## Checkpoint
 
