@@ -130,7 +130,7 @@ DKVS 使用 6 个 SatoshiNet 原生 wire command：
 
 | Command | 用途 |
 | --- | --- |
-| `dkvsnotify` | 通知 record hash/key 更新 |
+| `dkvsnotify` | 直接传播单条完整 record |
 | `dkvsinv` | 广播 record inventory |
 | `dkvsget` | 按 key/hash 拉取 record |
 | `dkvsdata` | 返回 record 数据 |
@@ -144,7 +144,9 @@ DKVS 使用 6 个 SatoshiNet 原生 wire command：
 
 Mirror 在内存中暂存完整会话并设置 `DKVSReady=false`，验证页边界、签名、record 数量、总字节数、权限、fee proof、blob 完整性和覆盖范围 root 后，再以一个 DB batch 原子替换目标 key/prefix。Mirror 中缺失的 key 会被物理删除，但不产生删除命令或 sequence floor。会话失败或 root 变化时丢弃暂存数据并重试；节点只有成功建立可信基线后才对外服务 DKVS 数据。
 
-收到 notify 后，节点用 get/data 拉取缺失 record，完整重新验证并向其他 peer 转发更新。签名删除命令也通过 notify/get/data 和反熵同步传播，并仅在有限 relay window 内保留，使短期离线节点能够追赶；长期落后的普通节点通过可信 Mirror 恢复状态。分页响应同时受 record 数量和 wire payload 大小限制，Mirror 暂存区还受总 record 数和总字节数限制。blob generation 必须包含 manifest 声明的全部 chunks，并作为一组原子替换，避免部分 generation 对外可见。
+`dkvsnotify` 的 wire payload 只有 1 字节 `EventType` 和有界 `Data`。record 类事件的 `Data` 是完整 DKVSRecord 的紧凑二进制编码，最大 16 KiB；key、record hash、seq、expiry、size 和 flags 均从 record 推导，不重复编码 `KeyHash` 或自报 `SourceNode`。接收方必须按 EventType 解码，重新计算 record hash，并完整复核签名、权限、TTL、fee proof 和 sequence floor，只有成功落库的更新才继续转发。普通节点只接收其已完成 Mirror Sync 的 subscription 范围，miner 接收完整更新。
+
+因此常规 record 更新和签名删除命令通过 notify 单向传播，不再先执行 get/data 往返。`dkvsget` / `dkvsdata` 仍用于 inventory 拉取、显式查询、反熵修复和有限 delete relay window 内的追赶；`dkvsinv` 的 item 保留 key、record hash 和 seq，不重复携带 key hash。过期清理不是签名删除授权，`EXPIRED` 不通过 P2P notify 传播。长期落后的普通节点仍通过可信 Mirror 恢复状态。分页响应同时受 record 数量和 wire payload 大小限制，Mirror 暂存区还受总 record 数和总字节数限制。blob generation 必须包含 manifest 声明的全部 chunks，并作为一组原子替换，避免部分 generation 对外可见。
 
 ## Checkpoint
 
