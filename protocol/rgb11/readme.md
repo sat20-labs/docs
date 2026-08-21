@@ -173,7 +173,7 @@ Blind 模式使用一次性封印。SDK 会为待接收状态保留 carrier UTXO
 
 地址/profile 只描述接收能力和投递位置，不代表接收方已经接受资产。最终接受仍由本地 consignment 验证和 ACK 决定。
 
-## 6. 发送、Relay 与 ACK
+## 6. 发送、投递与 ACK
 
 标准发送流程为：
 
@@ -181,20 +181,20 @@ Blind 模式使用一次性封印。SDK 会为待接收状态保留 carrier UTXO
 2. 检查资产、余额、UTXO 锁和最小确认数；
 3. 构造 transition、consignment、PSBT 和 change seals；
 4. 保存 pending transfer；
-5. 向接收方投递 consignment；
-6. 接收方验证后返回 ACK 或 NACK；
-7. ACK 满足策略后广播 Bitcoin 交易；
+5. 通过所选传输方式向接收方投递 consignment；
+6. 按该传输方式的持久化与 ACK 策略广播 Bitcoin 交易；
+7. 接收方验证后记录 ACK 或 NACK；
 8. 跟踪确认数并更新 allocation、余额和 UTXO 锁。
 
 SDK 支持三类传输接口：
 
-- SAT20/DKVS relay 与 mailbox；
-- 配置化地址投递；
+- 配置化 SAT20 地址，通过加密 DKVS mailbox 投递；
 - 标准 RGB JSON-RPC proxy。
+- 应用自行传递 consignment 的 out-of-band 流程。
 
-公共 relay record 只包含传输定位和校验所需的信息。私有 seal disclosure、完整本地 consignment、签名交易和 change seal 不写入公共 relay record 或 wallet head。
+RGB11 不再使用 DKVS `/tmp` relay/ACK，也不在 invoice 中加入 SAT20 私有 query 参数。mailbox 记录只承担加密投递；私有 seal disclosure、完整本地 consignment、签名交易和 change seal 不写入账户备份或 wallet head。
 
-ACK 不是资产有效性的替代证明。接收方只有在本地客户端验证通过后才能签发 ACK；发送方也必须校验 ACK 与 transfer、recipient 和 relay record 的绑定关系。
+ACK 不是资产有效性的替代证明。接收方只有在本地客户端验证通过后才能签发 ACK；发送方也必须校验 ACK 与 transfer、recipient 和所选传输记录的绑定关系。
 
 ## 7. UTXO 与余额模型
 

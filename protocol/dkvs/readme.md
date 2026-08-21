@@ -32,7 +32,7 @@ DKVS key 使用路径格式：
 | `/mail/<receiver>/share/...` | Guardian/share 数据 | receiver owner-exclusive |
 | `/name/<name>` | 名称资料 | 当前 DID/NS authority 可写 |
 | `/svc/<service>/...` | 服务配置与发现 | 当前 service authority 可写 |
-| `/tmp/...` | relay、ACK 等短期数据 | local-only，必须设置受限 TTL |
+| `/tmp/...` | 通用临时应用数据 | local-only，必须设置受限 TTL |
 | `/sys/...` | 系统参数 | 配置的 system signer 可写 |
 
 `/personal/<account_id>` 下按 module 划分 path，例如账户管理和 RGB11 使用不同 path，避免无关业务共享同一个 generation 和写锁。
