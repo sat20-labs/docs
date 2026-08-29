@@ -12,4 +12,4 @@
 
 支持协议开发与 GAS 网络经济是两件事。捐赠、赞助、服务合同和未来基金会安排都不等同于购买 GAS 或获得收益承诺。
 
-**页面状态：规划中（Planning）**
+**页面状态：当前边界已说明 / 治理机制规划中（Current Boundary Defined / Governance Planned）**

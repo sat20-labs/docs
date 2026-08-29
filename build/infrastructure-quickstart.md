@@ -1,6 +1,6 @@
 # 运行核心节点、Indexer 和 Explorer
 
-本文用于基础设施团队启动聪网节点、Indexer、Explorer、RPC 和监控服务。当前先定义路径，后续补充完整命令和配置。
+本文用于基础设施团队启动聪网节点、Indexer、Explorer、RPC和监控服务。组件均已有实现，但第三方部署不能复制现有服务器的私有路径、密钥或生产配置；应从仓库内当前安装指南和示例配置生成自己的环境。
 
 ## 你可以运行什么
 
@@ -23,10 +23,11 @@
 
 1. 阅读 [SatoshiNet 协议概览](../protocol/satoshinet/)。
 2. 阅读 [API 源码地图](api-source-map.md)。
-3. 先在测试网启动节点或 Indexer。
-4. 验证高度同步、交易查询、资产查询和错误处理。
-5. 为钱包、DEX 或 Agent 提供只读 API。
-6. 加入监控和告警。
+3. 从对应仓库固定commit和dirty diff，按当前build脚本编译；确认DB backend和build tags。
+4. 使用独立域名、端口、数据目录和密钥在测试网启动节点或Indexer。
+5. 验证共同高度/hash、Indexer内部tip与对外best height、交易/资产查询和错误处理。
+6. 为钱包、DEX或Agent提供最小只读API；管理和测试故障接口不公开。
+7. 加入监控、备份、证书更新和告警，再进行长期运行。
 
 ## 验收标准
 
@@ -36,4 +37,6 @@
 4. API 能表达 pending、not found、reorg、unindexed 等状态。
 5. 服务重启后能恢复。
 
-**页面状态：规划中（Planning）**
+详细边界见 [运行Indexer](../run/indexer.md)、[Explorer/RPC](../run/explorer-rpc.md) 和 [监控、备份与升级](../run/operations.md)。
+
+**页面状态：组件已实现 / 第三方部署文档持续完善（Implemented / Integration Docs Iterating）**

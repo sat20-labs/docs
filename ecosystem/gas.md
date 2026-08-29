@@ -45,4 +45,6 @@ GAS 聚焦于：
 4. 生态激励。
 5. 治理和风险。
 
-更完整的 GAS 协议和经济模型会随智能合约实现逐步补充。
+运行时Gas计量和费用扣除已经实现，测试网使用SGAS验证交易、合约、Faucet和Autopay流程；正式GAS发行、质押、处罚、分配和治理仍在设计。更完整边界见 [网络经济](../network-economics/readme.md)。
+
+**页面状态：费用机制已实现 / 正式经济规则设计中（Fee Mechanism Implemented / Economics Design in Progress）**

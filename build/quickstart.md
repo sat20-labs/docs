@@ -20,7 +20,7 @@
 | 查看合约模板状态 | [合约模板目录](contract-template-catalog.md) |
 | 集成钱包或交易平台 | [交易平台与钱包接入](exchange-and-wallet.md) |
 
-带状态标签的页面表示内容仍在规划或对应系统仍在开发。未达到可运行标准前，页面会保留状态说明和待补清单。
+带状态标签的页面表示对应入口的真实发布边界。`Runtime Exists / Public Flow Unavailable`表示底层代码存在但不能作为公开用户产品使用；不要把它理解为可直接部署。
 
 ## 选择你要构建什么
 
@@ -89,4 +89,4 @@ curl -fsSL https://raw.githubusercontent.com/sat20-labs/docs/main/ai/sat20-agent
 
 验收清单见 [STP 第三方客户端实现验收清单](../protocol/stp/implementation-checklist.md)。
 
-**页面状态：规划中（Planning）**
+**页面状态：入口索引已维护；各目标以子页面状态为准（Maintained Index）**

@@ -1,8 +1,6 @@
 # Built on SatoshiNet
 
-本文用于集中展示已经在聪网上构建或正在测试网验证的项目、工具和案例。
-
-目前该页面先定义展示标准。后续每个案例都应补充真实链接、源码、合约地址、交易证据和联系人。
+本文集中展示已经可访问或正在测试网验证的项目、工具和案例。状态只说明当前可验证范围，不代表第三方审计、流动性或长期SLA。
 
 ## 展示对象
 
@@ -33,16 +31,18 @@
 | 团队 / 联系方式 | 维护者、社区或合作入口 |
 | 希望获得的合作 | 开发、流动性、测试用户、审计、内容、节点等 |
 
-## 首批建议展示
+## 当前参考实现
 
-| 类型 | 建议案例 | 当前动作 |
+| 类型 | 项目 | 状态与入口 |
 | --- | --- | --- |
-| 参考 DEX | SAT20 / SatoshiNet DEX | 补充在线体验、测试网说明和源码入口 |
-| 钱包 | SAT20 PWA Wallet | 补充安装入口、测试网教程和 Agent adapter 状态 |
-| Indexer | L1 / L2 Indexer | 补充 API 入口、源码地图和部署说明 |
-| Explorer | SatoshiNet Explorer | 补充测试网浏览器和验证教程 |
-| 合约 | AMM / 限价单 / Launchpad | 补充 Demo、合约地址和操作指南 |
-| Agent | SAT20 Agent Wallet | 补充测试网演练和安全报告样例 |
+| 钱包 | SAT20 PWA Wallet | [主入口](https://sat20.org/pwa/)；主网/测试网、L1/L2/Channel、市场、工具与账户管理持续迭代 |
+| L2市场 | SAT20 / SatoshiNet Market | [主网](https://satsnet.ordx.market/swap/?network=mainnet)；[测试网](https://test-satsnet.ordx.market/swap/?network=testnet)；当前文档验收AMM与限价单 |
+| Indexer | SAT20 L1 Indexer / SatoshiNet L2 Indexer | 已实现；见 [源码地图](../build/api-source-map.md) 与 [运行说明](../run/indexer.md) |
+| Explorer | SatoshiNet Explorer | [主网](https://mempool.sat20.org/)；[主网应用浏览器](https://mainnet.sat20.org/browser/app/)；[测试网应用浏览器](https://testnet.sat20.org/browser/app/) |
+| 智能合约 | Template / Agent / EVM Runtime | 公开测试网迭代；通过PWA `工具 -> 智能合约`部署或调用，见 [合约目录](../build/contract-template-catalog.md) |
+| Agent | SAT20 Agent Wallet | 测试网演练与安全证据已归档，见 [验证记录](../ai/sat20-agent-wallet/testnet-validation.md) |
+
+Launchpad、DAO、社区基金等底层历史运行时不在此表中自动标为公开产品；只有具备当前入口、登记合约和可复核证据后才加入。
 
 ## 收录原则
 
@@ -52,4 +52,4 @@
 4. 对测试网、实验性和生产可用状态做明确区分。
 5. 对涉及用户资产的项目，必须提供风险边界和验证路径。
 
-**页面状态：规划中（Planning）**
+**最后核对：2026-08-29。页面状态：持续维护（Maintained）**

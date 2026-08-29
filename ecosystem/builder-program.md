@@ -33,7 +33,7 @@ Builder Program 用于吸引和支持聪网生态建设者。它服务于长期�
 | 开源代码 | Indexer、SatoshiNet、STP、钱包 SDK、合约与工具的公开源码入口 |
 | 测试网资源 | 测试节点、测试资产、测试 GAS、Explorer 与可复核交易证据 |
 | 技术接入 | 架构评审、接口定位、测试流程、风险边界和调试支持 |
-| 合约模板 | AMM、限价单、Launchpad、DAO、通道合约和后续模板 |
+| 合约能力 | 当前可验收的AMM、限价单、智能合约模板与通道合约；DAO、Launchpad公开流程需单独评审 |
 | 文档与内容 | 接入指南、案例页、教程、演示脚本和发布材料 |
 | 集成支持 | 钱包、Explorer、Indexer、DEX 前端和社区后台接入 |
 | 伙伴引荐 | 在资源允许时连接流动性、钱包、交易平台、安全和区域社区伙伴 |
@@ -103,4 +103,4 @@ Builder Program 用于吸引和支持聪网生态建设者。它服务于长期�
 7. 团队和联系方式。
 8. 希望获得哪些合作。
 
-**页面状态：规划中（Planning）**
+**页面状态：参与与评估框架已定义 / 正式资助计划未开放（Framework Defined / Formal Grant Program Unavailable）**

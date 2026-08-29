@@ -21,7 +21,14 @@
 
 ## 角色路径
 
-\| 角色 | 目标 | 入口 | | --- | --- | | BTC 社区 | 搭建社区 DEX、DAO、钱包和基础设施 | [社区路径](../start-here/btc-community.md) | | Solidity / EVM 开发者 | 部署第一个合约，迁移经典合约，使用 BTC 原生资产 | [开发者路径](../start-here/developers.md) | | 基础设施团队 | 运行 Core Node、Indexer、Explorer 或公共 RPC | [基础设施路径](../start-here/infrastructure.md) | | 钱包或交易平台 | 集成资产查询、充值提现、STP 状态和钱包授权 | [钱包与交易平台路径](../start-here/wallet-exchange.md) | | AI Agent 开发者 | 接入钱包安全边界、社区部署工具和合约操作接口 | [AI Agent 路径](../start-here/ai-agent-builders.md) | | 做市商 / 流动性伙伴 | 建立 AMM 池、限价单市场和跨社区流动性 | [流动性路径](../start-here/liquidity.md) |
+| 角色 | 目标 | 入口 |
+| --- | --- | --- |
+| BTC 社区 | 搭建社区 DEX、DAO、钱包和基础设施 | [社区路径](../start-here/btc-community.md) |
+| Solidity / EVM 开发者 | 部署第一个合约，迁移经典合约，使用 BTC 原生资产 | [开发者路径](../start-here/developers.md) |
+| 基础设施团队 | 运行 Core Node、Indexer、Explorer 或公共 RPC | [基础设施路径](../start-here/infrastructure.md) |
+| 钱包或交易平台 | 集成资产查询、充值提现、STP 状态和钱包授权 | [钱包与交易平台路径](../start-here/wallet-exchange.md) |
+| AI Agent 开发者 | 接入钱包安全边界、社区部署工具和合约操作接口 | [AI Agent 路径](../start-here/ai-agent-builders.md) |
+| 做市商 / 流动性伙伴 | 建立 AMM 池、限价单市场和跨社区流动性 | [流动性路径](../start-here/liquidity.md) |
 
 ## 生态增长飞轮
 
@@ -57,10 +64,10 @@
 * [Builder Program](builder-program.md)
 * [战略合作伙伴](strategic-partners.md)
 * [合作伙伴与贡献指南](partners-and-contribution.md)
-* [Docs 成功指标](/broken/pages/7A7ekCXRDevHai6fEYxS)
+* [Docs 成功指标](docs-success-metrics.md)
 * [网络经济](../network-economics/)
 * [Indexer 接入与资产事实层](../build/indexer.md)
 * [开发者中心](../build/)
 * [SAT20 Agent Wallet 安装与使用](../ai/sat20-agent-wallet/)
 
-**页面状态：规划中（Planning）**
+**页面状态：持续维护（Maintained）；生态合作项目按各子页面状态为准**

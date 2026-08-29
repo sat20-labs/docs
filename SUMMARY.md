@@ -1,7 +1,6 @@
 # Table of contents
 
-* [README](README.md)
-* [欢迎来到 SAT20](readme.md)
+* [欢迎来到 SAT20](README.md)
 * [开始：选择你的路径](kai-shi-xuan-ze-ni-de-lu-jing/README.md)
   * [概述](start-here/readme.md)
   * [我运营一个 BTC 社区](start-here/btc-community.md)

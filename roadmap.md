@@ -12,10 +12,12 @@ SAT20 / 聪网路线图围绕一个长期目标展开：建设开放的比特币
 | Prediction / Agent 合约测试 | 测试中 | 用户可在市场投注，部署者可在工具页部署比赛，结果确认和结算路径可复核 | [Prediction 合约测试](use/prediction-contract.md) |
 | 模板 AMM / 限价单智能合约测试 | 测试中 | 在 PWA `工具 -> 智能合约` 中部署、调用，并通过 Result TX 验证资产结算；不要与市场 AMM / 限价单通道合约混淆 | [合约模板目录](build/contract-template-catalog.md) |
 | EVM 样本合约测试 | 测试中 | 在 PWA `工具 -> 智能合约` 中验证 `ConstantProductAMM` 和 `LimitOrderBook` 样本，以及 Solidity 应用与聪网资产接口 | [EVM 样本合约](build/evm-sample-contracts.md) |
+| PWA钱包主流程 | 已实现 / 收敛中 | 主网与测试网切换、L1/L2资产、账户管理、通道、市场、工具、操作日志与离线缓存按发布清单验收 | [钱包与资产](use/wallet-and-assets.md) |
+| DKVS账户数据与RGB11恢复 | 测试网迭代 | FREE_LOCAL与AUTOPAY边界、写入/更新/删除/重建、跨节点同步、账户恢复和RGB11加密快照有可复现E2E | [DKVS](protocol/dkvs/readme.md) |
 | Community Stack 真实部署文档 | 规划中 | 至少一个社区 DEX / DAO 测试网流程可复现 | [社区技术栈](community-stack/readme.md) |
 | 首批 DEX / DAO 试点 | 规划中 | 有测试网入口、合约或交易证据、用户指南 | [Builder Program](ecosystem/builder-program.md) |
 | EVM 开发者预览 | 测试网迭代 | RPC、Chain ID、Faucet、示例仓库和 Explorer 验证明确 | [EVM 开发者预览](build/evm-quickstart.md) |
-| 测试网用户闭环 | 规划中 | 钱包、测试资产、第一次 Swap、Explorer 验证、退出与恢复可走通 | [Use](use/readme.md) |
+| 测试网用户闭环 | 已实现 / 持续验收 | 钱包、测试资产、AMM/限价单、Explorer、通道开关、跨层和恢复路径按候选版本持续验收 | [Use](use/readme.md) |
 | Mining / Core Node 与 GAS 经济规范草案 | 设计中 | 质押、费用、处罚、退出和开放问题公开 | [网络经济](network-economics/readme.md) |
 | Builder Program 申请入口 | 规划中 | 有可提交表单或 GitHub Issue Template | [Builder Program](ecosystem/builder-program.md) |
 | 协议开发可持续支持 | 规划中 | 支持方式、资金用途、交付物和责任实体清晰 | [支持协议开发](governance-support/support-development.md) |
@@ -29,7 +31,7 @@ SAT20 / 聪网路线图围绕一个长期目标展开：建设开放的比特币
 | EVM SDK / RPC | 测试网迭代 | 最小合约部署、调用、事件和 Result TX 可验证 | [EVM 合约](protocol/contracts/evm.md) |
 | Community Builder Agent | 开发中 | 需求收集、配置草案、人工确认、测试网部署计划和证据报告 | [Community Builder Agent](ai/community-builder-agent.md) |
 | 首批外部生态案例 | 规划中 | Built on SatoshiNet 至少收录一个外部项目 | [Built on SatoshiNet](ecosystem/built-on-satoshinet.md) |
-| 核心英文文档 | 规划中 | 首页、Community Stack、Today、安全、节点、GAS、Builder Program 同步英文 | docs-en |
+| 核心英文文档 | 持续同步 | 中文事实更新后保持英文目录、状态和风险边界一一对应 | docs-en |
 
 ## Later
 

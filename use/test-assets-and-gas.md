@@ -6,7 +6,7 @@
 
 ## 领取测试 GAS
 
-1. 打开 [SAT20 PWA Wallet](https://sat20.org/pwa/?install=1)。
+1. 打开 [SAT20 PWA Wallet](https://sat20.org/pwa/)。
 2. 确认当前网络为聪网测试网。
 3. 进入 `工具`。
 4. 在工具首页找到测试网领水入口。
@@ -53,4 +53,4 @@
 3. 测试网交易确认和索引可能延迟。
 4. 任何真实资产操作都必须确认网络不是 testnet。
 
-**页面状态：开发中（In Development）**
+**页面状态：已实现 / Faucet与测试合约地址随每轮测试网重置更新（Implemented / Testnet Config Iterating）**

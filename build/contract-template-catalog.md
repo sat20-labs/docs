@@ -9,8 +9,8 @@
 | Agent / Prediction 合约 | 已实现 / 测试中 | [Prediction 合约测试](../use/prediction-contract.md) | 当前公开测试网优先验证场景 |
 | 模板合约：AMM | 已实现 / 测试网迭代 | PWA `工具 -> 智能合约`，[部署 AMM 池](amm-pool-quickstart.md) | 智能合约模板测试能力，不是市场 AMM |
 | 模板合约：限价单 | 已实现 / 测试网迭代 | PWA `工具 -> 智能合约`，[部署限价单模块](limit-order-quickstart.md) | 智能合约模板测试能力，不是市场限价单 |
-| 模板合约：资产兑换 | 已实现 / 测试网迭代 | 待补充 | 面向固定规则资产兑换场景 |
-| 模板合约：自动支付 | 已实现 / 测试网迭代 | 待补充 | `autopay.tc`，按区块高度向指定地址支付固定或线性费用 |
+| 模板合约：资产兑换 | 已实现 / 无当前市场验收入口 | 源码与E2E | 面向固定规则资产兑换；当前PWA市场验收不包含Exchange |
+| 模板合约：自动支付 | 已实现 / 节点服务使用 | 节点配置与E2E | 原生模板按区块高度支付DKVS等服务费用，不作为普通用户市场操作 |
 | EVM Runtime | 已实现 / 测试网迭代 | [EVM 开发者预览](evm-quickstart.md) | 复用 Solidity / EVM 开发生态；调用使用 ABI calldata，资产结算仍走聪网 UTXO 模型 |
 | EVM 样本：ConstantProductAMM | 已实现 / 测试中 | PWA `工具 -> 智能合约`，[EVM 样本合约](evm-sample-contracts.md) | Solidity AMM 标准样本，不是市场 AMM |
 | EVM 样本：LimitOrderBook | 已实现 / 测试中 | PWA `工具 -> 智能合约`，[EVM 样本合约](evm-sample-contracts.md) | Solidity 限价单标准样本，不是市场限价单 |
@@ -39,4 +39,4 @@
 5. EVM 样本合约：补齐 `ConstantProductAMM` 和 `LimitOrderBook` 的测试网地址、txid、calldata 生成记录和 Explorer 验证记录。
 6. EVM Runtime：补齐 RPC、Chain ID、示例仓库、Solidity 部署流程、estimate 流程和 ABI calldata 调用流程。
 
-**页面状态：规划中（Planning）**
+**页面状态：目录已维护；模板发布状态以矩阵为准（Maintained Catalog）**

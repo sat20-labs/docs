@@ -34,3 +34,4 @@
 4. 通过 GitHub、X 或后续公开申请表联系 SAT20 Labs。
 5. 先在测试网完成可验证结果，再进入公开展示。
 
+**页面状态：参与方向已定义 / 公开项目逐项开放（Participation Areas Defined）**

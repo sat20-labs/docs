@@ -1,6 +1,6 @@
 # Community Stack：为你的 BTC 社区搭建完整基础设施
 
-Community Stack 是聪网面向 BTC 社区的完整基础设施方案。它的目标不是让社区只把资产“桥接”到另一个网络，而是帮助社区逐步拥有自己的 DEX、DAO、钱包入口、Indexer、Explorer、Launchpad、AMM、限价单系统和运营后台。
+Community Stack 是聪网面向BTC社区的目标架构，不是已经发布的一键式完整套件。当前可复用节点、Indexer、PWA、参考市场、AMM和限价单组件；DAO、Launchpad、白标发行包及托管流程仍需逐项评审和开放。
 
 一句话目标：
 
@@ -36,7 +36,7 @@ Community Stack 是聪网面向 BTC 社区的完整基础设施方案。它的�
 | 支持 | 内容 |
 | --- | --- |
 | 开源代码 | 节点、Indexer、钱包、SDK、合约、DEX 和工具链 |
-| 合约模板 | AMM、限价单、DAO、Launchpad 等可复用模块 |
+| 合约与运行时 | AMM、限价单等当前测试能力；DAO、Launchpad仅有历史运行时或测试，不代表公开部署入口 |
 | Wallet SDK | 钱包、签名、资产查询、PWA adapter 和 Agent adapter |
 | Indexer / Explorer | L1/L2 资产事实、交易、通道和合约状态查询 |
 | 部署指南 | 节点、Indexer、Explorer、DEX、DAO 和合约部署路径 |
@@ -90,7 +90,7 @@ SAT20 Labs 的目标不是让所有社区依赖我们，而是让每个社区拥
 3. 一个 AMM 池或限价单市场。
 4. 一个 Explorer 证据入口。
 5. 一个钱包安装和交易教程。
-6. 一个 DAO 或社区基金的最小治理流程。
+6. 如需DAO或社区基金，先完成独立模型、安全和公开入口评审。
 
 ## 下一步
 
@@ -99,4 +99,4 @@ SAT20 Labs 的目标不是让所有社区依赖我们，而是让每个社区拥
 - 准备社区需求说明。
 - 申请成为首批社区合作伙伴。
 
-**页面状态：规划中（Planning）**
+**页面状态：目标蓝图；部分组件可用 / 标准化发行包规划中（Blueprint / Components Partially Available）**
