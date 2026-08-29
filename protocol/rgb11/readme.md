@@ -218,7 +218,7 @@ RGB11 余额由本地有效 allocation 汇总。以下情况不会形成可用�
 
 ## 8. DKVS 钱包备份
 
-RGB11 钱包状态使用独立 DKVS path，不与账户管理或其他模块共享 generation。核心对象为：
+RGB11 钱包状态使用独立、稳定的 DKVS prefix，不与账户管理或其他模块混用业务 key。核心对象为：
 
 ```text
 /personal/<account_id>/rgb11/<wallet_id>/head
@@ -232,7 +232,7 @@ RGB11 钱包状态使用独立 DKVS path，不与账户管理或其他模块共�
 - snapshot 包含 RGB11 engine records、projection records 和 ticker metadata；
 - snapshot 在写入 DKVS 前使用当前钱包公钥加密；
 - head 包含 wallet ID、sequence、state hash 和 operation ID；
-- head 与 snapshot 通过同一 `dkvsManager` batch-CAS 原子写入目标节点；
+- head 与 snapshot 通过同一 `dkvsManager` key-ETag batch-CAS 原子写入目标节点；
 - 恢复时先验证 head，再解密 snapshot，并检查 state hash、wallet ID、account index 和 engine build ID。
 
 DKVS 只负责可靠保存和同步加密状态，不能替代 RGB11 资产验证。
@@ -253,11 +253,13 @@ DKVS 只负责可靠保存和同步加密状态，不能替代 RGB11 资产验�
 - 只能从同一 endpoint 恢复；
 - UI 不得把它显示为“全网备份”。
 
+如果需要跨节点持久化，钱包读取当前 `Seq/ETag`，构造 `Seq+1` 的 AUTOPAY record，并执行普通 Put。该流程不使用 promote API；已经传播的 AUTOPAY/PAID key 也不允许降级为 FREE_LOCAL。
+
 ### 8.3 多设备和冲突
 
 同一 RGB11 wallet 同一时间只支持一个 active writer。另一个设备可以读取和恢复，但在写入前必须同步到最新 head。
 
-当两个设备基于同一旧 head 分别修改并提交时，后提交者会收到 head conflict、DKVS write conflict 或 stale generation。SDK 不自动合并两个 RGB11 状态；用户或应用必须选择最新有效状态并重新执行未提交操作。
+当两个设备基于同一旧 head 分别修改并提交时，后提交者会收到 head conflict 或 DKVS write conflict。SDK 不自动合并两个 RGB11 状态；用户或应用必须读取最新 head，重新执行未提交操作，并使用新的 RequestID 和签名 mutation。
 
 ## 9. 安全边界
 
@@ -268,7 +270,7 @@ RGB11 钱包集成依赖以下独立检查：
 - seal 与 allocation proof 验证；
 - Bitcoin 交易、outpoint、script 和确认数证据；
 - 钱包私钥对 PSBT/Tapret carrier 的正确签名；
-- DKVS record 身份、签名、sequence、PathGeneration 和费用证明；
+- DKVS record 身份、签名、sequence、key ETag 和费用证明；
 - relay/ACK 与 transfer ID、recipient、txid/vout 的绑定。
 
 任何一层验证失败，都不能通过其他层的索引结果或网络响应绕过。
@@ -316,4 +318,4 @@ ActivateRGB11WalletState
 RebuildRGB11Locks
 ```
 
-应用层应使用这些领域 API，不直接拼装 DKVS key、record、sequence、PathGeneration 或 RGB11 内部存储对象。
+应用层应使用这些领域 API，不直接拼装 DKVS key、record、sequence、ETag、subscription cursor 或 RGB11 内部存储对象。
