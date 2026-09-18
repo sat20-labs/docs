@@ -389,13 +389,13 @@ Agent根据部署payload中的`source_url`确定允许的数据来源范围，�
 
 ### 部署者提前关闭边界
 
-预测型自然语言合约允许deployer在`bet_deadline`结束前调用`close`提前关闭市场。关闭时，runtime记录的全部有效投注按原投注金额全额退款，不收取手续费。
+预测型自然语言合约允许deployer在当前时间或区块高度小于等于`bet_deadline`时调用`close`提前关闭市场。提前关闭时，runtime记录的全部有效投注按原投注金额全额退款，不收取结算手续费；调用仍需支付合约gas费用。
 
 关闭规则：
 
 1. 调用者必须是deployer。
-2. 当前时间或区块高度必须小于或等于`bet_deadline`。
-3. 当前时间或区块高度超过`bet_deadline`后，deployer不再允许调用`close`。
+2. 提前关闭尚未结算的市场时，当前时间或区块高度必须小于或等于`bet_deadline`。
+3. 当前时间或区块高度超过`bet_deadline`后，deployer不能通过`close`关闭尚未结算的预测市场并退回投注。已经完成结算或已经被拒绝的合约仍可关闭，以释放剩余运行余额。
 4. 合约处于`ClosedForBet`或`PendingResult`时，结果确认权属于Agent，deployer不能替代Agent判断事件结果。
 5. 比赛取消、结果无效、数据不可验证或合约无法执行时，应由CoreNode Agent通过`confirm`提交`cancelled`、`invalid`或`unverifiable`结果，并触发全额退款。
 6. 到达`confirm_after`后Agent尚未确认时，协议选择继续等待Agent处理，不授权deployer绕过Agent触发退款。
