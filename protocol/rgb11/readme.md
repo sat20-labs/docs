@@ -10,13 +10,13 @@ RGB11 资产的有效性最终由合约、consignment、一次性封印、Bitcoi
 
 ### 1.1 采用的 RGB 版本
 
-SAT20 的 `rgb11` 协议空间明确锁定在 **RGB 0.11.1 系列**。当前 Go 实现所采用的共识、operations、invoicing、schema 和 PSBT/API 冻结基线为 **`0.11.1-rc.11`**。
+SAT20 的 `rgb11` 协议空间明确锁定在 **RGB 0.11.1 系列**。当前 Go 实现所采用的共识、operations、invoicing、schema 和 PSBT/API 冻结基线为 **`0.11.1` 正式版**。
 
 版本关系必须按以下方式理解：
 
 - SAT20 协议名：`rgb11`；
 - 协议目标：RGB `0.11.1`；
-- 冻结的 Rust 共识与数据格式基线：`0.11.1-rc.11`；
+- 冻结的 Rust 共识与数据格式基线：`0.11.1`；
 - 当前代码不会自动跟随 RGB 上游最新分支；
 - RGB `0.12` 具有共识级和数据结构变化，不属于 `rgb11` 的兼容升级；未来接入时必须使用独立协议空间 `rgb12`。
 
@@ -28,12 +28,12 @@ SAT20 Go 实现以以下冻结的上游 Rust 代码为协议和互操作参考�
 
 | 领域 | 上游版本 | 上游源码 |
 | --- | --- | --- |
-| RGB 共识、operation ID、seal、commitment | `rgb-consensus 0.11.1-rc.11` | [`rgb-protocol/rgb-consensus@44e79963`](https://github.com/rgb-protocol/rgb-consensus/commit/44e79963aa4603270eee9aa112ef07a512345e98) |
-| Operations、consignment、invoicing | `rgb-ops` / `rgb-invoicing 0.11.1-rc.11` | [`rgb-protocol/rgb-ops@5308b9d4`](https://github.com/rgb-protocol/rgb-ops/commit/5308b9d46c91857513ff5be2459992264687632b) |
-| PSBT utilities 与 API | `rgb-psbt-utils 0.11.1-rc.11` | [`rgb-protocol/rgb-api@8d448f46`](https://github.com/rgb-protocol/rgb-api/commit/8d448f46c866d44ca0495ad0e924e57d9fd294dd) |
-| 官方 schema：NIA、IFA、CFA、UDA | `rgb-schemas 0.11.1-rc.11` | [`rgb-protocol/rgb-schemas@c5e43e98`](https://github.com/rgb-protocol/rgb-schemas/commit/c5e43e987d18a2398d5f5f6c78629480fd792abd) |
-| Strict Encoding | `rgb-strict-encoding 1.0.2` | [`rgb-protocol/rgb-strict-encoding@7698a5e9`](https://github.com/rgb-protocol/rgb-strict-encoding/commit/7698a5e96a2a27d5bfa4cd3560da0e8af8e4a18a) |
-| Strict Types | `rgb-strict-types 1.0.2` | [`rgb-protocol/rgb-strict-types@09b58e6c`](https://github.com/rgb-protocol/rgb-strict-types/commit/09b58e6c2db25cef8bdb15e33b8654530607b972) |
+| RGB 共识、operation ID、seal、commitment | `rgb-consensus 0.11.1` | [`rgb-protocol/rgb-consensus@32a67862`](https://github.com/rgb-protocol/rgb-consensus/commit/32a67862aef0f4c7a1fdc7834a3555d702f1bdf0) |
+| Operations、consignment、invoicing | `rgb-ops` / `rgb-invoicing 0.11.1` | [`rgb-protocol/rgb-ops@8bcdbf2f`](https://github.com/rgb-protocol/rgb-ops/commit/8bcdbf2fd706782948a4cbd799639709a4ed10d9) |
+| PSBT utilities 与 API | `rgb-psbt-utils 0.11.1` | [`rgb-protocol/rgb-api@102f4b09`](https://github.com/rgb-protocol/rgb-api/commit/102f4b09efa8f0e5987e60714364ba693c89def7) |
+| 官方 schema：NIA、IFA、CFA、UDA | `rgb-schemas 0.11.1` | [`rgb-protocol/rgb-schemas@906817a0`](https://github.com/rgb-protocol/rgb-schemas/commit/906817a0c24a6bb7d2e53ceac9e2c185ec70a5ff) |
+| Strict Encoding | `rgb-strict-encoding 1.0.4` | [`rgb-protocol/rgb-strict-encoding@aa90bf35`](https://github.com/rgb-protocol/rgb-strict-encoding/commit/aa90bf353f53e8220aaacec4a671545808da05ae) |
+| Strict Types | `rgb-strict-types 1.0.4` | [`rgb-protocol/rgb-strict-types@9eb3b484`](https://github.com/rgb-protocol/rgb-strict-types/commit/9eb3b484f23b01c70f2a940bda07a207377b3864) |
 
 ### 1.3 钱包互操作参考
 
@@ -42,7 +42,7 @@ SAT20 Go 实现以以下冻结的上游 Rust 代码为协议和互操作参考�
 - [`RGB-Tools/rgb-lib`](https://github.com/RGB-Tools/rgb-lib)，版本 `0.3.0-beta.7`，固定 commit [`538f2abaa67d7ce96be32d94092e8f1b9e3ea38e`](https://github.com/RGB-Tools/rgb-lib/commit/538f2abaa67d7ce96be32d94092e8f1b9e3ea38e)。它用于核对钱包状态、Esplora 同步、invoice、consignment、签名、接收和余额流程。
 - [`RGB-WG/rgb`](https://github.com/RGB-WG/rgb) 官方命令行钱包，固定 tag `v0.11.1-alpha.3`、commit [`a9bba35ceed7e0c4bc4e477f663ab022d7b0a23e`](https://github.com/RGB-WG/rgb/commit/a9bba35ceed7e0c4bc4e477f663ab022d7b0a23e)。它只用于人工核对 CLI 命令面和钱包派生路径。
 
-必须注意：`RGB-WG/rgb v0.11.1-alpha.3` 使用的是 alpha.3 crate 格式，不能作为 `0.11.1-rc.11` consignment/parser 的发布门禁。rc.11 文件互操作以冻结的 rc.11 Rust crates 和 `rgb-lib 0.3.0-beta.7` 为准。
+必须注意：`RGB-WG/rgb v0.11.1-alpha.3` 使用的是 alpha.3 crate 格式，不能作为 `0.11.1` 正式版的 consignment/parser 发布门禁。`rgb-lib 0.3.0-beta.7` 仍依赖 rc.11 crates，其既有双向钱包互操作实测属于历史兼容证据；正式版协议门禁使用锁定的 `0.11.1` Rust crates。
 
 ### 1.4 SAT20 Go 实现
 
@@ -86,13 +86,13 @@ RGB11 资产有两个不同层次的标识：
 当前 Wallet SDK 为新发行或导入的合约生成确定性 AssetName：
 
 ```text
-rgb11:<type>:<normalized_ticker>_<contract_fingerprint>
+rgb11:<type>:<normalized_ticker>@<contract_fingerprint>
 ```
 
 例如：
 
 ```text
-rgb11:f:usdt_k7m3q9x2d4
+rgb11:f:usdt@k7m3q9x2
 ```
 
 其中：
@@ -100,7 +100,7 @@ rgb11:f:usdt_k7m3q9x2d4
 - `rgb11` 是协议名；
 - `f` 表示同质化资产；
 - ticker 会转为小写、限制字符和长度；
-- fingerprint 默认取 Contract ID 的 10 字符确定性摘要；
+- fingerprint 默认取 Contract ID 的 8 字符确定性摘要；发生前缀冲突时，注册表可按 2 字符递增，最长 16 字符；
 - Contract ID 始终保存在 ticker 扩展信息中，不能仅凭短 ticker 判断资产身份。
 
 短 ticker 只适合显示。未经主资产注册或发行方认证时，UI 应显示带 fingerprint 的名称；只有明确完成认证后，才可以把 `usdt` 等短名作为主要显示名称。
@@ -293,7 +293,7 @@ Wallet SDK 已包含真实本地三节点 E2E，覆盖：
 
 这些测试使用本地 SatoshiNet bootstrap、core、miner 节点，不依赖公共测试网或外部 RGB regtest 服务。
 
-Go 引擎仓库还保留冻结 Rust/Go differential vectors、官方 rc.11 parser round-trip，以及 `rgb-lib` 双向文件交换与 regtest 互操作证据。具体门禁和证据位置见 `UPSTREAM_MANIFEST.json` 与 `OFFICIAL_INTEROP.md`。
+Go 引擎仓库保留正式版 Rust/Go differential vectors 与 parser round-trip，以及 `rgb-lib` rc.11 双向文件交换与 regtest 历史互操作证据。具体门禁和证据位置见 `UPSTREAM_MANIFEST.json` 与 `OFFICIAL_INTEROP.md`。
 
 ## 11. 主要 Wallet SDK API
 
