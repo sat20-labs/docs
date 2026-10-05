@@ -20,7 +20,7 @@
 | 链与Indexer | 记录网络、tip高度/hash、DB backend和代码版本；恢复后先做一致性校验 |
 | STP钱包/通道 | 加密备份钱包、当前通道、commitment、watchtower和reservation；不得与链快照混为可随意删除的数据 |
 | 合约 | 保存部署tx、invoke history和运行状态证据；通道双方分别备份 |
-| DKVS | 备份endpoint identity、record、change log和cursor head必须来自同一时点；只复制record会破坏watch连续性 |
+| DKVS | 备份同一实例的完整DB，保持EndpointID、当前record、collection metadata与每key最新generation索引一致；SDK侧confirmed replica、同步metadata、ACK与原始请求outbox也需一致。当前实现没有change log或历史cursor head；恢复旧备份后不能绕过来源/基线检查直接标记READY。参见[DKVS](../protocol/dkvs/readme.md) |
 | 配置/密钥 | 配置可版本化，私钥、助记词、API凭据和撤销秘密进入受控秘密存储 |
 
 ## 升级流程

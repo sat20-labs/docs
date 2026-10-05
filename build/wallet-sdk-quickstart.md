@@ -14,7 +14,7 @@ Wallet SDK位于 [`sat20wallet/sdk`](https://github.com/sat20-labs/sat20wallet/t
 ## 初始化顺序
 
 1. 构造明确的`common.Config`：`Env`、`Chain`、`Mode`、peer、L1 Indexer和L2 Indexer。
-2. 为每个网络使用独立数据库。SDK默认保持自己的Pebble路径；L1 Indexer测试部署使用Badger不要求SDK切换。
+2. 为每个网络隔离持久化数据。原生Go与WASM使用不同存储入口，接入时记录实际backend或浏览器存储；不要将Indexer数据库与钱包副本混用。
 3. 调用`wallet.NewManager(cfg, db)`，检查返回值，再调用`Start()`启动Indexer client、状态bootstrap、action monitor、channel heartbeat、watchtower和DKVS同步。
 4. 创建或导入钱包后解锁。UI锁屏不应销毁Manager；真正退出运行时才调用`Stop()`/`Close()`。
 5. 链/环境切换不在原Manager上就地修改：停止旧Manager，用目标网络配置和独立DB重新创建。
@@ -25,6 +25,7 @@ Wallet SDK位于 [`sat20wallet/sdk`](https://github.com/sat20-labs/sat20wallet/t
 - 发送和广播：调用方显式提供网络；重复广播同一原始交易可视为幂等成功，但Bitcoin与SatoshiNet广播不能由底层盲猜。
 - 通道：通过`GetCurrentChannel`操作当前钱包/子账户的唯一通道；生命周期pending时不要并行恢复、重开或同步旧snapshot。
 - DKVS：领域模块只使用SDK的DKVS manager/账户管理接口，不自行维护cursor、outbox或第二套typed recovery helper。
+- DKVS当前使用Active sync/watch与endpoint-local generation；没有mutation log或delete floor。请求签名同时绑定CAS与当前generation，网络结果未知时只能重放原始请求，不能自动重新授权。协议说明见 [DKVS](../protocol/dkvs/readme.md)。
 - 账户恢复：root账户数据由Account Management恢复；导入非root钱包助记词只恢复该钱包链上数据。
 - 授权：私钥、助记词和签名留在钱包边界。DApp或Agent只提交意图并接收授权后的结果与证据。
 
@@ -36,6 +37,8 @@ Wallet SDK位于 [`sat20wallet/sdk`](https://github.com/sat20-labs/sat20wallet/t
 4. DKVS写入、更新、删除、重建；FREE_LOCAL不传播，AUTOPAY最终更新能从另一节点读到。
 5. 账户恢复分别覆盖无RGB11和有RGB11数据。
 6. PWA审批拒绝不会广播，批准只广播一次，并留下操作日志。
+
+本地集成测试的搭建与运行步骤见 `sat20wallet/pwa/scripts/verify/README.md`。
 
 更完整的接口域见 [API源码地图](api-source-map.md)，STP集成见 [第三方STP客户端接入指南](../protocol/stp/client-integration.md)。
 
