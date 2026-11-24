@@ -4,7 +4,7 @@
 
 ## 当前开放问题
 
-1. GAS 协议名称和资产标识。
+1. 正式 GAS 资产名称、标识及发行总量。
 2. Mining Node 与 Core Node 的差异化质押要求，其中 Core Node 覆盖 Mining Node 能力并承担额外 STP 责任。
 3. 解除质押时间。
 4. 作恶和离线处罚。

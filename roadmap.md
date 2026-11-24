@@ -8,12 +8,14 @@ SAT20 / 聪网路线图围绕一个长期目标展开：建设开放的比特币
 
 | 事项 | 状态 | 验收标准 | 外部贡献入口 |
 | --- | --- | --- | --- |
-| 智能合约公开测试网 | 测试中 | PWA 可领取测试 GAS、部署或调用合约，并通过 Explorer / Indexer 验证交易和 Result TX | [Prediction 合约测试](use/prediction-contract.md) |
+| 聪网主网更新 | 已完成 | 主网继续提供资产流通、STP 通道和通道合约 | [当前可用能力](ecosystem/satoshinet-today.md) |
+| 智能合约公开测试网 | 已开放 | 用户可在 PWA 领取测试 GAS，自行部署或调用合约，并通过 Explorer 核对结果 | [合约测试目录](build/contract-template-catalog.md) |
+| 智能合约主网 | 暂缓正式上线 | 正式 GAS 资产名称、发行总量等关键参数待定，聪网基金会尚未成立 | [智能合约协议](protocol/contracts/readme.md) |
 | Prediction / Agent 合约测试 | 测试中 | 用户可在市场投注，部署者可在工具页部署比赛，结果确认和结算路径可复核 | [Prediction 合约测试](use/prediction-contract.md) |
 | 模板 AMM / 限价单智能合约测试 | 测试中 | 在 PWA `工具 -> 智能合约` 中部署、调用，并通过 Result TX 验证资产结算；不要与市场 AMM / 限价单通道合约混淆 | [合约模板目录](build/contract-template-catalog.md) |
 | EVM 样本合约测试 | 测试中 | 在 PWA `工具 -> 智能合约` 中验证 `ConstantProductAMM` 和 `LimitOrderBook` 样本，以及 Solidity 应用与聪网资产接口 | [EVM 样本合约](build/evm-sample-contracts.md) |
-| PWA钱包主流程 | 已实现 / 收敛中 | 主网与测试网切换、L1/L2资产、账户管理、通道、市场、工具、操作日志与离线缓存按发布清单验收 | [钱包与资产](use/wallet-and-assets.md) |
-| DKVS账户数据与RGB11恢复 | 测试网迭代 | FREE_LOCAL与AUTOPAY边界、写入/更新/删除/重建、跨节点同步、账户恢复和RGB11加密快照有可复现E2E | [DKVS](protocol/dkvs/readme.md) |
+| SAT20 PWA Wallet | 已上线 | 支持主网与测试网切换，可管理资产、使用通道和连接市场 | [钱包与资产](use/wallet-and-assets.md) |
+| DKVS | 已完成 | 已用于钱包账户管理和 RGB11 备份 | [DKVS](protocol/dkvs/readme.md) |
 | Community Stack 真实部署文档 | 规划中 | 至少一个社区 DEX / DAO 测试网流程可复现 | [社区技术栈](community-stack/readme.md) |
 | 首批 DEX / DAO 试点 | 规划中 | 有测试网入口、合约或交易证据、用户指南 | [Builder Program](ecosystem/builder-program.md) |
 | EVM 开发者预览 | 测试网迭代 | RPC、Chain ID、Faucet、示例仓库和 Explorer 验证明确 | [EVM 开发者预览](build/evm-quickstart.md) |

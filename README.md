@@ -44,14 +44,14 @@ SatoshiNet 提供交易、资产、区块、合约和应用执行；
 | SatoshiNet / 聪网 | 比特币未来价值网络的原生执行层 |
 | Indexer | 主网上线的 BTC L1 与聪网资产事实层 |
 | STP / Transcend | 主网上线的 BTC L1 与聪网之间的跨层资产控制、退出和惩罚协议 |
-| SatoshiNet | 主网上线的交易、资产、区块、合约、应用和服务执行网络 |
-| 智能合约 | 基于 SatoshiNet 的可编程执行层，框架已完成开发并进入公开测试网；当前测试 Agent / Prediction 合约，以及 PWA `工具 -> 智能合约` 中的模板 AMM / 限价单、EVM `ConstantProductAMM` / `LimitOrderBook` 样本 |
-| DKVS | 已实现并进入测试网集成验证的签名小数据存储与同步层，当前用于账户管理、RGB11 备份、邮箱和应用配置；不属于链共识状态 |
+| SatoshiNet | 已完成本轮主网更新，提供交易和资产流通、STP 通道及通道合约 |
+| 智能合约 | 基于 SatoshiNet 的可编程执行层，已开放公开测试网，可自行部署和调用，主网暂缓正式上线 |
+| DKVS | 已完成的小数据存储与同步层，当前用于钱包账户管理和 RGB11 备份 |
 | D-Indexer | 仍在研发中的分布式 L1 Indexer 方向；DKVS 是其可复用的数据基础之一，但两者不是同一个已交付产品 |
-| SAT20 Wallet | 已有浏览器插件和 PWA 两种形式，并持续迭代的钱包入口 |
+| SAT20 Wallet | 提供浏览器插件和已上线的 [PWA 钱包](https://sat20.org/pwa/) |
 | AI Agent Wallet | 从 SAT20 Wallet 演进而来的 Agent 授权操作入口 |
 | ORDX | SAT20 体系中的聪本位资产协议 |
-| GAS | 聪网原生的网络费用与安全质押资产 |
+| GAS | 聪网计划用于网络费用与节点质押的资产，正式资产名称和发行总量待定 |
 
 ## 为什么需要聪网
 
@@ -77,7 +77,7 @@ STP：主网跨层控制、退出与惩罚
    ↓
 SatoshiNet：主网交易、资产、区块和服务执行
    ↓
-智能合约：已进入公开测试网的 Agent / Prediction 合约，以及 PWA 工具中的模板 AMM / 限价单、EVM ConstantProductAMM / LimitOrderBook
+智能合约：公开测试网已开放，可自行部署或调用模板合约、Prediction 和 EVM 样本
    ↓
 DKVS：签名小数据、账户恢复、邮箱和应用状态协作
    ↓
@@ -93,8 +93,8 @@ D-Indexer不在上图中标为已交付层：它是面向分布式L1资产事实
 | 理解聪网 | 理解为什么需要比特币原生扩展、资产安全模型、Indexer、STP、智能合约、GAS 和 AI Agent | [Learn：理解聪网](learn/readme.md) |
 | 社区基础设施 | 为 BTC 社区规划节点、Indexer、Explorer、钱包、DEX、DAO、Launchpad 和运营后台 | [社区技术栈](community-stack/readme.md) |
 | 资产进入聪网 | 通过主网 Indexer 识别 BTC L1 资产事实，通过主网 STP 将资产纳入用户可退出的通道安全边界 | [STP 简介](learn/stp.md) |
-| 用户使用 | 使用 SAT20 Wallet 插件或 PWA 进入聪网、完成 Swap、使用 Explorer 验证交易 | [使用聪网](use/readme.md) |
-| 测试智能合约 | 使用 PWA Wallet 领取测试 GAS、部署或参与 Prediction 合约测试 | [Prediction 合约测试](use/prediction-contract.md) |
+| 用户使用 | 使用已上线的 SAT20 PWA Wallet 或浏览器插件进入聪网、完成 Swap、使用 Explorer 验证交易 | [使用聪网](use/readme.md) |
+| 测试智能合约 | 在 PWA 切换到公开测试网，领取测试 GAS 后自行部署或调用 | [获取测试 GAS 并测试合约](use/test-assets-and-gas.md) |
 | 开发者构建 | 接入 Indexer、STP、SatoshiNet、智能合约、Wallet SDK 和社区 DEX / DAO | [开发者中心](build/readme.md) |
 | 节点运行 | 运行挖矿节点、核心节点、Indexer、Explorer、RPC 和监控服务 | [运行网络](run/readme.md) |
 | 网络经济 | 理解 GAS、费用流、节点质押、激励和设计中参数 | [网络经济](network-economics/readme.md) |
@@ -133,11 +133,11 @@ D-Indexer不在上图中标为已交付层：它是面向分布式L1资产事实
 | --- | --- | --- |
 | Indexer | Implemented · Mainnet | 主网上线的 BTC L1 与聪网资产事实层，为资产、交易、确认和协议事件提供可复核状态 |
 | STP | Implemented · Mainnet | STP 已开发完成并上线主网，承担跨层资产控制、退出和旧状态惩罚路径 |
-| SatoshiNet | Implemented · Mainnet | 主网执行网络，承载交易、资产表达、基础应用和服务运行 |
-| 智能合约 / EVM Runtime / Agent 合约 | Testnet / Iterating | 智能合约框架已完成开发并进入公开测试网；当前验证 Agent / Prediction 合约，以及 PWA `工具 -> 智能合约` 中的模板 AMM / 限价单、EVM `ConstantProductAMM` / `LimitOrderBook` 样本 |
-| DKVS | Implemented · Testnet / Iterating | 签名 record、CAS、订阅、FREE_LOCAL、AUTOPAY 传播、账户管理与 RGB11 恢复路径已有实现，仍在测试网集成和稳定性验证 |
+| SatoshiNet | Implemented · Mainnet | 本轮主网更新已完成，继续提供资产流通、STP 通道和通道合约。见 [当前可用能力](ecosystem/satoshinet-today.md) |
+| 智能合约 / EVM Runtime / Agent 合约 | 公开测试网 / 主网暂缓 | 测试网可自行部署和调用。正式 GAS 资产名称、发行总量等关键参数尚未确定，聪网基金会尚未成立。见 [智能合约协议](protocol/contracts/readme.md) |
+| DKVS | 已完成 | 已用于钱包账户管理和 RGB11 备份。见 [DKVS](protocol/dkvs/readme.md) |
 | D-Indexer | R&D / In Development | 分布式 L1 资产事实网络仍在研发；不得用 DKVS 已实现来推导 D-Indexer 已上线 |
-| SAT20 Wallet / AI Agent Wallet | Implemented · Iterating | SAT20 Wallet 已有插件和 PWA 两种形式；AI Agent Wallet 在此基础上继续演进 |
+| SAT20 Wallet / AI Agent Wallet | PWA 已上线 / Agent Wallet 持续迭代 | PWA 可连接主网和测试网。见 [钱包与资产](use/wallet-and-assets.md) |
 | VSN / 长期治理 | Design / R&D | 继续进行设计、实验和验证，不表达为已完成生产能力 |
 
 ## 状态与证据

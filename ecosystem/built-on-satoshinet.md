@@ -35,11 +35,11 @@
 
 | 类型 | 项目 | 状态与入口 |
 | --- | --- | --- |
-| 钱包 | SAT20 PWA Wallet | [主入口](https://sat20.org/pwa/)；主网/测试网、L1/L2/Channel、市场、工具与账户管理持续迭代 |
-| L2市场 | SAT20 / SatoshiNet Market | [主网](https://satsnet.ordx.market/swap/?network=mainnet)；[测试网](https://test-satsnet.ordx.market/swap/?network=testnet)；当前文档验收AMM与限价单 |
+| 钱包 | SAT20 PWA Wallet | 已上线，可连接主网和测试网。[打开 PWA 钱包](https://sat20.org/pwa/) |
+| L2市场 | SAT20 / SatoshiNet Market | [主网](https://satsnet.ordx.market/swap/?network=mainnet)；[测试网](https://test-satsnet.ordx.market/swap/?network=testnet)，均提供 AMM 和限价单市场入口 |
 | Indexer | SAT20 L1 Indexer / SatoshiNet L2 Indexer | 已实现；见 [源码地图](../build/api-source-map.md) 与 [运行说明](../run/indexer.md) |
 | Explorer | SatoshiNet Explorer | [主网](https://mempool.sat20.org/)；[主网应用浏览器](https://mainnet.sat20.org/browser/app/)；[测试网应用浏览器](https://testnet.sat20.org/browser/app/) |
-| 智能合约 | Template / Agent / EVM Runtime | 公开测试网迭代；通过PWA `工具 -> 智能合约`部署或调用，见 [合约目录](../build/contract-template-catalog.md) |
+| 智能合约 | Template / Agent / EVM Runtime | 公开测试网已开放，可通过 PWA `工具 → 智能合约` 自行部署或调用。主网暂缓正式上线。见 [合约目录](../build/contract-template-catalog.md) |
 | Agent | SAT20 Agent Wallet | 测试网演练与安全证据已归档，见 [验证记录](../ai/sat20-agent-wallet/testnet-validation.md) |
 
 Launchpad、DAO、社区基金等底层历史运行时不在此表中自动标为公开产品；只有具备当前入口、登记合约和可复核证据后才加入。

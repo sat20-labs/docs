@@ -1,6 +1,6 @@
 # 获取测试资产和测试 GAS
 
-测试网合约交互需要测试 GAS。当前 SAT20 PWA Wallet 已在工具首页提供测试网领水入口，用户可以先领取测试 GAS，再体验 Prediction 合约投注，以及 PWA `工具 -> 智能合约` 中的模板合约和 EVM 样本合约。
+测试网合约交互需要测试 GAS。聪网智能合约已开放公开测试网。用户可在 SAT20 PWA Wallet 领取测试 GAS，然后通过 `工具 → 智能合约` 自行部署和调用模板合约、Prediction 或 EVM 样本。
 
 测试资产和测试 GAS 仅用于聪网测试网，没有主网价值。
 
@@ -8,8 +8,8 @@
 
 1. 打开 [SAT20 PWA Wallet](https://sat20.org/pwa/)。
 2. 确认当前网络为聪网测试网。
-3. 进入 `工具`。
-4. 在工具首页找到测试网领水入口。
+3. 进入 `工具 → 水龙头`。
+4. 选择提供测试 GAS 的水龙头。
 5. 点击领取测试 GAS。
 6. 等待测试网交易确认或钱包余额刷新。
 
@@ -35,7 +35,7 @@
 2. AMM、限价单、Launchpad 和其他模板合约可能需要测试网资产、测试 GAS 和对应合约参数。
 3. STP 跨层演练可能需要 BTC testnet4 资产和聪网测试网资产。
 
-具体场景以对应用户指南为准。Prediction 合约测试见 [Prediction 合约测试](prediction-contract.md)。
+测试入口见 [合约模板目录](../build/contract-template-catalog.md) 和 [Prediction 合约测试](prediction-contract.md)。
 
 ## 如何验证到账
 

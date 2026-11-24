@@ -1,6 +1,6 @@
 # 钱包与资产：第一次进入聪网
 
-本文面向普通用户，说明当前SAT20 PWA Wallet的实际入口、资产位置和跨层操作。PWA同时支持主网和测试网；测试功能、Faucet、合约演练必须留在测试网。
+本文面向普通用户，说明当前SAT20 PWA Wallet的实际入口、资产位置和跨层操作。SAT20 PWA Wallet 已上线，支持主网和测试网。聪网智能合约部署与调用、测试水龙头可在公开测试网使用。
 
 ## 操作前准备
 
@@ -8,7 +8,7 @@
 2. 创建或导入钱包。
 3. 完成助记词备份和解锁。
 4. 确认当前网络是 mainnet 还是 testnet。
-5. 准备需要使用的BTC L1资产或测试资产，并预留网络费。测试网可从PWA `工具 -> Faucet` 领取测试SGAS。
+5. 准备需要使用的BTC L1资产或测试资产，并预留网络费。测试网可从PWA `工具 → 水龙头` 领取测试 SGAS。
 
 ## 当前钱包入口
 
@@ -17,8 +17,8 @@
 | 资产 | L1、SatoshiNet L2、Channel三种位置的余额与发送/接收 |
 | Channel模式 | open、close、splicing-in/out、unlock、lock，以及容量不足时经用户确认的lock-with-expand |
 | 市场 | 在受控内嵌页打开主网或测试网AMM/限价单市场，并由钱包审批请求 |
-| 工具 | 测试Faucet、智能合约部署/调用、Mint和Mining入口 |
-| 设置 | 子账户、账户管理、操作日志、密码、助记词、公钥、UTXO、节点和推荐人 |
+| 工具 | Mint 和 BTC 幸运挖矿入口。切换到测试网后可使用水龙头、部署和调用智能合约 |
+| 设置 | 子账户、账户管理、操作日志、密码、助记词、公钥、UTXO、节点和推荐人。账户管理和 RGB11 备份使用 [DKVS](../protocol/dkvs/readme.md) |
 | RGB11 | L1发行、导入、invoice、发送及账户恢复；跨入聪网的STP路径尚未开放 |
 
 ## 具体步骤
@@ -54,4 +54,4 @@
 - [使用 Explorer 验证交易](explorer-verification.md)
 - [使用 AI Agent 查询和操作](ai-agent.md)
 
-**页面状态：已实现 / 持续迭代（Implemented / Iterating），2026-08-29按PWA与Wallet SDK源码核对**
+**发布状态：SAT20 PWA Wallet 已上线。**

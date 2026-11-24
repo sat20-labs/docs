@@ -32,7 +32,7 @@ Use 部分面向普通用户、资产玩家和社区成员。目标是让用户�
 4. 通过 Indexer 确认 BTC L1 资产 UTXO、确认数和协议状态。
 5. 将 BTC L1 资产 splicing-in 到通道。
 6. 使用 unlock 将资产释放到聪网个人地址。
-7. 在聪网中转账、交易或使用合约。
+7. 在聪网中转账或使用市场。需要测试链上智能合约时，切换到公开测试网并 [领取测试 GAS](test-assets-and-gas.md)。
 8. 需要回到 BTC L1 时，使用 lock、splicing-out 或 close。
 
 ## 用户最需要理解的三件事

@@ -1,6 +1,6 @@
 # 完成第一次 Swap
 
-PWA的`市场`入口会按钱包当前网络打开对应L2市场：主网使用 [satsnet.ordx.market](https://satsnet.ordx.market/swap/?network=mainnet)，测试网使用 [test-satsnet.ordx.market](https://test-satsnet.ordx.market/swap/?network=testnet)。当前验收范围是AMM和限价单；不要把市场通道合约与`工具 -> 智能合约`中的模板AMM/LimitOrder混为一谈。
+PWA的`市场`入口会按钱包当前网络打开对应L2市场：主网使用 [satsnet.ordx.market](https://satsnet.ordx.market/swap/?network=mainnet)，测试网使用 [test-satsnet.ordx.market](https://test-satsnet.ordx.market/swap/?network=testnet)。当前市场提供 AMM 和限价单入口；不要把市场通道合约与`工具 -> 智能合约`中的模板AMM/LimitOrder混为一谈。
 
 ## 操作前准备
 
