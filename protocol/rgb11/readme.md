@@ -75,29 +75,32 @@ Go 实现只有在冻结的 Rust differential vectors、官方 parser round-trip
 RGB11 资产有两个不同层次的标识：
 
 - **Contract ID / official asset ID**：协议级唯一身份，是验证资产的最终依据；
-- **SAT20 AssetName**：钱包、UI 和资产列表使用的可读索引名称。
+- **SatoshiNet AssetName**：RGB11 资产在聪网登记后使用的可读索引名称。
 
-当前 Wallet SDK 为新发行或导入的合约生成确定性 AssetName：
+聪网公共 Transcend 的规范资产名使用以下格式。公开合约登记按完整 Contract ID 保存合约资料。
 
 ```text
-rgb11:<type>:<normalized_ticker>@<contract_fingerprint>
+rgb11:<type>:<normalized_ticker>@<contract_id_suffix>
 ```
 
-例如：
+测试网合约 `TRGB241` 按此规则生成的名称为：
 
 ```text
-rgb11:f:usdt@k7m3q9x2
+rgb11:f:trgb241@0e8a
 ```
 
 其中：
 
 - `rgb11` 是协议名；
 - `f` 表示同质化资产；
-- ticker 会转为小写、限制字符和长度；
-- fingerprint 默认取 Contract ID 的 8 字符确定性摘要；发生前缀冲突时，注册表可按 2 字符递增，最长 16 字符；
-- Contract ID 始终保存在 ticker 扩展信息中，不能仅凭短 ticker 判断资产身份。
+- ticker 来自合约 Genesis，按 ticker 规则校验并转为小写；
+- 后缀取完整 Contract ID 的 64 字符小写十六进制表示的最后 4 个字符，保留前导零；
+- 重复提交同一合约返回已有登记。若不同的 Contract ID 生成相同的完整 AssetName，则拒绝第二个登记；
+- AssetName 绑定完整 Contract ID，资产验证仍使用完整 Contract ID。
 
-短 ticker 只适合显示。未经主资产注册或发行方认证时，UI 应显示带 fingerprint 的名称；只有明确完成认证后，才可以把 `usdt` 等短名作为主要显示名称。
+Core 从已验证的公开合约计算资产名，并签署不可变的短名绑定。公共 Transcend 部署内容、合约路径和充值 Anchor 使用同一资产名。节点从 Anchor 的 RGB 证明独立重算资产名，并校验 Core 的签名绑定。
+
+钱包使用规范 AssetName 显示 RGB 资产。Bitcoin 侧可从已验证的 Genesis ticker 和完整 Contract ID 计算显示名，在向聪网登记前也可显示。聪网资产详情接口的 `TickerInfo.name` 和 `displayname` 提供链上 AssetName，`contract_id` 来自已验证的 DKVS 绑定。
 
 ## 3. Wallet SDK 边界
 
@@ -133,17 +136,16 @@ rgb11:f:usdt@k7m3q9x2
 
 ### 4.2 导入
 
-导入合约时，SDK 必须先解析和验证合约文件，再注册：
+导入合约时，SDK 必须先解析和验证合约文件，再保存本地合约资料：
 
 - Contract ID；
 - schema；
-- canonical AssetName；
-- 原始 ticker、normalized ticker 和 fingerprint；
+- 原始 ticker 和规范化 ticker；
 - issuer/control metadata；
 - 可选 reject-list 或 policy adapter 信息；
 - 当前验证状态。
 
-无效、损坏或与已有状态冲突的合约不能进入可用资产列表。
+无效、损坏或与已有状态冲突的合约不能进入可用资产列表。聪网 AssetName 的登记规则见第 2 节。
 
 ## 5. 接收方式
 
@@ -209,6 +211,8 @@ RGB11 余额由本地有效 allocation 汇总。以下情况不会形成可用�
 - Contract ID、schema 或 assignment 不匹配；
 - 状态被 reject-list/policy 判定为不可接受；
 - 本地 RGB11 状态标记为 inconsistent/broken。
+
+仅含 RGB11 资产的公共通道充值，聪网 Anchor 的资产输出 `Value` 为 `0`。Bitcoin carrier 保留实际聪值，验证时仍以对应的 Bitcoin UTXO 为准。
 
 ## 8. DKVS 钱包备份
 
